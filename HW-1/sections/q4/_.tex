@@ -10,6 +10,57 @@ What is the distance \( d \) between the origin and the line \( AB \) shown?
 
 \subsection*{Solution}
 
+We can use the cross product of two vectors to find the distance between the origin and the line \( AB \).
+If we consider \( \theta \) to be the angle between the two vectors \( \vec{\mathbf{B}} \) and \( \vec{\mathbf{A}} - \vec{\mathbf{B}} \), then we can see that \( d \) is given by
+
+\[
+    d = \left\lVert \vec{\mathbf{B}} \right\rVert \sin{\theta}
+\]
+
+We can see that the cross product between \( \vec{\mathbf{B}} \) and \( \vec{\mathbf{A}} - \vec{\mathbf{B}} \) includes this as a term.
+
+\[
+    \left\lVert \vec{\mathbf{B}} \times (\vec{\mathbf{A}} - \vec{\mathbf{B}}) \right\rVert = \left\lVert \vec{\mathbf{B}} \right\rVert \left\lVert \vec{\mathbf{A}} - \vec{\mathbf{B}} \right\rVert \sin{\theta}
+\]
+
+From this, it is possible to rearrange and find an expression for \( d \).
+
+\[
+    d = \frac{\left\lVert \vec{\mathbf{B}} \times (\vec{\mathbf{A}} - \vec{\mathbf{B}}) \right\rVert}{\left\lVert \vec{\mathbf{A}} - \vec{\mathbf{B}} \right\rVert}
+\]
+
+which is the required solution in terms of \( \vec{\mathbf{A}} \) and \( \vec{\mathbf{B}} \).
+
+From the problem, we can identify the vectors \( \vec{\mathbf{A}} \) and \( \vec{\mathbf{B}} \) as follows:
+
+\[
+    \vec{\mathbf{A}} = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}, \quad \vec{\mathbf{B}} = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+\]
+
+From this, we can find \( \vec{\mathbf{A}} - \vec{\mathbf{B}} \) and \( \vec{\mathbf{B}} \times (\vec{\mathbf{A}} - \vec{\mathbf{B}}) \) as
+
+\[
+    \vec{\mathbf{A}} - \vec{\mathbf{B}} = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} - \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+\[
+    \vec{\mathbf{B}} \times (\vec{\mathbf{A}} - \vec{\mathbf{B}})
+    = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} \times \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}
+    = \begin{vmatrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ 1 & 1 & 0 \\ -1 & 0 & 1 \end{vmatrix} \\
+    = \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} \hat{\imath} - \begin{vmatrix} 1 & 0 \\ -1 & 1 \end{vmatrix} \hat{\jmath} + \begin{vmatrix} 1 & 1 \\ -1 & 0 \end{vmatrix} \hat{k}
+    = 1 \hat{\imath} - 1 \hat{\jmath} - 1 \hat{k}
+\]
+
+Substituting these values into the expression for \( d \), we get
+
+\[
+    d = \frac{\left\lVert 1 \hat{\imath} - 1 \hat{\jmath} - 1 \hat{k} \right\rVert}{\left\lVert -1 \hat{\imath} + 0 \hat{\jmath} + 1 \hat{k} \right\rVert}
+    = \frac{\sqrt{1^2 + {(-1)}^2 + {(-1)}^2}}{\sqrt{{(-1)}^2 + 0^2 + 1^2}}
+    = \frac{\sqrt{3}}{\sqrt{2}}
+\]
+
+\subsection*{Alternate solution}
+
 A simpler solution would be to realise that \( O, A, B \) form a triangle in the 3D space.
 Each of the sides can be seen as being the hypotenuse for an isosceles right triangle with side length 1, thereby each of the segments \( OA, AB, BO \) are of length \( \sqrt{2} \).
 Therefore, \( \triangle OAB \) is an equilateral triangle of side length \( \sqrt{2} \), whose altitude can be calculated using the following formula, valid for an equilateral triangle:
