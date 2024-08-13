@@ -33,3 +33,102 @@ Let \( \mathbf{A}\mathbf{x} = \mathbf{b} \) represent the given system of equati
         2
     \end{bmatrix}
 \end{equation*}
+
+We compute the row reduced echelon form of the matrix \( \mathbf{A} \) augmented with \( \mathbf{b} \) to find the solution to the system of equations.
+
+\begin{equation*}
+    \begin{bmatrix}
+        1 & 1  & 1  & 1  & 0 \\
+        1 & -1 & 1  & -1 & 0 \\
+        1 & 1  & -1 & -1 & 0 \\
+        1 & 1  & 1  & -1 & 2
+    \end{bmatrix}
+    \xrightarrow{R_2 - R_1}
+    \begin{bmatrix}
+        1 & 1  & 1  & 1  & 0 \\
+        0 & -2 & 0  & -2 & 0 \\
+        1 & 1  & -1 & -1 & 0 \\
+        1 & 1  & 1  & -1 & 2
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    \xrightarrow{R_3 - R_1}
+    \begin{bmatrix}
+        1 & 1  & 1  & 1  & 0 \\
+        0 & -2 & 0  & -2 & 0 \\
+        0 & 0  & -2 & -2 & 0 \\
+        1 & 1  & 1  & -1 & 2
+    \end{bmatrix}
+    \xrightarrow{R_4 - R_1}
+    \begin{bmatrix}
+        1 & 1  & 1  & 1  & 0 \\
+        0 & -2 & 0  & -2 & 0 \\
+        0 & 0  & -2 & -2 & 0 \\
+        0 & 0  & 0  & -2 & 2
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    \xrightarrow{R_2 \div -2}
+    \begin{bmatrix}
+        1 & 1 & 1  & 1  & 0 \\
+        0 & 1 & 0  & 1  & 0 \\
+        0 & 0 & -2 & -2 & 0 \\
+        0 & 0 & 0  & -2 & 2
+    \end{bmatrix}
+    \xrightarrow{R_3 \div -2}
+    \begin{bmatrix}
+        1 & 1 & 1 & 1  & 0 \\
+        0 & 1 & 0 & 1  & 0 \\
+        0 & 0 & 1 & 1  & 0 \\
+        0 & 0 & 0 & -2 & 2
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    \xrightarrow{R_4 \div -2}
+    \begin{bmatrix}
+        1 & 1 & 1 & 1 & 0  \\
+        0 & 1 & 0 & 1 & 0  \\
+        0 & 0 & 1 & 1 & 0  \\
+        0 & 0 & 0 & 1 & -1
+    \end{bmatrix}
+    \xrightarrow{R_1 - R_3}
+    \begin{bmatrix}
+        1 & 1 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 1 & 0  \\
+        0 & 0 & 1 & 1 & 0  \\
+        0 & 0 & 0 & 1 & -1
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    \xrightarrow{R_2 - R_4}
+    \begin{bmatrix}
+        1 & 1 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 0 & 0  \\
+        0 & 0 & 1 & 1 & 0  \\
+        0 & 0 & 0 & 1 & -1
+    \end{bmatrix}
+    \xrightarrow{R_1 - R_2}
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 0 & 0  \\
+        0 & 0 & 1 & 1 & 0  \\
+        0 & 0 & 0 & 1 & -1
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    \xrightarrow{R_3 - R_4}
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 0 & 0  \\
+        0 & 0 & 1 & 0 & 1  \\
+        0 & 0 & 0 & 1 & -1
+    \end{bmatrix}
+\end{equation*}
+
+Therefore, we can see that the solution to the system of equations is \( x = 0, y = 0, z = 1, w = -1 \).
+The given system of equations has a unique solution.
