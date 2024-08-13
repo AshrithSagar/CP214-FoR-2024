@@ -33,3 +33,16 @@ The given system of equations can be written in matrix form as follows:
         0
     \end{bmatrix}
 \]
+
+Denote the system with \( \mathbf{A}\mathbf{x} = \mathbf{b} \), the determinant of which is given by
+\[
+    \left| \mathbf{A} \right| = \begin{vmatrix} 1 & -\frac{1}{2} & \frac{1}{\sqrt{2}} \\ 2 & \frac{3}{2} & 0 \\ 0 & \frac{5}{2} & \sqrt{2} \end{vmatrix}
+    = 1 \begin{vmatrix} \frac{3}{2} & 0 \\ \frac{5}{2} & \sqrt{2} \end{vmatrix} - \Big(\frac{-1}{2}\Big) \begin{vmatrix} 2 & 0 \\ 0 & \sqrt{2} \end{vmatrix} + \frac{1}{\sqrt{2}} \begin{vmatrix} 2 & \frac{3}{2} \\ 0 & \frac{5}{2} \end{vmatrix}
+    =\frac{3\sqrt{2}}{2} + \frac{2\sqrt{2}}{2} + \frac{5}{\sqrt{2}}
+    = \frac{10}{\sqrt{2}}
+\]
+\[
+    \implies \left| \mathbf{A} \right| = 5 \sqrt{2}
+\]
+
+Since the determinant of the matrix \( \mathbf{A} \) is non-zero, the system of equations has a unique solution.
