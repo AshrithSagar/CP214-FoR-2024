@@ -46,9 +46,29 @@ Therefore, it makes no sense to use them like this.
 This equation is always true.
 
 The quantity \( \vec{a} \cdot (\vec{b} \times \vec{c}) \) denotes the \textit{scalar triple product}.
+Scalar triple products have the property that they are invariant to cyclic shifts, as above.
 
-\subsubsection*{(d) \( \vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\ \vec{b} - (\vec{a} \cdot \vec{b})\ \vec{c} \)}
+We can show this in general, by first proving a trivial lemma.
 
-The equation is always true.
+\textbf{Lemma:} For any three vectors \( \vec{a} \), \( \vec{b} \), and \( \vec{c} \), the following identity holds:
+\begin{equation*}
+    \vec{p} \cdot (\vec{p} \times \vec{q}) = 0
+\end{equation*}
 
-The quantity \( \vec{a} \times (\vec{b} \times \vec{c}) \) denotes the \textit{vector triple product}, and the expansion \( \vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\ \vec{b} - (\vec{a} \cdot \vec{b})\ \vec{c} \) is called the \textit{triple product expansion}.
+\textbf{Proof:}
+The cross product of two vectors is orthogonal to the plane formed by the two vectors, i.e., the \( \vec{p} \times \vec{q} \) is orthogonal to \( \vec{p} \).
+Since the dot product of a vector with an orthogonal vector to it is zero, the result follows.
+
+Now, we consider two vectors \( \vec{A} \) and \( \vec{B} \), where \( \vec{A} = (\vec{b} + \vec{c}) \) and \( \vec{B} = ((\vec{b} + \vec{c}) \times \vec{a}) \).
+We can show that \( \vec{A} \cdot \vec{B} = 0 \) by noting that \( \vec{B} = \vec{A} \times \vec{a} \), and therefore \( \vec{B} \perp \vec{A} \) by definition of the cross product.
+\begin{equation*}
+    (\vec{b} + \vec{c}) \cdot ((\vec{b} + \vec{c}) \times \vec{a}) = 0
+\end{equation*}
+
+Expanding this expression, we get
+\[
+    \vec{b} \cdot ((\vec{b} + \vec{c}) \times \vec{a}) + \vec{c} \cdot ((\vec{b} + \vec{c}) \times \vec{a}) = 0
+\]
+\[
+    \implies \vec{b} \cdot (\vec{b} \times \vec{a}) + \vec{b} \cdot (\vec{c} \times \vec{a}) + \vec{c} \cdot (\vec{b} \times \vec{a}) + \vec{c} \cdot (\vec{c} \times \vec{a}) = 0
+\]
