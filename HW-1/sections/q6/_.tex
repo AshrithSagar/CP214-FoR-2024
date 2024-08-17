@@ -108,9 +108,11 @@ Taking the dot product on both sides with \( \vec{a} \), we see that
 since the dot product is zero between orthogonal vectors.
 
 Without loss of generality, we can assume that \( m = \lambda(\vec{a} \cdot \vec{c}) \) and \( n = -\lambda(\vec{a} \cdot \vec{b}) \) for some scalar \( \lambda \), for the equation to be valid for all vectors \( \vec{a} \), \( \vec{b} \), and \( \vec{c} \).
-\begin{equation*}
+\begin{equation}
     \vec{a} \times (\vec{b} \times \vec{c}) = \lambda (\vec{a} \cdot \vec{c})\ \vec{b} - \lambda (\vec{a} \cdot \vec{b})\ \vec{c}
-\end{equation*}
+    \tag{6.d.1}
+    \label{eq:6.d.1}
+\end{equation}
 
 Now, comparing the magnitude of the vectors on both sides of the equation, we get
 \[
@@ -123,7 +125,19 @@ Now, comparing the magnitude of the vectors on both sides of the equation, we ge
     = \lvert \lambda \rvert \sqrt{ {(\vec{a} \cdot \vec{c})}^2 \lVert \vec{b} \rVert ^2 + {(\vec{a} \cdot \vec{b})}^2 \lVert \vec{c} \rVert ^2 - 2 (\vec{a} \cdot \vec{c})(\vec{a} \cdot \vec{b})(\vec{b} \cdot \vec{c}) }
 \]
 Upon simplifying, we see that \( \lambda = \pm 1 \), and using the right hand convention, we have \( \lambda =  1 \).
-\[
+\begin{equation}
     \therefore \vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\ \vec{b} - (\vec{a} \cdot \vec{b})\ \vec{c}
+    \tag{6.d.2}
+    \label{eq:6.d.2}
+\end{equation}
+Alternatively, we can show \( \lambda = 1 \) by taking the dot product with \( \vec{b} \) on both sides of~\eqref{eq:6.d.1}.
+\[
+    \vec{b} \cdot (\vec{a} \times (\vec{b} \times \vec{c})) = \vec{b} \cdot (\lambda (\vec{a} \cdot \ \vec{c})\ \vec{b} - \lambda (\vec{a} \cdot \vec{b})\ \vec{c})
 \]
-Hence, the equation is always true.
+This involves the scalar triple product, and as seen in the previous subsection (6.c), we have
+\[
+    \implies
+    (\vec{b} \cdot \vec{b})(\vec{a} \cdot \vec{c}) - (\vec{b} \cdot \vec{c})(\vec{a} \cdot \vec{b})
+    = \lambda (\vec{a} \cdot \vec{c}) \lVert \vec{b} \rVert^2 - \lambda (\vec{a} \cdot \vec{b})(\vec{b} \cdot \vec{c})
+\]
+This gives \( \lambda = 1 \), and hence the equation~\eqref{eq:6.d.2} is always true.
