@@ -34,13 +34,81 @@ Let \( \mathbf{A}\mathbf{x} = \mathbf{b} \) represent the given system of equati
     \end{bmatrix}
 \end{equation*}
 
-We compute the row reduced echelon form of the matrix \( \mathbf{A} \) augmented with \( \mathbf{b} \) to find the solution to the system of equations.
+\newenvironment{amatrix}[1]{%
+    \left[\begin{array}{@{}*{#1}{c}|c@{}}}{%
+        \end{array}\right]
+}
 
+We will use Gaussian elimination to compute the reduced row echelon form of the matrix \( \mathbf{A} \) augmented with \( \mathbf{b} \) to find the solution to the system of equations.
 \begin{equation*}
-    \begin{bmatrix}
+    \begin{amatrix}{4}
         1 & 1  & 1  & 1  & 0 \\
         1 & -1 & 1  & -1 & 0 \\
         1 & 1  & -1 & -1 & 0 \\
         1 & 1  & 1  & -1 & 2
-    \end{bmatrix}
+    \end{amatrix}
+    \xrightarrow{\substack{
+            R_2 \leftarrow R_2 - R_1 \\
+            R_3 \leftarrow R_3 - R_1 \\
+            R_4 \leftarrow R_4 - R_1
+        }}
+    \begin{amatrix}{4}
+        1 & 1  & 1  & 1  & 0 \\
+        0 & -2 & 0  & -2 & 0 \\
+        0 & 0  & -2 & -2 & 0 \\
+        0 & 0  & 0  & -2 & 2
+    \end{amatrix}
+    \xrightarrow{\substack{
+            R_2 \leftarrow R_2 / (-2) \\
+            R_3 \leftarrow R_3 / (-2) \\
+            R_4 \leftarrow R_4 / (-2)
+        }}
+    \begin{amatrix}{4}
+        1 & 1  & 1  & 1  & 0 \\
+        0 & 1 & 0  & 1 & 0 \\
+        0 & 0  & 1 & 1 & 0 \\
+        0 & 0  & 0  & 1 & -1
+    \end{amatrix}
 \end{equation*}
+\begin{equation*}
+    \xrightarrow{\substack{
+            R_1 \leftarrow R_1 - R_2 \\
+            R_1 \leftarrow R_1 - R_3 \\
+            R_1 \leftarrow R_1 + R_4
+        }}
+    \begin{amatrix}{4}
+        1 & 0  & 0  & 0  & -1 \\
+        0 & 1 & 0  & 1 & 0 \\
+        0 & 0  & 1 & 1 & 0 \\
+        0 & 0  & 0  & 1 & -1
+    \end{amatrix}
+    \xrightarrow{\substack{
+            R_2 \leftarrow R_2 - R_4 \\
+            R_3 \leftarrow R_3 - R_4
+        }}
+    \begin{amatrix}{4}
+        1 & 0  & 0  & 0  & -1 \\
+        0 & 1 & 0  & 0 & 1 \\
+        0 & 0  & 1 & 0 & 1 \\
+        0 & 0  & 0  & 1 & -1
+    \end{amatrix}
+\end{equation*}
+By Gaussian elimination, we reduced \( [\mathbf{A} | \mathbf{b}] \longrightarrow [\mathbf{I} | \mathbf{x}] \).
+\[
+    \implies
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+        w
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -1 \\
+        1  \\
+        1  \\
+        -1
+    \end{bmatrix}
+\]
+
+Thus, the solution to the system of equations is \( x = -1 \), \( y = 1 \), \( z = 1 \), and \( w = -1 \).
