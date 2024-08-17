@@ -82,3 +82,23 @@ Now, using the anti-commutativity property of the cross product, we see that \( 
     \therefore \vec{c} \cdot (\vec{a} \times \vec{b}) = \vec{b} \cdot (\vec{c} \times \vec{a})
 \]
 Hence, the equation is always true.
+
+\subsubsection*{(d) \( \vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\ \vec{b} - (\vec{a} \cdot \vec{b})\ \vec{c} \)}
+
+This equation is always true.
+
+The quantity \( \vec{a} \times (\vec{b} \times \vec{c}) \) denotes the \textit{vector triple product}.
+The given expression is also known as the \textit{triple product expansion}.
+
+We can show this holds true one component at a time, as follows.
+Starting with the \( x \)-component, we have
+\begin{equation*}
+    \begin{aligned}
+        {(\vec{a} \times (\vec{b} \times \vec{c} ))}_{x}
+         & = \vec{a} _{y}(\vec{b} _{x}\vec{c} _{y}-\vec{b} _{y}\vec{c} _{x})-\vec{a} _{z}(\vec{b} _{z}\vec{c} _{x}-\vec{b} _{x}\vec{c} _{z})
+        \\ & = \vec{b} _{x}(\vec{a} _{y}\vec{c} _{y}+\vec{a} _{z}\vec{c} _{z})-\vec{c} _{x}(\vec{a} _{y}\vec{b} _{y}+\vec{a} _{z}\vec{b} _{z})
+        \\ & = \vec{b} _{x}(\vec{a} _{y}\vec{c} _{y}+\vec{a} _{z}\vec{c} _{z})-\vec{c} _{x}(\vec{a} _{y}\vec{b} _{y}+\vec{a} _{z}\vec{b} _{z})+(\vec{a} _{x}\vec{b} _{x}\vec{c} _{x}-\vec{a} _{x}\vec{b} _{x}\vec{c} _{x})
+        \\ & = \vec{b} _{x}(\vec{a} _{x}\vec{c} _{x}+\vec{a} _{y}\vec{c} _{y}+\vec{a} _{z}\vec{c} _{z})-\vec{c} _{x}(\vec{a} _{x}\vec{b} _{x}+\vec{a} _{y}\vec{b} _{y}+\vec{a} _{z}\vec{b} _{z})
+        \\ & = (\vec{a} \cdot \vec{c} )\vec{b} _{x}-(\vec{a} \cdot \vec{b} )\vec{c} _{x}
+    \end{aligned}
+\end{equation*}
