@@ -60,15 +60,26 @@ The cross product of two vectors is orthogonal to the plane formed by the two ve
 Since the dot product of a vector with an orthogonal vector to it is zero, the result follows.
 
 Now, we consider two vectors \( \vec{A} \) and \( \vec{B} \), where \( \vec{A} = (\vec{b} + \vec{c}) \) and \( \vec{B} = ((\vec{b} + \vec{c}) \times \vec{a}) \).
-We can show that \( \vec{A} \cdot \vec{B} = 0 \) by noting that \( \vec{B} = \vec{A} \times \vec{a} \), and therefore \( \vec{B} \perp \vec{A} \) by definition of the cross product.
+By the above lemma, we see that \( \vec{A} \cdot \vec{B} = 0 \) by noting that \( \vec{B} = \vec{A} \times \vec{a} \).
 \begin{equation*}
     (\vec{b} + \vec{c}) \cdot ((\vec{b} + \vec{c}) \times \vec{a}) = 0
 \end{equation*}
-
 Expanding this expression, we get
 \[
-    \vec{b} \cdot ((\vec{b} + \vec{c}) \times \vec{a}) + \vec{c} \cdot ((\vec{b} + \vec{c}) \times \vec{a}) = 0
+    (\vec{b} + \vec{c}) \cdot (\vec{b} \times \vec{a} + \vec{c} \times \vec{a}) = 0
 \]
 \[
     \implies \vec{b} \cdot (\vec{b} \times \vec{a}) + \vec{b} \cdot (\vec{c} \times \vec{a}) + \vec{c} \cdot (\vec{b} \times \vec{a}) + \vec{c} \cdot (\vec{c} \times \vec{a}) = 0
 \]
+Using the above lemma, we see that the first and fourth terms are zero.
+\[
+    \implies \vec{b} \cdot (\vec{c} \times \vec{a}) + \vec{c} \cdot (\vec{b} \times \vec{a}) = 0
+\]
+Now, using the anti-commutativity property of the cross product, we see that \( \vec{a} \times \vec{b} = -\vec{b} \times \vec{a} \).
+\[
+    \implies \vec{b} \cdot (\vec{c} \times \vec{a}) - \vec{c} \cdot (\vec{a} \times \vec{b}) = 0
+\]
+\[
+    \therefore \vec{c} \cdot (\vec{a} \times \vec{b}) = \vec{b} \cdot (\vec{c} \times \vec{a})
+\]
+Hence, the equation is always true.
