@@ -90,6 +90,39 @@ This equation is always true.
 The quantity \( \vec{a} \times (\vec{b} \times \vec{c}) \) denotes the \textit{vector triple product}.
 The given expression is also known as the \textit{triple product expansion}.
 
-We can show this holds true by first showing that the triple product \( \vec{a} \times (\vec{b} \times \vec{c}) \) lies on the plane containing the vectors \( \vec{b} \) and  \( \vec{c} \).
-We can show this by the definition of the cross product and by observing that the vector \( \vec{p} = \vec{b} \times \vec{c}\) is orthogonal to the plane formed by \( \vec{b} \) and  \( \vec{c} \), and that the vector \( \vec{q} = \vec{a} \times \vec{p} \) is orthogonal to \( \vec{a} \) and \( \vec{p} \), thereby \( \vec{q} \) lies on the plane formed by \( \vec{b} \) and  \( \vec{c} \).
-The implication of this is that we can express \( \vec{q} \) as a linear combination of \( \vec{b} \) and  \( \vec{c} \), i.e., \( \vec{q} = m\vec{b} - n\vec{c} \).
+We first show that the triple product \( \vec{a} \times (\vec{b} \times \vec{c}) \) lies on the plane containing the vectors \( \vec{b} \) and  \( \vec{c} \).
+This follows by observing that the vector \( \vec{p} = \vec{b} \times \vec{c}\) is orthogonal to the plane formed by \( \vec{b} \) and  \( \vec{c} \), and that the vector \( \vec{q} = \vec{a} \times \vec{p} \) is orthogonal to \( \vec{a} \) and \( \vec{p} \).
+Thereby using \( \vec{q} \perp \vec{p} \) we can see that \( \vec{q} \) lies on the plane formed by \( \vec{b} \) and  \( \vec{c} \).
+The implication of this is that we can express \( \vec{q} \) as a linear combination of \( \vec{b} \) and  \( \vec{c} \), i.e., \( \vec{q} = m\vec{b} + n\vec{c} \), for some scalars \( m \) and \( n \).
+\begin{equation*}
+    \vec{a} \times (\vec{b} \times \vec{c}) = m\vec{b} + n\vec{c}
+\end{equation*}
+Taking the dot product on both sides with \( \vec{a} \), we see that
+\[
+    \vec{a} \cdot (\vec{a} \times (\vec{b} \times \vec{c})) = \vec{a} \cdot (m\vec{b} + n\vec{c})
+\]
+\[
+    \implies 0 = m(\vec{a} \cdot \vec{b}) + n(\vec{a} \cdot \vec{c})
+\]
+since the dot product is zero between orthogonal vectors.
+
+Without loss of generality, we can assume that \( m = \lambda(\vec{a} \cdot \vec{c}) \) and \( n = -\lambda(\vec{a} \cdot \vec{b}) \) for some scalar \( \lambda \), for the equation to be valid for all vectors \( \vec{a} \), \( \vec{b} \), and \( \vec{c} \).
+\begin{equation*}
+    \vec{a} \times (\vec{b} \times \vec{c}) = \lambda (\vec{a} \cdot \vec{c})\ \vec{b} - \lambda (\vec{a} \cdot \vec{b})\ \vec{c}
+\end{equation*}
+
+Now, comparing the magnitude of the vectors on both sides of the equation, we get
+\[
+    \lVert \vec{a} \times (\vec{b} \times \vec{c}) \rVert
+    = \lVert \lambda (\vec{a} \cdot \vec{c}) \vec{b} - \lambda (\vec{a} \cdot \vec{b}) \vec{c} \rVert
+\]
+\[
+    \implies
+    \lVert \lambda (\vec{a} \cdot \vec{c}) \vec{b} - \lambda (\vec{a} \cdot \vec{b}) \vec{c} \rVert
+    = \lambda \sqrt{ {(\vec{a} \cdot \vec{c})}^2 \lVert \vec{b} \rVert ^2 + {(\vec{a} \cdot \vec{b})}^2 \lVert \vec{c} \rVert ^2 - 2 (\vec{a} \cdot \vec{c})(\vec{a} \cdot \vec{b})(\vec{b} \cdot \vec{c}) }
+\]
+Upon simplifying, we see that \( \lambda = 1 \).
+\[
+    \therefore \vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\ \vec{b} - (\vec{a} \cdot \vec{b})\ \vec{c}
+\]
+Hence, the equation is always true.
