@@ -1,0 +1,62 @@
+\documentclass[tikz, border=5pt]{standalone}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+  % Cart A
+  \draw[fill=red!20] (0,0) rectangle (2,1.5);
+  \node at (1,0.75) {A};
+
+  % Force F
+  \draw[->, thick] (-1.5,0.75) -- (0,0.75) node[midway, above] {$F$};
+
+  % Spring Force
+  \draw[->, thick] (2,0.75) -- (3.6,0.75) node[midway, above] {\( F_{spring} \)};
+
+  % Ground support
+  \draw[thick] (-0.3,0) -- (2.3,0);
+  \draw[thick] (-0.3,0) -- (-0.3,-0.2);
+  \draw[thick] (2.3,0) -- (2.3,-0.2);
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+
+  % Cart B
+  \draw[fill=blue!20] (0,0) rectangle (2,1.5);
+  \node at (1,0.75) {B};
+
+  % Force T
+  \draw[->, thick] (3,0.75) -- (2,0.75) node[midway, above] {$T$};
+
+  % Spring Force
+  \draw[->, thick] (0,0.75) -- (-1,0.75) node[midway, above] {$F_{spring}$};
+
+  % Ground support
+  \draw[thick] (-0.3,0) -- (2.3,0);
+  \draw[thick] (-0.3,0) -- (-0.3,-0.2);
+  \draw[thick] (2.3,0) -- (2.3,-0.2);
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+
+  % System
+  \draw[fill=green!20] (0,0) rectangle (4,1.5);
+  \node at (2,0.75) {A+B};
+
+  % Force F
+  \draw[->, thick] (-1,0.75) -- (0,0.75) node[midway, above] {$F$};
+
+  % Force T
+  \draw[->, thick] (5,0.75) -- (4,0.75) node[midway, above] {$T$};
+
+  % Ground support
+  \draw[thick] (-0.3,0) -- (4.3,0);
+  \draw[thick] (-0.3,0) -- (-0.3,-0.2);
+  \draw[thick] (4.3,0) -- (4.3,-0.2);
+
+\end{tikzpicture}
+
+\end{document}
