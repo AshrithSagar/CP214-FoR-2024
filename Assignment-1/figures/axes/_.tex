@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+
+    \def\len{1.2}
+
+    \draw[->] (0,0,0) -- (\len,0,0) node[anchor=north east]{$x$};
+    \draw[->] (0,0,0) -- (0,\len,0) node[anchor=north west]{$y$};
+    \draw[->] (0,0,0) -- (0,0,\len) node[anchor=south]{$z$};
+    \filldraw[black] (0,0,0) circle (1pt) node[anchor=north east] {};
+
+\end{tikzpicture}
+\end{document}
