@@ -7,7 +7,7 @@ Find the percentage error in computing the moment of W about the pivot point O a
     \includegraphics[width=0.5\linewidth]{sections/q1/figure.png}
 \end{figure*}
 
-\subsection*{Solution}
+\subsection*{Solution (Incorrect)}
 
 The moment of \( \vec{\mathbf{W}} \) about the pivot point O is given by
 \[
@@ -35,4 +35,27 @@ Therefore, for small angles \( \theta \), we have
     \boxed{
         \text{\%Error in } \vec{\tau} \approx \frac{\theta^2}{2} \times 100\%
     }
+\]
+
+\subsection*{Solution (Correct)}
+
+Assume the standard axes.
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=2cm]{figures/axes/_}
+\end{figure*}
+
+The moment of \( \vec{\mathbf{W}} \) about the pivot point O is given by
+\[
+    \vec{\tau}_1 = \vec{\mathbf{OA}} \times \vec{\mathbf{W}}
+    = (l \cos \theta \ \hat{\imath} - l \sin \theta \ \hat{\jmath}) \times (- W \ \hat{\jmath})
+    = -lW \cos \theta \ \hat{k}
+\]
+which is a function of \( \theta \).
+
+Given the assumption that the vector \( \vec{\mathbf{W}} \) is normal to the arm \( \vec{\mathbf{OA}} \), we get
+\[
+    \vec{\tau}_2 = \vec{\mathbf{OA}} \times \vec{\mathbf{W}}
+    = (l \cos \theta \ \hat{\imath} - l \sin \theta \ \hat{\jmath}) \times (W \sin \theta \ \hat{\imath} - W \cos \theta \ \hat{\jmath})
+    = (- Wl \sin^2 \theta) \ (- \hat{k}) + (-Wl \cos^2 \theta) \ \hat{k}
 \]
