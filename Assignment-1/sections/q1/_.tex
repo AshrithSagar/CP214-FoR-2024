@@ -51,15 +51,33 @@ The moment of \( \vec{\mathbf{W}} \) about the pivot point O, a function of \( \
     = (l \cos \theta \ \hat{\imath} + l \sin \theta \ \hat{\jmath}) \times (- W \ \hat{\jmath})
     = -lW \cos \theta \ \hat{k}
 \]
-
 Given the assumption that the vector \( \vec{\mathbf{W}} \) is normal to the arm \( \vec{\mathbf{OA}} \), we get
+\begin{align*}
+    \vec{\tau}_2 & = \vec{\mathbf{OA}} \times \vec{\mathbf{W}}                                                                                                                \\
+                 & = \left(l \cos \theta \ \hat{\imath} + l \sin \theta \ \hat{\jmath}\right) \times \left(W \sin \theta \ \hat{\imath} - W \cos \theta \ \hat{\jmath}\right) \\
+                 & = \left[(l \cos \theta)(-W \cos \theta) - (l \sin \theta)(W \sin \theta)\right] \hat{k}                                                                    \\
+                 & = \left[-W l \cos^2 \theta - W l \sin^2 \theta\right] \hat{k}                                                                                              \\
+                 & = -W l (\cos^2 \theta + \sin^2 \theta) \ \hat{k}                                                                                                           \\
+                 & = -W l \ \hat{k}
+\end{align*}
+The percentage error in computing \( \vec{\tau} \) is given by
+\begin{align*}
+    \text{\%Error in } \vec{\tau}
+     & =
+    \frac{\text{Error in }\vec{\tau}}{\text{Actual }\vec{\tau}} \times 100\% \\
+     & = \frac{W l - W l \cos(\theta)}{W l \cos(\theta)} \times 100\%
+    = \frac{1 - \cos(\theta)}{\cos(\theta)} \times 100\%
+\end{align*}
+Using the small angle approximation \( \cos(\theta) \approx 1 - \frac{\theta^2}{2} \), we get
 \[
-    \begin{aligned}
-        \vec{\tau}_2 & = \vec{\mathbf{OA}} \times \vec{\mathbf{W}}                                                                                                                \\
-                     & = \left(l \cos \theta \ \hat{\imath} + l \sin \theta \ \hat{\jmath}\right) \times \left(W \sin \theta \ \hat{\imath} - W \cos \theta \ \hat{\jmath}\right) \\
-                     & = \left[(l \cos \theta)(-W \cos \theta) - (l \sin \theta)(W \sin \theta)\right] \hat{k}                                                                    \\
-                     & = \left[-W l \cos^2 \theta - W l \sin^2 \theta\right] \hat{k}                                                                                              \\
-                     & = -W l (\cos^2 \theta + \sin^2 \theta) \ \hat{k}                                                                                                           \\
-                     & = -W l \ \hat{k}
-    \end{aligned}
+    \implies \frac{1 - \cos(\theta)}{\cos(\theta)}
+    = \frac{1 - (1 - \frac{\theta^2}{2})}{1 - \frac{\theta^2}{2}}
+    = \frac{\frac{\theta^2}{2}}{1 - \frac{\theta^2}{2}}
+    = \frac{\theta^2}{2 - \theta^2}
+\]
+Therefore, for small angles \( \theta \), we have
+\[
+    \boxed{
+        \text{\%Error in } \vec{\tau} \approx \frac{\theta^2}{2} \times 100\%
+    }
 \]
