@@ -16,3 +16,58 @@ Answer the following questions
 \end{figure*}
 
 \subsection*{Solution}
+
+\begin{enumerate}[label = (\alph*)]
+    \item \textbf{Equation of motion -} The stick is balanced by the forces acting on it.
+          The forces acting on the stick are the gravitational force \( m\vec{\mathbf{g}} \) and the force exerted by the hand at point A.
+          The force exerted by the hand at point A can be resolved into two components: \( F_x \) and \( F_y \).
+          The force \( F_x \) is responsible for the angular acceleration of the stick.
+
+          The gravitational force acting on the stick is given by:
+          \[
+              m\vec{\mathbf{g}} = -mg\hat{\mathbf{j}}
+          \]
+
+          The force exerted by the hand at point A is given by:
+          \[
+              \vec{\mathbf{F}} = F_x\hat{\mathbf{i}} + F_y\hat{\mathbf{j}}
+          \]
+
+          The torque acting on the stick about point A is given by:
+          \[
+              \vec{\mathbf{\tau}} = \vec{\mathbf{r}} \times \vec{\mathbf{F}} = -l\hat{\mathbf{k}} \times (F_x\hat{\mathbf{i}} + F_y\hat{\mathbf{j}}) = -lF_y\hat{\mathbf{i}} + lF_x\hat{\mathbf{j}}
+          \]
+
+          The torque acting on the stick about point A is equal to the moment of inertia of the stick about point C times the angular acceleration of the stick:
+          \[
+              -lF_y\hat{\mathbf{i}} + lF_x\hat{\mathbf{j}} = I_C\ddot{\phi}\hat{\mathbf{k}}
+          \]
+
+          The moment of inertia of the stick about point C is given by:
+          \[
+              I_C = ml^2
+          \]
+
+          Therefore, the equation of motion for the stick is:
+          \[
+              -lF_y = ml^2\ddot{\phi}
+          \]
+
+    \item \textbf{Control -} To make the stick balance upright, the stick's angular acceleration \( \ddot{\phi} \) should be zero.
+          Therefore, the force exerted by the hand at
+          point A should be zero in the y-direction:
+          \[
+              F_y = 0
+          \]
+
+          The force exerted by the hand at point A in the x-direction is responsible for the angular acceleration of the stick.
+          Therefore, the force exerted by the hand at point A in the x-direction should be such that it balances the gravitational force acting on the stick:
+          \[
+              F_x = mg
+          \]
+
+          Therefore, the hand acceleration in terms of \( \phi \) and \( \dot\phi \) that will make the stick balance upright is:
+          \[
+              \vec{\mathbf{a}} = \ddot{\vec{\mathbf{r}}} = \ddot{\phi}l\hat{\mathbf{i}} = 0
+          \]
+\end{enumerate}
