@@ -11,3 +11,34 @@ Therefore, determine the maximum speed \( v_{\max} \) the AI should set to preve
 \end{figure*}
 
 \subsection*{Solution}
+
+The car is moving along a circular path with radius \( R \) and speed \( v \).
+The car is subjected to two forces: the gravitational force \( m\vec{\mathbf{g}} \) and the normal reaction force \( \vec{\mathbf{N}} \).
+The gravitational force acts vertically downwards, and the normal reaction force acts perpendicular to the surface of the hill.
+The normal reaction force provides the centripetal force required to keep the car moving in a circular path.
+
+The gravitational force can be resolved into two components: \( m\vec{\mathbf{g}}_x \) and \( m\vec{\mathbf{g}}_y \).
+The component \( m\vec{\mathbf{g}}_x \) is balanced by the normal reaction force \( \vec{\mathbf{N}} \), and the component \( m\vec{\mathbf{g}}_y \) is balanced by the centripetal force.
+The centripetal force is given by \( m\vec{\mathbf{a}} = m\frac{v^2}{R} \), where \( \vec{\mathbf{a}} \) is the acceleration of the car.
+
+The gravitational force \( m\vec{\mathbf{g}} \) can be resolved into two components:
+\begin{align*}
+    m\vec{\mathbf{g}}_x & = -m\sin(\theta)g \\
+    m\vec{\mathbf{g}}_y & = -m\cos(\theta)g
+\end{align*}
+
+The normal reaction force \( \vec{\mathbf{N}} \) is equal in magnitude and opposite in direction to the component \( m\vec{\mathbf{g}}_x \).
+Therefore, the normal reaction force is given by:
+\[
+    \vec{\mathbf{N}} = m\sin(\theta)g
+\]
+
+The centripetal force required to keep the car moving in a circular path is given by:
+\[
+    m\frac{v^2}{R} = m\cos(\theta)g
+\]
+
+The maximum speed \( v_{\max} \) can be determined by substituting \( \theta = 0 \) in the above equation:
+\[
+    v_{\max} = \sqrt{Rg}
+\]
