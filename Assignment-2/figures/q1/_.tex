@@ -29,19 +29,24 @@
 \begin{tikzpicture}
 
   % Cart B
-  \draw[fill=blue!20] (0,0) rectangle (2,1.5);
-  \node at (1,0.75) {B};
+  \draw[fill=red!30] (0,0) rectangle (1.2,1);
+  \node [below, right] at (1.2,0) {Cart B};
 
-  % Force T
-  \draw[->, thick] (3,0.75) -- (2,0.75) node[midway, above] {$T$};
+  % Force F
+  \draw[<-, thick] (-1,0.5) -- (0,0.5) node[midway, above] {\( \vec{\mathbf{F}} \)};
+  \node[circle, fill, inner sep=0.75pt] at (0,0.5) {};
 
   % Spring Force
-  \draw[->, thick] (0,0.75) -- (-1,0.75) node[midway, above] {$F_{spring}$};
+  \draw[->, thick] (1.2,0.5) -- (2.7,0.5) node[midway, above] {\( \mathbf{\vec{F}_{spring}} \)};
+  \node[circle, fill, inner sep=0.75pt] at (1.2,0.5) {};
 
-  % Ground support
-  \draw[thick] (-0.3,0) -- (2.3,0);
-  \draw[thick] (-0.3,0) -- (-0.3,-0.2);
-  \draw[thick] (2.3,0) -- (2.3,-0.2);
+  % Normal reaction
+  \draw[->, thick] (0.65,0) -- (0.65,1.4) node[above] {\( \mathbf{\vec{N}_B} \)};
+  \node[circle, fill, inner sep=0.75pt] at (0.65,0) {};
+
+  % Gravity
+  \draw[->, thick] (0.6,0.5) -- (0.6,-0.7) node[below] {\( m\vec{\mathbf{g}} \)};
+  \node[circle, fill, inner sep=1pt] at (0.6,0.5) {};
 
 \end{tikzpicture}
 
