@@ -1,0 +1,32 @@
+\documentclass[tikz, border=5pt]{standalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+    %% FBD of the car
+
+    % Car
+    \begin{scope}[rotate=27]
+        \draw (-0.5, 0) rectangle (0.5, 0.5);
+        \node [left] at (0, 0.1) {\( m \)};
+        \node [left] at (-0.45, 0.5) {Car};
+    \end{scope}
+
+    % Ground
+    \draw (-1, -0.5) -- (1, 0.5);
+
+    % Reference line
+    \draw[dashed] (-1, -0.5) -- (1, -0.5);
+
+    % Angle
+    \draw (-0.7, -0.5) arc (0:27:0.3) node[right] {\tiny{\( \theta \)}};
+
+    % Normal reaction force
+    \draw[thick, ->] (-0.03, 0) -- (-0.5, 1) node[above] {\( \vec{\mathbf{N}} \)};
+
+    % Gravitational force
+    \draw[thick, ->] (-0.05, 0.2) -- (-0.05, -0.7) node[below] {\( m\vec{\mathbf{g}} \)};
+    \fill (-0.05, 0.2) circle (0.04);
+
+\end{tikzpicture}
+\end{document}
