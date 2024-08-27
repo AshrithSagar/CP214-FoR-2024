@@ -1,0 +1,24 @@
+\documentclass[tikz, border=5pt]{standalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+    %% FBD
+
+    % Stick
+    \begin{scope}[rotate=35]
+        \draw (-1, -0.05) rectangle (1, 0.05);
+        \node [above] at (1, 0.05) {\( m \)};
+        \node [above] at (-0.4, 0.3) {\scriptsize Stick};
+    \end{scope}
+
+    % Gravitational force
+    \draw[thick, ->] (0.8, 0.55) -- (0.8, -0.7) node[below] {\( m\vec{\mathbf{g}} \)};
+    \fill (0.8, 0.55) circle (0.07);
+
+    % Hand
+    \draw (-2, -0.55) rectangle (-0.8, -0.65);
+    \node [above] at (-1.4, -0.55) {\scriptsize Hand};
+
+\end{tikzpicture}
+\end{document}
