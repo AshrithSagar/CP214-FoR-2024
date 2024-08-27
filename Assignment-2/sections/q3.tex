@@ -21,17 +21,19 @@ The FBD of the car is as follows:
     }
 \end{figure*}
 
-At the peak, the car should have zero acceleration in the vertical direction.
-The two forces that act in this case are the gravitational force and the centripetal force, which should balance out to ensure that the car doesn't lift off the ground at the hill's peak.
+There are two forces acting on the car, the gravitational force \( m\vec{\mathbf{g}} \) and the normal reaction force \( \vec{\mathbf{N}} \).
+At the hill's peak, the normal reaction force is perpendicular to the gravitational force.
+For the car to not lift off the ground at the hill's peak, we should have that the normal reaction force at that point is just zero, and the gravitational force is sufficient to balance the centripetal reaction force at that point.
+
 Thereby, we have, at the hill's peak,
 \begin{align*}
-    \vec{\mathbf{F}}_{\textbf{centripetal}} + m\vec{\mathbf{g}}
+    \vec{\mathbf{F}}_{\textbf{centripetal}}
      & =
-    \vec{\mathbf{0}} \\
-    \implies
-    m\frac{v^2}{R} - mg
+    m\vec{\mathbf{g}}
+    \\ \implies
+    m\frac{v^2}{R}
      & =
-    0
+    mg
 \end{align*}
 
 Solving for \( v \), we get
@@ -41,4 +43,8 @@ Solving for \( v \), we get
     v   & = \sqrt{gR}
 \end{align*}
 
-Therefore, the maximum speed \( v_{\max} \) the AI should set to prevent the car from leaving the surface at the hill's peak is \( \boxed{v_{\max} = \sqrt{gR}} \).
+Thereby, we obtain a threshold velocity above which the gravitational force is insufficient to balance the centripetal reaction force at the hill's peak, and the car will lift off the ground in this situation.
+Thereby, this is the maximum velocity that can be set by the AI to prevent the car from leaving the surface at the hill's peak.
+\[
+    \boxed{v_{\max} = \sqrt{gR}}
+\]
