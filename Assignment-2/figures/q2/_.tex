@@ -39,7 +39,10 @@
     \draw[fill] (0,-1) circle(0.05);
 
     % Frictional force
-    \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$f_f$};
+    \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$f_b$};
+
+    % Chassis force
+    \draw[->, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{T_b}$};
 
     % Ground
     \draw (-1.5,-1) -- (1.5,-1);
@@ -74,7 +77,10 @@
         \draw[fill] (0,-1) circle(0.05);
 
         % Frictional force
-        \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$f_f$};
+        \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$f_b$};
+
+        % Chassis force
+        \draw[->, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{T_b}$};
     \end{scope}
 
     % Ground
