@@ -30,13 +30,39 @@ Considering the FBD of the point C w.r.t.\ the inertial frame C, we have the FBD
     }\label{fig:q5a-fbd}
 \end{figure*}
 
+The gravitational force acts downwards at point C.
+The mass at point C also experiences a pseudo force towards the left due to the acceleration of the hand, which is an inertial frame of reference.
+The direction of this pseudo-force is opposite to the direction of the acceleration of the hand, and it's magnitude is given by \( m\ddot x \).
+Thereby, we can calculate the torque at point C as
+\begin{equation}
+    \vec{\boldsymbol{\tau}} = mL\sin\phi \; \vec{\mathbf{g}} - mL\cos\phi \; \vec{\ddot{\mathbf{x}}} \\
+    \tag{5a.1}
+\end{equation}
+
+Since, C is a point mass, we have the mass moment of interia as \( I = mL^2 \), giving
+\begin{equation}
+    \vec{\boldsymbol{\tau}} = I \vec{\boldsymbol{\alpha}} = mL^2 \vec{\ddot{\boldsymbol{\phi}}}
+    \tag{5a.2}
+\end{equation}
+
+Equating equations~(5a.1) and (5a.2), we get
+\begin{align*}
+    mL^2 \vec{\ddot{\boldsymbol{\phi}}}
+     & =
+    mL\sin\phi \; \vec{\mathbf{g}} - mL\cos\phi \; \vec{\ddot{\mathbf{x}}} \\
+    \implies
+    L \vec{\ddot{\boldsymbol{\phi}}}
+     & =
+    \sin\phi \; \vec{\mathbf{g}} - \cos\phi \; \vec{\ddot{\mathbf{x}}}
+\end{align*}
 
 Hence, the equation of motion is given by
-\[
+\begin{equation}
     \boxed{
         \ddot{\phi} = \frac{g}{L} \sin\phi - \frac{\ddot x}{L} \cos\phi
     }
-\]
+    \tag{5a.3}
+\end{equation}
 
 \subsubsection*{(b) Control}
 
