@@ -7,17 +7,17 @@
     %% FBD of Front wheel
     % Front wheel
     \draw[thick] (0,0) circle(1.5);
-    \draw[fill] (-0.025,0) circle(0.08);
+    \draw[fill] (-0.08,0) circle(0.08);
 
     % Normal force
-    \draw[->, thick] (0,-1.5) -- (0,-0.5) node[midway,right] {$N_f$};
+    \draw[->, line width=1.5pt] (0,-1.5) -- (0,-0.5) node[midway,right] {$N_f$};
     \draw[fill] (0,-1.5) circle(0.05);
 
     % Applied force on the pedal
-    \draw[->, thick] (-0.05,0) -- (-0.05,-1) node[midway,left] {$\vec{F}$};
+    \draw[->, line width=1.5pt] (-0.1,0) -- (-0.1,-1) node[midway,left] {$\vec{F}$};
 
     % Frictional force
-    \draw[->, thick] (0,-1.5) -- (1,-1.5) node[midway,below] {$f_f$};
+    \draw[->, line width=1.5pt] (0,-1.5) -- (1,-1.5) node[midway,below] {$f_f$};
 
     % Ground
     \draw (-2,-1.5) -- (2,-1.5);
@@ -32,11 +32,11 @@
     \draw[fill] (-0.025,0) circle(0.08);
 
     % Normal force
-    \draw[->, thick] (0,-1) -- (0,-0.3) node[midway,right] {$N_b$};
+    \draw[->, line width=1.5pt] (0,-1) -- (0,-0.3) node[midway,right] {$N_b$};
     \draw[fill] (0,-1) circle(0.05);
 
     % Frictional force
-    \draw[->, thick] (0,-1) -- (-0.7,-1) node[midway,below] {$f_f$};
+    \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$f_f$};
 
     % Ground
     \draw (-1.5,-1) -- (1.5,-1);
@@ -49,17 +49,17 @@
     \begin{scope}
         % Front wheel
         \draw[thick] (0,0) circle(1.5);
-        \draw[fill] (-0.025,0) circle(0.08);
+        \draw[fill] (-0.08,0) circle(0.08);
 
         % Normal force
-        \draw[->, thick] (0,-1.5) -- (0,-0.5) node[midway,right] {$N_f$};
+        \draw[->, line width=1.5pt] (0,-1.5) -- (0,-0.5) node[midway,right] {$N_f$};
         \draw[fill] (0,-1.5) circle(0.05);
 
         % Applied force on the pedal
-        \draw[->, thick] (-0.05,0) -- (-0.05,-1) node[midway,left] {$\vec{F}$};
+        \draw[->, line width=1.5pt] (-0.1,0) -- (-0.1,-1) node[midway,left] {$\vec{F}$};
 
         % Frictional force
-        \draw[->, thick] (0,-1.5) -- (1,-1.5) node[midway,below] {$f_f$};
+        \draw[->, line width=1.5pt] (0,-1.5) -- (1,-1.5) node[midway,below] {$f_f$};
     \end{scope}
     \begin{scope}[xshift=-3cm, yshift=-0.5cm]
         % Back wheel
@@ -67,11 +67,11 @@
         \draw[fill] (-0.025,0) circle(0.08);
 
         % Normal force
-        \draw[->, thick] (0,-1) -- (0,-0.3) node[midway,right] {$N_b$};
+        \draw[->, line width=1.5pt] (0,-1) -- (0,-0.3) node[midway,right] {$N_b$};
         \draw[fill] (0,-1) circle(0.05);
 
         % Frictional force
-        \draw[->, thick] (0,-1) -- (-0.7,-1) node[midway,below] {$f_f$};
+        \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$f_f$};
     \end{scope}
 
     % Ground
