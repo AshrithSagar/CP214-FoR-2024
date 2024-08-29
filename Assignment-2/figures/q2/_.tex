@@ -6,7 +6,7 @@
 
     %% FBD of Front wheel
     % Front wheel
-    \draw[thick] (0,0) circle(1.5);
+    \draw[thick] (-0.04,0) circle(1.5);
     \draw[fill] (-0.08,0) circle(0.08);
 
     % Normal force
@@ -19,6 +19,9 @@
     % Frictional force
     \draw[->, line width=1.5pt] (0,-1.5) -- (1,-1.5) node[midway,below] {$f_f$};
 
+    % Chassis force
+    \draw[->, line width=1.5pt] (0,-1.5) -- (-1.5,-1.5) node[midway,below] {$T_f$};
+
     % Ground
     \draw (-2,-1.5) -- (2,-1.5);
 
@@ -28,7 +31,7 @@
 
     %% FBD of Back wheel
     % Back wheel
-    \draw[thick] (0,0) circle(1);
+    \draw[thick] (-0.0125,0) circle(1);
     \draw[fill] (-0.025,0) circle(0.08);
 
     % Normal force
@@ -48,7 +51,7 @@
     %% FBD of Entire Bicycle
     \begin{scope}
         % Front wheel
-        \draw[thick] (0,0) circle(1.5);
+        \draw[thick] (-0.04,0) circle(1.5);
         \draw[fill] (-0.08,0) circle(0.08);
 
         % Normal force
@@ -63,7 +66,7 @@
     \end{scope}
     \begin{scope}[xshift=-3cm, yshift=-0.5cm]
         % Back wheel
-        \draw[thick] (0,0) circle(1);
+        \draw[thick] (-0.0125,0) circle(1);
         \draw[fill] (-0.025,0) circle(0.08);
 
         % Normal force
