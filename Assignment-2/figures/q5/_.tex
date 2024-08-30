@@ -9,7 +9,7 @@
     \begin{scope}[rotate=35]
         \draw (-1, -0.05) rectangle (1, 0.05);
         \node [above] at (1, 0.05) {\( m \)};
-        \node [above] at (-0.4, 0.3) {\scriptsize Stick};
+        \node [above] at (-0.3, 0.2) {\scriptsize Stick};
     \end{scope}
 
     % Gravitational force
@@ -29,6 +29,10 @@
     % Inertial frame pseudo force
     \draw[thick, ->] (2, -0.1) -- (2.7, -0.1) node[above] {\( m\vec{\mathbf{\ddot x}} \)};
     \node [below] at (2, -1.5) {\scriptsize Inertial frame};
+
+    % Axes
+    \draw[->, dashed, gray] (-0.8, -1.7) -- (-0.8, 1.6) node[above] {\( y \)};
+    \draw[->, dashed, gray] (-2.7, -0.6) -- (2.7, -0.6) node[right] {\( x \)};
 
 \end{tikzpicture}
 \end{document}
