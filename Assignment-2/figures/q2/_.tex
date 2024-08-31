@@ -10,7 +10,7 @@
     \draw[fill] (-0.08,0) circle(0.08);
 
     % Normal force
-    \draw[->, line width=1.5pt] (0,-1.5) -- (0,-0.5) node[midway,right] {$\vec{\mathbf{N_f}}$};
+    \draw[->, line width=1.5pt] (0,-1.5) -- (0,-0.5) node[midway,right,xshift=-3] {$\vec{\mathbf{N_f}}$};
     \draw[fill] (0,-1.5) circle(0.05);
 
     % Applied force on the pedal
@@ -46,7 +46,7 @@
     \draw[fill] (-0.025,0) circle(0.08);
 
     % Normal force
-    \draw[->, line width=1.5pt] (0,-1) -- (0,-0.3) node[midway,right] {$\vec{\mathbf{N_b}}$};
+    \draw[->, line width=1.5pt] (0,-1) -- (0,-0.3) node[midway, right, xshift=-3.5] {$\vec{\mathbf{N_b}}$};
     \draw[fill] (0,-1) circle(0.05);
 
     % Frictional force
@@ -54,6 +54,10 @@
 
     % Chassis force
     \draw[<-, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{\mathbf{T_b}}$};
+
+    % Moment due to the frictional force
+    \draw[->, line width=1.5pt, black!50] (0,-1) arc[start angle=270, end angle=200, radius=0.5];
+    \node [above, xshift=-1, yshift=6, black!50] at (-0.35,-1) {$\vec{\mathbf{M_b}}$};
 
     % Ground
     \draw (-1.5,-1) -- (1.5,-1);
@@ -69,7 +73,7 @@
         \draw[fill] (-0.08,0) circle(0.08);
 
         % Normal force
-        \draw[->, line width=1.5pt] (0,-1.5) -- (0,-0.5) node[midway,right] {$\vec{\mathbf{N_f}}$};
+        \draw[->, line width=1.5pt] (0,-1.5) -- (0,-0.5) node[midway,right,xshift=-3] {$\vec{\mathbf{N_f}}$};
         \draw[fill] (0,-1.5) circle(0.05);
 
         % Applied force on the pedal
@@ -95,11 +99,15 @@
         \draw[fill] (-0.025,0) circle(0.08);
 
         % Normal force
-        \draw[->, line width=1.5pt] (0,-1) -- (0,-0.3) node[midway,right] {$\vec{\mathbf{N_b}}$};
+        \draw[->, line width=1.5pt] (0,-1) -- (0,-0.3) node[midway, right, xshift=-3.5] {$\vec{\mathbf{N_b}}$};
         \draw[fill] (0,-1) circle(0.05);
 
         % Frictional force
         \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$\vec{\mathbf{f_b}}$};
+
+        % Moment due to the frictional force
+        \draw[->, line width=1.5pt, black!50] (0,-1) arc[start angle=270, end angle=200, radius=0.5];
+        \node [above, xshift=-1, yshift=6, black!50] at (-0.35,-1) {$\vec{\mathbf{M_b}}$};
     \end{scope}
 
     % Ground
