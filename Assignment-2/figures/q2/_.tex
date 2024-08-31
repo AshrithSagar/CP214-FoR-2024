@@ -14,7 +14,7 @@
     \draw[fill] (0,-1.5) circle(0.05);
 
     % Applied force on the pedal
-    \draw[->, line width=1.5pt] (-0.09,0) -- (-0.09,-1) node[midway,left] {$\vec{\mathbf{F}}$};
+    \draw[->, line width=1.5pt] (0.7,0) -- (0.7,-0.6) node[midway,left] {$\vec{\mathbf{F}}$};
 
     % Frictional force
     \draw[->, line width=1.5pt] (0,-1.5) -- (1.5,-1.5) node[midway,below] {$\vec{\mathbf{f_f}}$};
@@ -23,8 +23,15 @@
     \draw[->, line width=1.5pt] (-0.48,1.8) -- (-0.08-0.04,0+0.04) node[midway, right] {$\vec{\mathbf{T_f}}$};
 
     % Moment due to the applied force
-    \draw[->, line width=1.5pt] (-0.6,0) arc[start angle=180, end angle=-30, radius=0.5];
-    \node [right] at (0.5,0.1) {$\vec{\mathbf{M_F}}$};
+    \draw[->, line width=1.5pt, black!50] (-0.6,0) arc[start angle=180, end angle=20, radius=0.5];
+    \node [right, black!50] at (0.35,0.4) {$\vec{\mathbf{M_F}}$};
+
+    % Moment due to the frictional force
+    \draw[->, line width=1.5pt, black!50] (0,-1.5) arc[start angle=270, end angle=200, radius=0.5];
+    \node [left, black!50] at (-0.35,-1) {$\vec{\mathbf{M_f}}$};
+
+    % Pedal
+    \draw[thick, dashed] (0.7,0) -- (0,0);
 
     % Ground
     \draw (-2,-1.5) -- (2,-1.5);
@@ -46,7 +53,7 @@
     \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$\vec{\mathbf{f_b}}$};
 
     % Chassis force
-    \draw[->, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{\mathbf{T_b}}$};
+    \draw[<-, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{\mathbf{T_b}}$};
 
     % Ground
     \draw (-1.5,-1) -- (1.5,-1);
@@ -91,7 +98,7 @@
         \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$\vec{\mathbf{f_b}}$};
 
         % Chassis force
-        \draw[->, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{\mathbf{T_b}}$};
+        \draw[<-, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{\mathbf{T_b}}$};
     \end{scope}
 
     % Ground
