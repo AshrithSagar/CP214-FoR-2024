@@ -68,10 +68,13 @@ Hence, the equation of motion is given by
 
 To balance the stick upright, we need to have \( \ddot\phi = 0 \).
 
-Hence, the control equation relating the acceleration of the hand to balance the stick upright is given by
-\begin{equation}
-    \boxed{
-        \ddot x = \frac{g \tan(\phi) + L \dot{\phi}^2}{\cos(\phi)}
-    }
-    \tag{5b.1}
-\end{equation}
+Thereby, from Equation~(5a.3), we have
+\begin{align*}
+    \frac{\ddot x}{L} \cos\phi
+     & =
+    \frac{g}{L} \sin\phi
+    \\ \implies
+        \ddot x
+     & =
+        g \tan\phi
+\end{align*}
