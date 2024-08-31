@@ -23,17 +23,21 @@
     \fill (6, 4) circle (0.1);
 
     % Angles
-    \draw (0.5, 0) arc (0:36.87:0.5) node[midway, right] {$\theta_A$};
-    \draw (4.5, 3) arc (0:36.87:0.4) node[midway, right] {$\theta_B$};
+    \draw (0.5, 0) arc (0:36.87:0.5) node[midway, right] {$\theta_1$};
+    \draw (4.5, 3) arc (0:36.87:0.4) node[midway, right] {$\theta_2$};
 
     % Reference
     \draw[dashed] (4, 3) -- (6, 3);
 
     % Labels
-    \node[below] at (0, 0) {A};
-    \node[above] at (4, 3) {B};
+    \node[below, yshift=-3pt] at (0, 0) {A};
+    \node[below, yshift=-3pt] at (4, 3) {B};
     \node[above] at (5.8, 3.3) {C};
     \node[right] at (6, 4) {P};
+
+    % Lengths
+    \draw[|<->|] (-0.1, 0.2) -- (3.8, 3.1) node[midway, above] {$l_{1}$};
+    \draw[|<->|] (3.9, 3.2) -- (5.9, 4.2) node[midway, above] {$l_{2}$};
 
 \end{tikzpicture}
 
@@ -57,8 +61,8 @@
     \fill (6, 3) circle (0.1);
 
     % Labels
-    \node[below] at (0, 0) {A};
-    \node[above] at (4, 3) {B};
+    \node[below, yshift=-3pt] at (0, 0) {A};
+    \node[below, yshift=-3pt] at (4, 3) {B};
     \node[above] at (5.5, 2.5) {C};
     \node[right] at (6, 3) {P};
 
