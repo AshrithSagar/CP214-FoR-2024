@@ -20,6 +20,96 @@ At the instant shown, find the net force acting on the object P, which has mass 
     }
 \end{figure*}
 
+Consider the above parametric form of the problem setup, with parameters \(\theta_1\) and \(\theta_2\), and with \(l_1\) and \(l_2\) being the fixed lengths of the robot arm AB and the forearm BC, respectively.
+The position vector of the object P is given by
+\[
+    \vec{\mathbf{r}}_P =
+    \begin{bmatrix}
+        l_1 \cos\theta_1 + l_2 \cos\theta_2 \\
+        l_1 \sin\theta_1 + l_2 \sin\theta_2 \\
+    \end{bmatrix}
+\]
+Differentiating the position vector w.r.t.\ time, we get the velocity vector as
+\[
+    \vec{\mathbf{v}}_P =
+    \begin{bmatrix}
+        -l_1 \dot\theta_1 \sin\theta_1 - l_2 \dot\theta_2 \sin\theta_2 \\
+        l_1 \dot\theta_1 \cos\theta_1 + l_2 \dot\theta_2 \cos\theta_2  \\
+    \end{bmatrix}
+\]
+Differentiating the velocity vector w.r.t.\ time, we get the acceleration vector as
+\[
+    \vec{\mathbf{a}}_P =
+    \begin{bmatrix}
+        -l_1 \ddot\theta_1 \sin\theta_1 - l_1 \dot\theta_1^2 \cos\theta_1 - l_2 \ddot\theta_2 \sin\theta_2 - l_2 \dot\theta_2^2 \cos\theta_2 \\
+        l_1 \ddot\theta_1 \cos\theta_1 - l_1 \dot\theta_1^2 \sin\theta_1 + l_2 \ddot\theta_2 \cos\theta_2 - l_2 \dot\theta_2^2 \sin\theta_2  \\
+    \end{bmatrix}
+\]
+
+From the problem statement, we have the following values for the parameters
+\[
+    \begin{aligned}
+        l_1           & = 2\text{ m}                                                              \\
+        l_2           & = 1\text{ m}                                                              \\
+        \theta_1      & = 30^\circ = \frac{\pi}{6}\text{ rad}                                     \\
+        \theta_2      & = \theta_{BC} = 0^\circ = 0\text{ rad}                                    \\
+        \dot\theta_1  & = \omega_{AB} = 5\text{ rad/s}                                            \\
+        \dot\theta_2  & = \omega_{BC} = \omega_{AB} + \omega_{BC/AB} = 8\text{ rad/s}             \\
+        \ddot\theta_1 & = \dot\omega_{AB} = 2\text{ rad/s}^2                                      \\
+        \ddot\theta_2 & = \dot\omega_{BC} = \dot\omega_{AB} + \dot\omega_{BC/AB} = 2\text{ rad/s} \\
+    \end{aligned}
+\]
+
+Substituting the above values into the acceleration vector, we get, for the given instant
+\begin{align*}
+    \vec{\mathbf{a}}_P
+     & =
+    \begin{bmatrix}
+        -2 \cdot 2 \cdot \sin\frac{\pi}{6} - 2 \cdot 5^2 \cdot \cos\frac{\pi}{6} - 1 \cdot 0 \cdot \sin 0 - 1 \cdot 8^2 \cdot \cos 0 \\
+        2 \cdot 2 \cdot \cos\frac{\pi}{6} - 2 \cdot 5^2 \cdot \sin\frac{\pi}{6} + 1 \cdot 2 \cdot \cos 0 - 1 \cdot 8^2 \cdot \sin 0  \\
+    \end{bmatrix} \\
+     & =
+    \begin{bmatrix}
+        -2 - 25\sqrt{3} - 64 \\
+        2\sqrt{3} - 25 + 2   \\
+    \end{bmatrix}                                                                                                         \\
+     & =
+    \begin{bmatrix}
+        - 25\sqrt{3} - 66 \\
+        2\sqrt{3} - 23    \\
+    \end{bmatrix}                                                                                                            \\
+\end{align*}
+
+The force can be found out using Newton's laws as
+\begin{equation*}
+    \vec{\mathbf{F}}_P
+    =
+    m \vec{\mathbf{a}}_P = 1 \cdot
+    \begin{bmatrix}
+        - 25\sqrt{3} - 66 \\
+        2\sqrt{3} - 23    \\
+    \end{bmatrix}
+\end{equation*}
+
+Hence, the force experienced by the object P is given by
+\begin{align*}
+    \vec{\mathbf{F}}_P
+     & =
+    \boxed{
+        (- 25\sqrt{3} - 66) \vec{\mathbf{\imath}} + (2\sqrt{3} - 23) \vec{\mathbf{\jmath}}
+    }
+    \\ & =
+    \boxed{
+        -109.30 \vec{\mathbf{\imath}} -19.54 \vec{\mathbf{\jmath}}
+    }
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \lVert \vec{\mathbf{F}}_P \rVert = 111.04 \text{ N}
+    }
+\end{equation*}
+
+\newpage
 \subsection*{Solution-2: Pseudo forces}
 
 \begin{figure*}[htb]
