@@ -32,42 +32,75 @@ We can see that under pure rolling condition, the bottom of the crawler belt is 
 The kinetic energy of the crawler belt is given by
 \begin{align*}
     \text{KE}_{\text{belt}}
-     & = \frac{1}{2} \int_{\text{belt}} v^2 \, \text{d}m
+     & =
+    \text{KE}_{\text{top part}}
+    + \text{KE}_{\text{bottom part}}
+    + (\text{KE}_{\text{left part}}
+    + \text{KE}_{\text{right part}})
     \\ & =
-    \int_{\substack{\text{top}
-    \\ \text{belt}}}
-    + \int_{\substack{\text{bottom}
-    \\ \text{belt}}}
-    + \int_{\substack{\text{left}
-    \\ \text{belt}}}
-    + \int_{\substack{\text{right}
-    \\ \text{belt}}}
-    \\ & =
-    \frac{1}{2} \int_{\substack{\text{top}
-    \\ \text{belt}}} {(2v)}^2 \, \text{d}m
-    + \cancel{\frac{1}{2} \int_{\substack{\text{bottom}
-    \\ \text{belt}}} {(0)}^2 \, \text{d}m}
-    + \frac{1}{2} \int_{\substack{\text{left}
-    \\ \text{belt}}} v^2 \, \text{d}m
-    + \frac{1}{2} \int_{\substack{\text{right}
-    \\ \text{belt}}} v^2 \, \text{d}m
+    \text{KE}_{\text{top part}}
+    + \text{KE}_{\text{bottom part}}
+    + \text{KE}_{\text{ring}}
+    \tag{4.1}
 \end{align*}
 
-We can observe that the last two terms can be ignored, as the radius of the rover wheels is much smaller than the length of the crawler belt.
-This can be seen as follows, by first considering the density of the belt, as given by \( \lambda = m/l \), following which we can see that
-\[
-    \text{d}m = \lambda \text{d}r
-\]
+Now, we have
+\begin{align*}
+    \text{KE}_{\text{top part}}
+     & =
+    \frac{1}{2} \Big(\frac{m}{2}\Big) {(2v)}^2
+    = m v^2
+    \tag{4.2}
+    \\
+    \text{KE}_{\text{bottom part}}
+     & =
+    \frac{1}{2} \Big(\frac{m}{2}\Big) {(0)}^2
+    = 0
+    \tag{4.3}
+    \\
+    \text{KE}_{\text{ring}}
+     & =
+    \text{KE}_{\text{ring-translational}}
+    + \text{KE}_{\text{ring-rotational}}
+    \\ & =
+    \frac{1}{2} m v^2
+    + \frac{1}{2} I \omega^2
+    = \frac{1}{2} m v^2
+    + \frac{1}{2} \Bigg(\Big(2\pi R\frac{m}{L}\Big)R^2\Bigg) {\Big(\frac{v}{R}\Big)}^2
+    \\
+    \implies
+    \text{KE}_{\text{ring}}
+     & =
+    \frac{1}{2} m v^2
+    + \Big(\pi R\frac{m}{L}\Big) v^2
+    \tag{4.4}
+\end{align*}
+
+From the above equations, we get
+\begin{align*}
+    \text{KE}_{\text{belt}}
+     & =
+    m v^2
+    + 0
+    + \frac{1}{2} m v^2
+    + \Big(\pi R\frac{m}{L}\Big) v^2
+    \\
+    \implies
+    \text{KE}_{\text{belt}}
+     & =
+    \Big(
+    \frac{3}{2}
+    + \frac{\pi R}{L}
+    \Big)
+    m v^2
+    \tag{4.5}
+\end{align*}
+Using the assumption that the length of the crawler belt is much larger than the radius of the rover wheels, i.e., \( R \ll L \), we can approximate the kinetic energy of the crawler belt as
 \begin{equation*}
-    \frac{1}{2} \int_{
-        \substack{\text{left} \\ \text{belt}}}
-    v^2 \, \text{d}m
+    \therefore
+    \boxed{
+    \text{KE}_{\text{belt}}
     \approx
-    \frac{1}{2} v_0^2 \int_{
-        \substack{\text{left} \\ \text{belt}}}
-    \text{d}m
-    =
-    \frac{1}{2} v_0^2 \int_{
-        \substack{\text{left} \\ \text{belt}}}
-    \lambda \text{d}r
+    \frac{3}{2} m v^2
+    }
 \end{equation*}
