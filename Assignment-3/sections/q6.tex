@@ -1,3 +1,23 @@
 \section*{Problem 6}
 
+Drone Orientation Future Prediction:
+In this problem, we model the drone as a single rigid body whose current orientation is represented by a rotation matrix \(R_{c} \in S O(3)\).
+While the drone is moving, its orientation changes depending on the thrust forces generated.
+Using some math (which you will learn about by the end of the course), we can derive the following rule to predict the future orientations of the drone:
+\begin{equation*}
+    R_{k+1}=R_{k} \exp \left(\omega_{k} \Delta t\right)
+\end{equation*}
+where \(R_{k}\) is the rotation at the \(k^{\text {th }}\) time step
+(Note: For \(k=1\), we have \(\left.R_{k}=R_{c}\right), \Delta t\)
+is a discretization constant, and \(\omega_{k}\) is the drone's angular velocity at the \(k^{\text {th }}\) time step
+(Note: It has its own update rule, which you need not worry about in this problem).
+The operator \(\exp (\cdot)\) is the matrix exponential from \(s o(3)\) to \(S O(3)\) (also known as Rodrigues' rotation formula).
+
+The use case of such a rule would be in algorithms like Model Predictive Control (MPC), which make future predictions to determine the best decisions/controls/actions.
+However, working with the above-stated rule is tedious due to the nonlinear relationship between \(R_{k+1}\) and \(\omega_{k}\).
+Therefore, show that using certain assumptions, we can obtain the following simpler form, which is easier to work with:
+\begin{equation*}
+    R_{k+1}=R_{c}\left(I+\Delta t \sum_{j=1}^{k} \omega_{j}\right)
+\end{equation*}
+
 \subsection*{Solution}
