@@ -13,8 +13,61 @@ Determine the kinetic energy of the crawler belt, assuming its length is much la
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/q4/_}
+    \includegraphics[page=1, width=0.7\linewidth]{figures/q4/_}
     \caption{
         Side view of the rover
-    }
+    }\label{fig:q4-belt}
 \end{figure}
+
+We can see that under pure rolling condition, the bottom of the crawler belt is stationary with respect to the ground, and the entire top of the crawler belt moves with a velocity \(2v\), as shown by the movement of the wheel in Figure~\ref{fig:q4-wheel}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[page=2, width=0.3\linewidth]{figures/q4/_}
+    \caption{
+        Side view of the wheel
+    }\label{fig:q4-wheel}
+\end{figure}
+
+The kinetic energy of the crawler belt is given by
+\begin{align*}
+    \text{KE}_{\text{belt}}
+     & = \frac{1}{2} \int_{\text{belt}} v^2 \, \text{d}m
+    \\ & =
+    \int_{\substack{\text{top}
+    \\ \text{belt}}}
+    + \int_{\substack{\text{bottom}
+    \\ \text{belt}}}
+    + \int_{\substack{\text{left}
+    \\ \text{belt}}}
+    + \int_{\substack{\text{right}
+    \\ \text{belt}}}
+    \\ & =
+    \frac{1}{2} \int_{\substack{\text{top}
+    \\ \text{belt}}} {(2v)}^2 \, \text{d}m
+    + \cancel{\frac{1}{2} \int_{\substack{\text{bottom}
+    \\ \text{belt}}} {(0)}^2 \, \text{d}m}
+    + \frac{1}{2} \int_{\substack{\text{left}
+    \\ \text{belt}}} v^2 \, \text{d}m
+    + \frac{1}{2} \int_{\substack{\text{right}
+    \\ \text{belt}}} v^2 \, \text{d}m
+\end{align*}
+
+We can observe that the last two terms can be ignored, as the radius of the rover wheels is much smaller than the length of the crawler belt.
+This can be seen as follows, by first considering the density of the belt, as given by \( \lambda = m/l \), following which we can see that
+\[
+    \text{d}m = \lambda \text{d}r
+\]
+\begin{equation*}
+    \frac{1}{2} \int_{
+        \substack{\text{left} \\ \text{belt}}}
+    v^2 \, \text{d}m
+    \approx
+    \frac{1}{2} v_0^2 \int_{
+        \substack{\text{left} \\ \text{belt}}}
+    \text{d}m
+    =
+    \frac{1}{2} v_0^2 \int_{
+        \substack{\text{left} \\ \text{belt}}}
+    \lambda \text{d}r
+\end{equation*}
