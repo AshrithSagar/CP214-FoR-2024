@@ -77,7 +77,8 @@ Substituting the above values into the acceleration vector, we get, for the give
     \begin{bmatrix}
         - 25\sqrt{3} - 66 \\
         2\sqrt{3} - 23    \\
-    \end{bmatrix}                                                                                                            \\
+    \end{bmatrix}
+    \tag{4.1}
 \end{align*}
 
 The force can be found out using Newton's laws as
@@ -109,7 +110,45 @@ Hence, the force experienced by the object P is given by
     }
 \end{equation*}
 
-\newpage
+\subsubsection*{Considering gravity}
+
+The acceleration in Equation~(4.1) is experienced by the object P due to the rotation of the robot arm AB and the forearm BC.\@
+Further, the acceleration experienced by the object P due to gravity is given by the vector \(\vec{\mathbf{g}}\), as
+\[
+    \vec{\mathbf{g}} = \begin{bmatrix} 0 \\ -9.81 \end{bmatrix}
+\]
+Applying Newton's second law, we get the net force experienced by the object P as
+\begin{equation*}
+    \vec{\mathbf{F}}_P = m \vec{\mathbf{a}}_P + m \vec{\mathbf{g}} =
+    1 \cdot
+    \begin{bmatrix}
+        - 25\sqrt{3} - 66 \\
+        2\sqrt{3} - 23    \\
+    \end{bmatrix}
+    +
+    1 \cdot
+    \begin{bmatrix}
+        0 \\ -9.81
+    \end{bmatrix}
+\end{equation*}
+\begin{align*}
+    \implies
+    \vec{\mathbf{F}}_P
+     & =
+    \boxed{
+        (- 25\sqrt{3} - 66) \vec{\mathbf{\imath}} + (2\sqrt{3} - 29.35) \vec{\mathbf{\jmath}}
+    }
+    \\ & =
+    \boxed{
+        -109.30 \vec{\mathbf{\imath}} -25.89 \vec{\mathbf{\jmath}}
+    }
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \lVert \vec{\mathbf{F}}_P \rVert = 112.32 \text{ N}
+    }
+\end{equation*}
+
 \subsection*{Solution-2: Pseudo forces}
 
 \begin{figure*}[htb]
