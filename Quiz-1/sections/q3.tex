@@ -13,21 +13,35 @@ Find an equivalent force-couple system acting at point C.
 
 \begin{figure}[htb]
     \centering
-    \begin{minipage}{0.375\textwidth}
+    \begin{minipage}{0.5\textwidth}
         \centering
         \includegraphics[page=1, width=\linewidth]{figures/q3/_}
         \caption*{
             (a) Original plate with forces
         }
     \end{minipage}\hfill
-    \begin{minipage}{0.3\textwidth}
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[page=4, width=\linewidth]{figures/q3/_}
+        \caption*{
+            (b) Equivalent force-couple system
+        }
+    \end{minipage}
+    \caption{
+        Forces acting on the plate
+    }\label{fig:q3-forces}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{0.4\textwidth}
         \centering
         \includegraphics[page=2, width=\linewidth]{figures/q3/_}
         \caption*{
             (b) Net force acting at O
         }
     \end{minipage}\hfill
-    \begin{minipage}{0.3\textwidth}
+    \begin{minipage}{0.4\textwidth}
         \centering
         \includegraphics[page=3, width=\linewidth]{figures/q3/_}
         \caption*{
@@ -36,32 +50,59 @@ Find an equivalent force-couple system acting at point C.
     \end{minipage}
     \caption{
         Forces acting on the plate
-    }\label{fig:q3}
+    }\label{fig:q3-net-forces}
 \end{figure}
 
-The forces acting on the plate are shown in Figure~\ref{fig:q3}, which can be broken down into a net force and a net torque acting at point O.
+The forces acting on the plate are shown in Figure~\ref{fig:q3-forces}, which can be broken down into a net force and a net torque acting at point O, as shown in Figure~\ref{fig:q3-net-forces}.
+
+\newpage
 For an equivalent force-couple system, we should have
-\begin{align*}
+\begin{equation*}
     \vec{F}_{\text{net}}
-     & =
+    =
     \sum \vec{F}_i,
-    \\
+    \qquad\qquad
     \vec{M}_{\text{net}}
-     & =
+    =
     \sum \vec{r}_i \times \vec{F}_i,
-\end{align*}
+\end{equation*}
 where \(\vec{F}_{\text{net}}\) is the net force acting at point O, and \(\vec{M}_{\text{net}}\) is the net torque acting at point O.
 
-\begin{align*}
+\begin{equation*}
     \implies
     \vec{F}_{\text{net}}
-     & =
+    =
     \frac{3}{2} F \hat\imath - F \hat\imath - F \hat\jmath
     =
-    \frac{1}{2} F \hat\imath - F \hat\jmath,
-    \\
+    \frac{1}{2} F \hat\imath - F \hat\jmath
     \implies
     \lVert \vec{F}_{\text{net}} \rVert
-     & =
-    \frac{5}{\sqrt{2}}
-\end{align*}
+    =
+    \frac{\sqrt{5}}{2} F
+\end{equation*}
+
+\begin{equation*}
+    \implies
+    \vec{M}_{\text{net}}
+    =
+    \frac{7}{2} F \cdot R \cdot \sin(\pi / 4) \; (-\hat k)
+    =
+    \frac{-7}{2\sqrt{2}} F R \; \hat k
+\end{equation*}
+
+In the equivalent force-couple system, the net force acting at point O is
+\[
+    \implies
+    \vec{F}_{\text{e}} = \vec{F}_{\text{net}} = \boxed{\frac{1}{2} F \hat\imath - F \hat\jmath}
+\]
+and the torque acting at point O is
+\[
+    \implies
+    \vec{M}_{\text{e}} = \vec{M}_{\text{net}}
+    \implies
+    \vec{F}_{e} \times \vec{d} = \frac{-7}{2\sqrt{2}} F R \; \hat k
+\]
+\[
+    \implies
+    |d| = \frac{7FR}{2\sqrt{2}} \frac{2}{\sqrt{5}F} = \boxed{\frac{7}{\sqrt{10}} R}
+\]

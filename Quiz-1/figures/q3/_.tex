@@ -53,6 +53,27 @@
 
     % Plate
     \draw[thick] (0,0) circle (2);
+    \draw[<->, dashed] (0,0) -- (1,-1) node[pos=0.6, above] {\small \(R\)};
+    \fill[black] (0,0) circle (0.05);
+    \node[above] at (0,0) {\scriptsize O};
+
+    % Square points
+    \draw (1,1) circle (0.04);
+    \draw (1,-1) circle (0.04);
+    \draw (-1,1) circle (0.04);
+    \draw (-1,-1) circle (0.04);
+
+    % Forces
+    \draw[->, line width=1.5pt] (1,-1) -- ++(0,-1.5) node[right] {\(\frac{7}{2}F\)};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+
+    %% Effective force
+
+    % Plate
+    \draw[thick] (0,0) circle (2);
     \draw[<->, dashed] (0,0) -- (0.8,-0.8) node[pos=0.6, above] {\small \(d\)};
     \fill[black] (0,0) circle (0.05);
     \node[above] at (0,0) {\scriptsize O};
@@ -64,7 +85,8 @@
     \draw (-1,-1) circle (0.04);
 
     % Forces
-    \draw[->, line width=1.5pt] (0.8,-0.8) -- ++(-0.8,-0.8) node[pos=0.9, above] {\(\frac{7}{2}F\)};
+    \draw[->, line width=1.5pt] (0.8,-0.8) -- ++(0.5,-1) node[pos=0.9, above, yshift=3] {\(F_{e}\)};
+    \fill[black] (0.8,-0.8) circle (0.05);
 
 \end{tikzpicture}
 
