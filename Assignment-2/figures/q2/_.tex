@@ -26,14 +26,6 @@
     \draw[->, line width=1pt, black!50] (-0.45,0) arc[start angle=180, end angle=20, radius=0.35];
     \node [right, black!50] at (0.05,0.4) {\scriptsize $\vec{\mathbf{M_F}}$};
 
-    % Moment due to the chassis force
-    \draw[->, line width=1pt, black!50] (-0.65,0) arc[start angle=180, end angle=120, radius=0.6];
-    \node [right, black!50] at (-1.5,0.1) {\scriptsize $\vec{\mathbf{M_{T{_F}}}}$};
-
-    % Moment due to the frictional force
-    \draw[->, line width=1pt, black!50] (0,-1.5) arc[start angle=270, end angle=200, radius=0.5];
-    \node [left, black!50] at (-0.35,-1) {$\vec{\mathbf{M_f}}$};
-
     % Pedal
     \draw[thick, dashed] (0.7,0) -- (0,0);
 
@@ -54,14 +46,10 @@
     \draw[fill] (0,-1) circle(0.05);
 
     % Frictional force
-    \draw[->, line width=1.5pt] (0,-1) -- (-0.7,-1) node[midway,below] {$\vec{\mathbf{f_b}}$};
+    \draw[->, line width=1.5pt] (0,-1) -- (0.7,-1) node[midway,below] {$\vec{\mathbf{f_b}}$};
 
     % Chassis force
     \draw[->, line width=1.5pt] (1,1) -- (-0.025+0.04,0+0.04) node[midway, below] {$\vec{\mathbf{T_b}}$};
-
-    % Moment due to the frictional force
-    \draw[->, line width=1pt, black!50] (0,-1) arc[start angle=270, end angle=200, radius=0.5];
-    \node [above, xshift=-1, yshift=6, black!50] at (-0.35,-1) {$\vec{\mathbf{M_b}}$};
 
     % Ground
     \draw (-1.5,-1) -- (1.5,-1);
