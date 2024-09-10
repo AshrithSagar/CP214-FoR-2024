@@ -8,3 +8,47 @@ That is, \(R\) satisfies \(R=\exp (\hat{\omega} \theta)\).
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) Eigenvalues of \(\hat{\omega}\)}
+
+The skew-symmetric matrix \(\hat{\omega}\) can be written as
+\[
+    \hat{\omega} = \begin{bmatrix}
+        0           & -\omega_{3} & \omega_{2}  \\
+        \omega_{3}  & 0           & -\omega_{1} \\
+        -\omega_{2} & \omega_{1}  & 0
+    \end{bmatrix}
+\]
+The characteristic equation of \(\hat{\omega}\) is given by
+\[
+    \det(\hat{\omega} - \lambda I) = 0
+    \implies
+    \begin{vmatrix}
+        -\lambda    & -\omega_{3} & \omega_{2}  \\
+        \omega_{3}  & -\lambda    & -\omega_{1} \\
+        -\omega_{2} & \omega_{1}  & -\lambda
+    \end{vmatrix}
+    = 0
+\]
+\[
+    \implies
+    -\lambda (\lambda^{2} + \omega_{1}^{2}) + \omega_{3} (-\omega_{3} \lambda - \omega_{1} \omega_{2}) + \omega_{2} (\omega_{3} \omega_{1} - \omega_{2} \lambda) = 0
+\]
+\[
+    \implies
+    \lambda^{3} + \lambda (\omega_{1}^{2} + \omega_{2}^{2} + \omega_{3}^{2}) = 0
+\]
+Since \( \omega \) is a unit vector, we have that \( \omega_{1}^{2} + \omega_{2}^{2} + \omega_{3}^{2} = 1^2 = 1 \).
+\[
+    \implies
+    \lambda^{3} + \lambda = 0
+    \implies
+    \lambda (\lambda^{2} + 1) = 0
+    \implies
+    \lambda \in \{ 0, i, -i \}
+\]
+where \( i = \sqrt{-1} \).
+
+Hence, the \underline{eigenvalues of \( \hat{\omega} \) are \( 0, i, -i \)}.
+
+\subsubsection*{(b) Eigenvalues of \( R \)}
