@@ -52,3 +52,49 @@ where \( i = \sqrt{-1} \).
 Hence, the \underline{eigenvalues of \( \hat{\omega} \) are \( 0, i, -i \)}.
 
 \subsubsection*{(b) Eigenvalues of \( R \)}
+
+We will show that \( \exp(\lambda) \) is an eigenvalue of \( \exp(A) \), where \( A \) is a matrix and \( \lambda \) is an eigenvalue of \( A \).
+The result then follows from the previous part and by \( R = \exp(\hat{\omega} \theta) \).
+
+The matrix exponential of a matrix \( A \) is defined as, which is a power series,
+\[
+    \exp(A)
+    = I + A + \frac{1}{2!} A^{2} + \frac{1}{3!} A^{3} + \ldots
+    = \sum_{n=0}^{\infty} \frac{1}{n!} A^{n}
+\]
+Let \( \lambda \) be an eigenvalue of \( A \) with eigenvector \( v \).
+Then, we have
+\[
+    A v = \lambda v
+\]
+Consider \( A^k v \), where
+\begin{align*}
+    \implies
+    A^k v
+    =
+    (A^{k-1} A) v
+    =
+    A^{k-1}(A v) = A^{k-1} (\lambda v)
+    =
+    \lambda A^{k-1} v
+\end{align*}
+from which we can see that upon recursively applying, we have \( A^k v = \lambda^k v \) for all \( k \in \mathbb{N} \).
+Hence, we can write
+\begin{align*}
+    \exp(A) v
+     & = \Big(I + A + \frac{1}{2!} A^{2} + \frac{1}{3!} A^{3} + \ldots\Big) v
+    \\ & =
+    I v + A v + \frac{1}{2!} A^{2} v + \frac{1}{3!} A^{3} v + \ldots
+    \\ & =
+    v + \lambda v + \frac{1}{2!} \lambda^{2} v + \frac{1}{3!} \lambda^{3} v + \ldots
+    \\ & =
+    (1 + \lambda + \frac{1}{2!} \lambda^{2} + \frac{1}{3!} \lambda^{3} + \ldots) v
+    \\ & =
+    \exp(\lambda) v
+\end{align*}
+which implies that the eigenvalues of \( \exp(A) \) are \( \exp(\lambda) \) where \( \lambda \) are the eigenvalues of \( A \).
+
+From the previous part, we have that the eigenvalues of \( \hat{\omega} \) are \( 0, i, -i \).
+Since \( R = \exp(\hat{\omega} \theta) \), the eigenvalues of \( R \) are thereby, \( \exp(0), \exp(i \theta), \exp(-i \theta) \).
+
+Hence, the \underline{eigenvalues of \( R \) are \( 1, e^{i \theta}, e^{-i \theta} \)}.
