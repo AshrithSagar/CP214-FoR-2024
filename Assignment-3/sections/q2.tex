@@ -3,3 +3,48 @@
 Prove that \(R \in S O(3)\) is a rigid body transformation, i.e \(R\) preserves distance and orientation.
 
 \subsection*{Solution}
+
+To prove that \(R \in S O(3)\) is a rigid body transformation, we need to show that it preserves distance and orientation.
+
+\subsubsection*{Preservation of Distance}
+
+Let \(v, w \in \mathbb{R}^{3}\) be two vectors. The distance between \(v\) and \(w\) is given by
+\[
+    \lVert v - w \rVert = \sqrt{{(v - w)}^{T}(v - w)}
+\]
+
+Now, let \(v' = R v\) and \(w' = R w\). The distance between \(v'\) and \(w'\) is given by
+\begin{align*}
+    \lVert v' - w' \rVert
+     & = \sqrt{{(v' - w')}^{T}(v' - w')}
+    \\ & = \sqrt{{((R v) - (R w))}^{T}((R v) - (R w))}
+    \\ & = \sqrt{(v^{T} R^{T} - w^{T} R^{T})(R v - R w)}
+    \\ & = \sqrt{((v^{T} - w^{T})R^{T}) (R(v - w))}
+    \\ & = \sqrt{{(v - w)}^{T} (R^{T} R) (v - w)}
+    \\ & = \sqrt{{(v - w)}^{T} (v - w)}
+    \\ & = \lVert v - w \rVert
+\end{align*}
+
+Hence, the distance between \(v\) and \(w\) is preserved under the transformation \(R\).
+
+\subsubsection*{Preservation of Orientation}
+
+Let \(v, w \in \mathbb{R}^{3}\) be two vectors. The orientation between \(v\) and \(w\) is given by
+\[
+    \cos(\theta) = \frac{v^{T} w}{\lVert v \rVert \lVert w \rVert}
+\]
+
+Now, let \(v' = R v\) and \(w' = R w\). The orientation between \(v'\) and \(w'\) is given by
+\begin{align*}
+    \cos(\theta')
+     & = \frac{{(R v)}^{T} (R w)}{\lVert R v \rVert \lVert R w \rVert}
+    \\ & = \frac{v^{T} R^{T} R w}{\lVert R \rVert \lVert v \rVert \lVert R \rVert \lVert w \rVert}
+    \\ & = \frac{v^{T} w}{\lVert v \rVert \lVert w \rVert}
+    \\ & = \cos(\theta)
+\end{align*}
+
+since \(R^{T} R = I \implies \lVert R \rVert^2 = 1\).
+
+Hence, the orientation between \(v\) and \(w\) is preserved under the transformation \(R\).
+
+Therefore, \(R \in S O(3)\) is a rigid body transformation.
