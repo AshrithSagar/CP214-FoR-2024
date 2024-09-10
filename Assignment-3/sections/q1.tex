@@ -7,3 +7,51 @@ Prove that given \(R \in S O(3)\) and \(v, w \in \mathbb{R}^{3}\), the following
 \end{align*}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) \( R(v \times w) =(R v) \times(R w) \)}
+
+We have
+\[
+    SO(3) = \{ R \in \mathbb{R}^{3 \times 3} \mid R R^{T} = I, \det(R) = +1 \}
+\]
+
+
+\subsubsection*{(b) \( R \hat{w} R^{T} =\widehat{R w} \)}
+
+We can show this by the above property.
+
+The hat map is defined as \( \hat{(.)}: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3 \times 3} \) such that
+\[
+    \hat{v} = \begin{bmatrix}
+        0      & -v_{3} & v_{2}  \\
+        v_{3}  & 0      & -v_{1} \\
+        -v_{2} & v_{1}  & 0
+    \end{bmatrix}
+\]
+for \( v = [v_{1}, v_{2}, v_{3}]^{T} \in \mathbb{R}^{3} \).
+
+Now, for a vector \( v \in \mathbb{R}^{3} \), we have
+\[
+    R \hat{w} R^{T} v
+    =
+    R (\hat{w} (R^{T} v))
+    =
+    R (w \times (R^{T} v))
+\]
+\[
+    \implies
+    R (w \times (R^{T} v))
+    =
+    R w \times R(R^{T} v)
+    =
+    R w \times (RR^{T}) v
+    =
+    R w \times v
+    =
+    (R w) \times v
+    =
+    \widehat{R w} v
+\]
+where we used the property that \( R R^{T} = I \).
+
+Hence, \( R \hat{w} R^{T} = \widehat{R w} \).
