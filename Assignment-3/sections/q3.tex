@@ -2,8 +2,71 @@
 
 Given \(\hat{a} \in s o(3)\), Prove that the following relations hold:
 \begin{align*}
-     & \hat{a}^{2}=a a^{T}-\|a\|^{2} I \\
-     & \hat{a}^{3}=-\|a\|^{2} \hat{a}
+      & \hat{a}^{2}=a a^{T}-\|a\|^{2} I \\
+      & \hat{a}^{3}=-\|a\|^{2} \hat{a}
 \end{align*}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) \( \hat{a}^{2}=a a^{T}-\|a\|^{2} I \)}
+
+The skew-symmetric matrix group \( s o(3) \) is defined as
+\[
+     s o(3) = \{ S \in \mathbb{R}^{3 \times 3} \mid S^{T} = -S \}
+\]
+
+Given \( \hat{a} \in s o(3) \), we have
+\[
+     \hat{a}^{2}
+     =
+     \hat{a} \hat{a}
+     =
+     \begin{bmatrix}
+          0      & -a_{3} & a_{2}  \\
+          a_{3}  & 0      & -a_{1} \\
+          -a_{2} & a_{1}  & 0
+     \end{bmatrix}
+     \begin{bmatrix}
+          0      & -a_{3} & a_{2}  \\
+          a_{3}  & 0      & -a_{1} \\
+          -a_{2} & a_{1}  & 0
+     \end{bmatrix}
+     =
+     \begin{bmatrix}
+          -a_{3}^{2}-a_{2}^{2} & a_{1} a_{2}          & a_{1} a_{3}          \\
+          a_{1} a_{2}          & -a_{3}^{2}-a_{1}^{2} & a_{2} a_{3}          \\
+          a_{1} a_{3}          & a_{2} a_{3}          & -a_{2}^{2}-a_{1}^{2}
+     \end{bmatrix}
+\]
+
+We can see that this can be written as
+\begin{align*}
+     \hat{a}^{2}
+      & =
+     \begin{bmatrix}
+          a_{1}^{2}-(a_{1}^{2}+a_{3}^{2}+a_{2}^{2}) & a_{1} a_{2}                               & a_{1} a_{3}                               \\
+          a_{1} a_{2}                               & a_{2}^{2}-(a_{1}^{2}+a_{3}^{2}+a_{2}^{2}) & a_{2} a_{3}                               \\
+          a_{1} a_{3}                               & a_{2} a_{3}                               & a_{3}^{2}-(a_{1}^{2}+a_{3}^{2}+a_{2}^{2})
+     \end{bmatrix}
+     \\ & =
+     \begin{bmatrix}
+          a_{1}^{2}-\|a\|^{2} & a_{1} a_{2}         & a_{1} a_{3}         \\
+          a_{1} a_{2}         & a_{2}^{2}-\|a\|^{2} & a_{2} a_{3}         \\
+          a_{1} a_{3}         & a_{2} a_{3}         & a_{3}^{2}-\|a\|^{2}
+     \end{bmatrix}
+     \\ & =
+     \begin{bmatrix}
+          a_{1}^{2}   & a_{1} a_{2} & a_{1} a_{3} \\
+          a_{1} a_{2} & a_{2}^{2}   & a_{2} a_{3} \\
+          a_{1} a_{3} & a_{2} a_{3} & a_{3}^{2}
+     \end{bmatrix}
+     -
+     \begin{bmatrix}
+          \|a\|^{2} & 0         & 0         \\
+          0         & \|a\|^{2} & 0         \\
+          0         & 0         & \|a\|^{2}
+     \end{bmatrix}
+     \\ & =
+     a a^{T}-\|a\|^{2} I
+\end{align*}
+Hence, \( \hat{a}^{2}=a a^{T}-\|a\|^{2} I \).
