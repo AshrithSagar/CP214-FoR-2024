@@ -21,3 +21,65 @@ Therefore, show that using certain assumptions, we can obtain the following simp
 \end{equation*}
 
 \subsection*{Solution}
+
+Given the single rigid model of the drone whose current orientation is represented by the rotation matrix \( R_c \in \text{SO}(3) \), we can rewrite the given relation as follows:
+\begin{equation*}
+    R_{k+1}
+    =
+    R_k \exp(\omega_k \Delta t)
+    \implies
+    \frac{R_{k+1}}{R_k}
+    =
+    \exp(\omega_k \Delta t)
+\end{equation*}
+Given that \( R_{1} = R_c \), we can arrive at the following by multiplying as a telescoping series:
+\begin{equation*}
+    \implies
+    \frac{R_{k+1}}{R_1}
+    =
+    \frac{R_{k+1}}{\cancel{R_k}}
+    \frac{\cancel{R_k}}{\cancel{R_{k-1}}}
+    \cdots
+    \frac{\cancel{R_2}}{R_1}
+    =
+    \exp(\omega_k \Delta t)
+    \exp(\omega_{k-1} \Delta t)
+    \cdots
+    \exp(\omega_1 \Delta t)
+\end{equation*}
+\begin{equation*}
+    \implies
+    R_{k+1}
+    =
+    R_1 \prod_{j=1}^{k} \exp(\omega_j \Delta t)
+    =
+    R_1 \exp \Big( \sum_{j=1}^{k} \omega_j \Delta t \Big)
+    =
+    R_c \exp \Big( \Delta t \sum_{j=1}^{k} \omega_j \Big)
+\end{equation*}
+since \( \Delta t \) is a constant, as given.
+
+We can see that this is the non-linear equation for the orientation of the drone.
+To linearise it, we will use the Taylor (Maclaurin) series expansion and truncate the higher order terms.
+The Taylor series expansion is given by:
+\begin{equation*}
+    \exp(a \Delta t)
+    =
+    I + a \Delta t + \frac{1}{2!} (a \Delta t)^2 + \frac{1}{3!} (a \Delta t)^3 + \cdots
+    \approx
+    I + a \Delta t
+\end{equation*}
+This approximation is valid for small values of \( a \Delta t \), so that the higher order terms become negligible.
+Thereby, we can write the linearised equation as:
+\begin{align*}
+    R_{k+1}
+     & =
+    R_c \exp \Big( \Delta t \sum_{j=1}^{k} \omega_j \Big)
+    \\
+    \implies
+    R_{k+1}
+     & \approx
+    R_c \Big( I + \Delta t \sum_{j=1}^{k} \omega_j \Big)
+\end{align*}
+
+This simplified linear form is much easier to work with than the non-linear form.
