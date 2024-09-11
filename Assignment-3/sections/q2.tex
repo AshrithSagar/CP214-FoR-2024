@@ -10,9 +10,6 @@ A \textit{rigid body transformation} is a transformation that preserves the dist
     \item The cross product is preserved, i.e., \( g_{*}(v \times w) = g_{*}(v) \times g_{*}(w) \) for all vectors \( v, w \in \mathbb{R}^{3} \)
 \end{enumerate}
 
-For the matrix \( R \in S O(3) \), we have shown in the previous question that it satisfies the property \( R(v \times w) = (R v) \times (R w) \).
-Thereby, the rotation matrix \underline{preserves the cross product} of two vectors.
-
 \subsubsection*{Preservation of Distance}
 
 Since \( R \) preserves the length, as shown in the previous question, we can show that the distance between any two points is preserved under the transformation \( R \).
@@ -58,5 +55,10 @@ since \(R^{T} R = I \implies \lVert R^T \rVert \lVert R \rVert = \lVert I \rVert
 
 From here, we can see that \( \theta' = \theta \) since we define the angle between two vectors as being th principle value, i.e., the angle between the vectors is in the range \([0, 2\pi)\).
 Hence, the \underline{angle between \(v\) and \(w\) is preserved} under the transformation \(R\).
+
+\subsubsection*{Preservation of Orientation}
+
+For the matrix \( R \in S O(3) \), we have shown in the previous question that it satisfies the property \( R(v \times w) = (R v) \times (R w) \).
+Hence, the rotation matrix \underline{preserves the cross product} of two vectors, and thereby the orientation between any two vectors.
 
 Therefore, since \( R \) preserves distance and the cross product as required, we have that \underline{ \(R \in S O(3)\) is a rigid body transformation }.
