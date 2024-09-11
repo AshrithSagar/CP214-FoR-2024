@@ -62,6 +62,12 @@ Now, we have to show that \( \det(R_a) = +1 \).
     \\ & = \frac{1}{\det(I - \hat{a})} \det(I + \hat{a})
 \end{align*}
 
+Now, we observe that a skew-symmetric matrix \( \hat{a} \) has eigenvalues of the form \( \pm i \lambda \) where \( \lambda \) is a real number.
+Hence, the eigenvalues of \( I - \hat{a} \) will be of the form \( 1 \pm i \lambda \) and the eigenvalues of \( I + \hat{a} \) will be of the form \( 1 \mp i \lambda \), thereby implying that they have the same eigenvalues.
+Since the determinant of a matrix is the product of its eigenvalues, we have that \( \det(I - \hat{a}) = \det(I + \hat{a}) \), which gives us that \( \det(R_a) = 1 \).
+
+Hence, \( \boxed{ R_a \in SO(3) } \).
+
 \subsection*{Computing Cayley parameters given \( R \) }
 
 Given \( R \in SO(3) \), we have that
