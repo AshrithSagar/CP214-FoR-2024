@@ -9,3 +9,32 @@ Let \(a\) be a vector in \(\mathbb{R}^{3}\) and let \(\hat{a}\) be the associate
 \end{enumerate}
 
 \subsection*{Solution}
+
+The special orthogonal group \( SO(3) \) is defined as
+\[
+    SO(3) = \{ R \in \mathbb{R}^{3 \times 3} \mid R R^{T} = I, \det(R) = +1 \}
+\]
+
+\subsubsection*{(a) \( R_{a}=(I-\hat{a})^{-1}(I+\hat{a}) \) satisfies the properties of \( SO(3) \)}
+
+First, we will try to show that \( R_{a} \) is an orthogonal matrix, i.e., \( R_{a} R_{a}^{T} = R_{a}^{T} R_{a} = I \).\\
+Since \( \hat a \) is a skew-symmetric matrix, we have that \( \hat a^{T} = -\hat a \).
+\begin{align*}
+    \implies
+    R_a^T
+     & =
+    \left( (I - \hat{a})^{-1} (I + \hat{a}) \right)^T
+    \\ & =
+    (I + \hat{a})^T (I - \hat{a})^{-T}
+    \\ & =
+    (I^T + \hat{a}^T) (I^T - \hat{a}^T)^{-1}
+    \\ & =
+    (I - \hat{a}) (I + \hat{a})^{-1}
+    \\
+    \implies
+    R_a R_a^T
+     & =
+    (I - \hat{a})^{-1} (I + \hat{a}) (I - \hat{a}) (I + \hat{a})^{-1}
+    \\ & =
+    (I - \hat{a})^{-1} (I^2 - \hat{a}^2) (I + \hat{a})^{-1}
+\end{align*}
