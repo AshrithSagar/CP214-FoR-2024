@@ -35,6 +35,22 @@ Since \( \hat a \) is a skew-symmetric matrix, we have that \( \hat a^{T} = -\ha
     R_a R_a^T
      & =
     (I - \hat{a})^{-1} (I + \hat{a}) (I - \hat{a}) (I + \hat{a})^{-1}
-    \\ & =
-    (I - \hat{a})^{-1} (I^2 - \hat{a}^2) (I + \hat{a})^{-1}
 \end{align*}
+
+Now, we can observe that \( (I + \hat{a}) (I - \hat{a}) = I^2 - \hat{a}^2 = (I - \hat{a}) (I + \hat{a}) \).\\
+Thereby commutativity holds for \( (I - \hat{a}) \) and \( (I + \hat{a}) \).
+\begin{align*}
+    \implies
+    R_a R_a^T
+     & =
+    (I - \hat{a})^{-1} (I + \hat{a}) (I - \hat{a}) (I + \hat{a})^{-1}
+    \\ & =
+    (I - \hat{a})^{-1} (I - \hat{a}) (I + \hat{a}) (I + \hat{a})^{-1}
+    \\ & =
+    \Big((I - \hat{a})^{-1} (I - \hat{a}) \Big) \Big( (I + \hat{a}) (I + \hat{a})^{-1} \Big)
+    \\ & =
+    (I)(I)
+    = I
+\end{align*}
+Thereby, \( R_a R_a^T = I \).
+Now, we have to show that \( \det(R_a) = +1 \).
