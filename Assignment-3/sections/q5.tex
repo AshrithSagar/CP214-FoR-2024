@@ -10,12 +10,12 @@ Let \(a\) be a vector in \(\mathbb{R}^{3}\) and let \(\hat{a}\) be the associate
 
 \subsection*{Solution}
 
+\subsubsection*{(a) \( R_{a}=(I-\hat{a})^{-1}(I+\hat{a}) \) satisfies the properties of \( SO(3) \)}
+
 The special orthogonal group \( SO(3) \) is defined as
 \[
     SO(3) = \{ R \in \mathbb{R}^{3 \times 3} \mid R R^{T} = I, \det(R) = +1 \}
 \]
-
-\subsubsection*{(a) \( R_{a}=(I-\hat{a})^{-1}(I+\hat{a}) \) satisfies the properties of \( SO(3) \)}
 
 First, we will try to show that \( R_{a} \) is an orthogonal matrix, i.e., \( R_{a} R_{a}^{T} = R_{a}^{T} R_{a} = I \).\\
 Since \( \hat a \) is a skew-symmetric matrix, we have that \( \hat a^{T} = -\hat a \).
@@ -24,11 +24,11 @@ Since \( \hat a \) is a skew-symmetric matrix, we have that \( \hat a^{T} = -\ha
     R_a^T
      & =
     \left( (I - \hat{a})^{-1} (I + \hat{a}) \right)^T
-    \\ & =
+    =
     (I + \hat{a})^T (I - \hat{a})^{-T}
     \\ & =
     (I^T + \hat{a}^T) (I^T - \hat{a}^T)^{-1}
-    \\ & =
+    =
     (I - \hat{a}) (I + \hat{a})^{-1}
     \\
     \implies
@@ -58,6 +58,43 @@ Now, we have to show that \( \det(R_a) = +1 \).
     \implies
     \det(R_a)
      & = \det \Big( (I - \hat{a})^{-1} (I + \hat{a}) \Big)
-    \\ & = \det \Big( (I - \hat{a})^{-1} \Big) \det \Big( (I + \hat{a}) \Big)
+    \\ & = \det \left( (I - \hat{a})^{-1} \right) \det (I + \hat{a})
     \\ & = \frac{1}{\det(I - \hat{a})} \det(I + \hat{a})
 \end{align*}
+
+\subsection*{Computing Cayley parameters given \( R \) }
+
+Given \( R \in SO(3) \), we have that
+\begin{align*}
+    R
+     & =
+    (I - \hat{a})^{-1} (I + \hat{a})
+    \\
+    \implies
+    (I - \hat{a}) R
+     & =
+    (I + \hat{a})
+    \\
+    \implies
+    R - \hat{a} R
+     & =
+    I + \hat{a}
+    \\
+    \implies
+    R - I
+     & =
+    \hat{a} R + \hat{a}
+    \\
+    \implies
+    R - I
+     & =
+    \hat{a} (R + I)
+    \\
+    \implies
+    \hat{a}
+     & =
+    (R - I)(R + I)^{-1}
+\end{align*}
+provided that \( R + I \) is invertible, which is possible when (-1) is not an eigenvalue of \( R \).
+
+Hence, the Cayley parameters can be computed from \( R \) using \( \boxed{ \hat{a} = (R - I)(R + I)^{-1} } \).
