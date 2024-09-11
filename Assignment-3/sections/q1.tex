@@ -10,7 +10,9 @@ Prove that given \(R \in S O(3)\) and \(v, w \in \mathbb{R}^{3}\), the following
 
 \subsubsection*{(a) \( R(v \times w) =(R v) \times(R w) \)}
 
-We have
+This property illustrates the rotational invariance of cross product.
+
+We know that the special orthogonal group \( SO(3) \) is defined as
 \[
     SO(3) = \{ R \in \mathbb{R}^{3 \times 3} \mid R R^{T} = I, \det(R) = +1 \}
 \]
@@ -46,6 +48,71 @@ We can see that the cross product of two vectors can be expressed in terms of le
     v \times w = \left \| v \right \| \left \| w \right \| \sin(\theta) \hat{n}
 \]
 where \( \hat{n} \) is the unit vector perpendicular to the plane containing \( v \) and \( w \), and \( \theta \) is the angle between the vectors.
+The convention is to use the right-hand thumb rule to determine the direction of the cross product.
+
+Let \( u, v, w \in \mathbb{R}^{3} \) be three vectors.
+Now, consider the scalar triple product \( u \cdot (v \times w) \), which can be written as a determinant as follows:
+\[
+    u \cdot (v \times w)
+    =
+    \begin{vmatrix}
+        u_{1} & v_{1} & w_{1} \\
+        u_{2} & v_{2} & w_{2} \\
+        u_{3} & v_{3} & w_{3}
+    \end{vmatrix}
+    =
+    \det
+    \begin{bmatrix}
+        u & v & w
+    \end{bmatrix}_{3 \times 3}
+\]
+From this, we can see that after a rotation by \( R \), we would have
+\begin{align*}
+    R u \cdot (R v \times R w)
+     & =
+    \det
+    \begin{bmatrix}
+        R u & R v & R w
+    \end{bmatrix}_{3 \times 3}
+    \\ & =
+    \det \Big(
+    R \begin{bmatrix}
+          u & v & w
+      \end{bmatrix}_{3 \times 3}
+    \Big)
+    \\ & =
+    (\det R)
+    \Big( \det
+    \begin{bmatrix}
+        u & v & w
+    \end{bmatrix}_{3 \times 3} \Big)
+    \\ & =
+    \det
+    \begin{bmatrix}
+        u & v & w
+    \end{bmatrix}_{3 \times 3}
+    \\ & =
+    u \cdot (v \times w)
+\end{align*}
+But now since the dot product is preserved, as shown above, we have that, by considering \( (v \times w) \) as one quantity,
+\[
+    u \cdot (v \times w)
+    =
+    R u \cdot R (v \times w)
+\]
+Thereby,
+\[
+    R u \cdot R (v \times w)
+    =
+    R u \cdot (R v \times R w)
+\]
+Now, since the dot product is preserved, and since the above equation holds for all \( u, v, w \in \mathbb{R}^{3} \), we have that
+\[
+    R (v \times w)
+    =
+    R v \times R w
+\]
+Hence, \( \boxed{ R(v \times w) =(R v) \times(R w) } \).
 
 \subsubsection*{(b) \( R \hat{w} R^{T} =\widehat{R w} \)}
 
@@ -83,6 +150,6 @@ Now, for a vector \( v \in \mathbb{R}^{3} \), we have
     =
     \widehat{R w} v
 \]
-where we used the property that \( R R^{T} = I \).
+where we used the property that \( R R^{T} = I \), and the above property (a).
 
 Hence, \( \boxed{ R \hat{w} R^{T} = \widehat{R w} } \).
