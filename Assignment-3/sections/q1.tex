@@ -15,6 +15,31 @@ We have
     SO(3) = \{ R \in \mathbb{R}^{3 \times 3} \mid R R^{T} = I, \det(R) = +1 \}
 \]
 
+We will show that the rotation matrix \( R \) preserves length, the dot product and the cross product of two vectors.
+Let \( v, w \in \mathbb{R}^{3} \) be two vectors.
+\begin{align*}
+    \implies
+    \left \| R v \right \| ^{2}
+        = {(R v)}^{T} (R v)
+    = (v^{T} R^{T}) (R v)
+    = v^{T} (R^{T} R) v
+    = v^{T} v
+    = \left \| v \right \| ^{2}
+\end{align*}
+Thereby, transformation by the rotation matrix \( R \) \underline{preserves the length} of a vector.
+
+We can show that any length-preserving transformation preserves the dot product, by using the fact that the dot product can completely be expressed in terms of the lengths of the vectors as seen in the following identity, which is the law of cosines:
+\begin{align*}
+    v \cdot w
+     & = \frac{1}{2} \left( \left \| v + w \right \| ^{2} - \left \| v \right \| ^{2} - \left \| w \right \| ^{2} \right)
+    \\ \implies
+    (R v) \cdot (R w)
+     & = \frac{1}{2} \left( \left \| R v + R w \right \| ^{2} - \left \| R v \right \| ^{2} - \left \| R w \right \| ^{2} \right)
+    \\ & = \frac{1}{2} \left( \left \| R (v + w) \right \| ^{2} - \left \| R v \right \| ^{2} - \left \| R w \right \| ^{2} \right)
+    \\ & = \frac{1}{2} \left( \left \| v + w \right \| ^{2} - \left \| v \right \| ^{2} - \left \| w \right \| ^{2} \right)
+    = v \cdot w
+\end{align*}
+Thereby, transformation by the rotation matrix \( R \) \underline{preserves the dot product} of two vectors.
 
 \subsubsection*{(b) \( R \hat{w} R^{T} =\widehat{R w} \)}
 
