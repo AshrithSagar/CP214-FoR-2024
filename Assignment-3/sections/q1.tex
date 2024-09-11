@@ -39,7 +39,13 @@ We can show that any length-preserving transformation preserves the dot product,
     \\ & = \frac{1}{2} \left( \left \| v + w \right \| ^{2} - \left \| v \right \| ^{2} - \left \| w \right \| ^{2} \right)
     = v \cdot w
 \end{align*}
-Thereby, transformation by the rotation matrix \( R \) \underline{preserves the dot product} of two vectors.
+Thereby, transformation by the rotation matrix \( R \) \underline{preserves the dot product} of two vectors, and thereby also \underline{preserves the angle} between the vectors.
+
+We can see that the cross product of two vectors can be expressed in terms of length and the angle between the vectors, since
+\[
+    v \times w = \left \| v \right \| \left \| w \right \| \sin(\theta) \hat{n}
+\]
+where \( \hat{n} \) is the unit vector perpendicular to the plane containing \( v \) and \( w \), and \( \theta \) is the angle between the vectors.
 
 \subsubsection*{(b) \( R \hat{w} R^{T} =\widehat{R w} \)}
 
