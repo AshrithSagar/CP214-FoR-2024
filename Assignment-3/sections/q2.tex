@@ -4,9 +4,18 @@ Prove that \(R \in S O(3)\) is a rigid body transformation, i.e \(R\) preserves 
 
 \subsection*{Solution}
 
-To prove that \(R \in S O(3)\) is a rigid body transformation, we need to show that it preserves distance and orientation.
+A \textit{rigid body transformation} is a transformation that preserves the distance between any two points and the orientation between any two vectors, i.e., it is a mapping \( g: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3} \) such that the distance and cross product are preserved:
+\begin{enumerate}
+    \item \( \lVert g(p) - g(q) \rVert = \lVert p - q \rVert \) for all points \( p, q \in \mathbb{R}^{3} \)
+    \item The cross product is preserved, i.e., \( g_{*}(v \times w) = g_{*}(v) \times g_{*}(w) \) for all vectors \( v, w \in \mathbb{R}^{3} \)
+\end{enumerate}
+
+For the matrix \( R \in S O(3) \), we have shown in the previous question that it satisfies the property \( R(v \times w) = (R v) \times (R w) \).
+Thereby, the rotation matrix \underline{preserves the cross product} of two vectors.
 
 \subsubsection*{Preservation of Distance}
+
+Since \( R \) preserves the length, as shown in the previous question, we can show that the distance between any two points is preserved under the transformation \( R \).
 
 Let \(v, w \in \mathbb{R}^{3}\) be two vectors. The distance between \(v\) and \(w\) is given by
 \[
@@ -25,26 +34,29 @@ Now, let \(v' = R v\) and \(w' = R w\). The distance between \(v'\) and \(w'\) i
     \\ & = \lVert v - w \rVert
 \end{align*}
 
-Hence, the distance between \(v\) and \(w\) is preserved under the transformation \(R\).
+Hence, the \underline{distance between \(v\) and \(w\) is preserved} under the transformation \(R\).
 
-\subsubsection*{Preservation of Orientation}
+\subsubsection*{Preservation of Angle}
 
-Let \(v, w \in \mathbb{R}^{3}\) be two vectors. The orientation between \(v\) and \(w\) is given by
+Since the dot product is preserved, as seen in the previous question, we can see that the angle between any two vectors is preserved under the transformation \( R \).
+
+Let \(v, w \in \mathbb{R}^{3}\) be two vectors. The angle between \(v\) and \(w\) satisfies
 \[
     \cos(\theta) = \frac{v^{T} w}{\lVert v \rVert \lVert w \rVert}
 \]
 
-Now, let \(v' = R v\) and \(w' = R w\). The orientation between \(v'\) and \(w'\) is given by
+Now, let \(v' = R v\) and \(w' = R w\). The angle between \(v'\) and \(w'\) satisfies
 \begin{align*}
     \cos(\theta')
      & = \frac{{(R v)}^{T} (R w)}{\lVert R v \rVert \lVert R w \rVert}
     \\ & = \frac{v^{T} R^{T} R w}{\lVert R \rVert \lVert v \rVert \lVert R \rVert \lVert w \rVert}
+    \\ & = \frac{v^{T} R^{T} R w}{\lVert R \rVert ^ 2 \lVert v \rVert \lVert w \rVert}
     \\ & = \frac{v^{T} w}{\lVert v \rVert \lVert w \rVert}
     \\ & = \cos(\theta)
 \end{align*}
+since \(R^{T} R = I \implies \lVert R^T \rVert \lVert R \rVert = \lVert I \rVert \implies \lVert R \rVert ^2 = 1\).
 
-since \(R^{T} R = I \implies \lVert R \rVert^2 = 1\).
+From here, we can see that \( \theta' = \theta \) since we define the angle between two vectors as being th principle value, i.e., the angle between the vectors is in the range \([0, 2\pi)\).
+Hence, the \underline{angle between \(v\) and \(w\) is preserved} under the transformation \(R\).
 
-Hence, the orientation between \(v\) and \(w\) is preserved under the transformation \(R\).
-
-Therefore, \underline{ \(R \in S O(3)\) is a rigid body transformation }.
+Therefore, since \( R \) preserves distance and the cross product as required, we have that \underline{ \(R \in S O(3)\) is a rigid body transformation }.
