@@ -22,52 +22,65 @@ Therefore, show that using certain assumptions, we can obtain the following simp
 
 \subsection*{Solution}
 
-Given the single rigid model of the drone whose current orientation is represented by the rotation matrix \( R_c \in \text{SO}(3) \), we can rewrite the given relation as follows:
+Given the single rigid body model of the drone whose current orientation is represented by the rotation matrix \( R_c \in \text{SO}(3) \), we have
 \begin{equation*}
     R_{k+1}
     =
     R_k \exp(\omega_k \Delta t)
-    \implies
-    \frac{R_{k+1}}{R_k}
-    =
-    \exp(\omega_k \Delta t)
 \end{equation*}
-Given that \( R_{1} = R_c \), we can arrive at the following by multiplying as a telescoping series:
-\begin{equation*}
-    \implies
-    \frac{R_{k+1}}{R_1}
-    =
-    \frac{R_{k+1}}{\cancel{R_k}}
-    \frac{\cancel{R_k}}{\cancel{R_{k-1}}}
-    \cdots
-    \frac{\cancel{R_2}}{R_1}
-    =
-    \exp(\omega_k \Delta t)
-    \exp(\omega_{k-1} \Delta t)
-    \cdots
-    \exp(\omega_1 \Delta t)
-\end{equation*}
-\begin{equation*}
+where \( R_k \) are rotations matrices and \( R_{1} = R_c \).
+The Rodrigues rotation formula provides a way to compute the exponential map \( \exp(.) \) from \(so(3)\) to \(SO(3)\) as
+\[
+    R = I +(\sin \theta )\hat\omega +(1-\cos \theta )\hat\omega^2
+\]
+Given that \( R_{1} = R_c \), we can observe the following:
+\begin{align*}
+    R_{2}
+     & =
+    R_{1} \exp(\omega_1 \Delta t)
+    \\
+    R_{3}
+     & =
+    R_{2} \exp(\omega_2 \Delta t)
+    \\ &
+    \vdots
+    \\
+    R_{k+1}
+     & =
+    R_{k} \exp(\omega_k \Delta t)
+    \\
+\end{align*}
+\begin{align*}
     \implies
     R_{k+1}
-    =
+     & =
+    R_1 \exp(\omega_1 \Delta t) \exp(\omega_2 \Delta t) \cdots \exp(\omega_k \Delta t)
+    \\
+    \implies
+    R_{k+1}
+     & =
     R_1 \prod_{j=1}^{k} \exp(\omega_j \Delta t)
-    =
-    R_1 \exp \Big( \sum_{j=1}^{k} \omega_j \Delta t \Big)
-    =
-    R_c \exp \Big( \Delta t \sum_{j=1}^{k} \omega_j \Big)
-\end{equation*}
-since \( \Delta t \) is a constant, as given.
+\end{align*}
+where on the right hand side, we have a product of matrix exponentials.
 
 We can see that this is the non-linear equation for the orientation of the drone.
 To linearise it, we will use the Taylor (Maclaurin) series expansion and truncate the higher order terms.
-The Taylor series expansion is given by:
+The Taylor series expansion for \( \exp(x) \) for a scalar \( x \) is given by:
 \begin{equation*}
-    \exp(a \Delta t)
+    \exp(x)
     =
-    I + a \Delta t + \frac{1}{2!} (a \Delta t)^2 + \frac{1}{3!} (a \Delta t)^3 + \cdots
-    \approx
-    I + a \Delta t
+    1 + x + \frac{1}{2!} x^2 + \frac{1}{3!} x^3 + \cdots
+    =
+    \sum_{k=0}^{\infty} \frac{x^k}{k!}
+\end{equation*}
+which is an analytic function since the power series converges.
+Thereby, we can write the matrix analogue of the above equation as
+\begin{equation*}
+    \exp(A)
+    =
+    I + A + \frac{1}{2!} A^2 + \frac{1}{3!} A^3 + \cdots
+    =
+    \sum_{k=0}^{\infty} \frac{1}{k!} A^k
 \end{equation*}
 This approximation is valid for small values of \( a \Delta t \), so that the higher order terms become negligible.
 Thereby, we can write the linearised equation as:
