@@ -8,8 +8,7 @@ Using some math (which you will learn about by the end of the course), we can de
     R_{k+1}=R_{k} \exp \left(\omega_{k} \Delta t\right)
 \end{equation*}
 where \(R_{k}\) is the rotation at the \(k^{\text {th }}\) time step
-(Note: For \(k=1\), we have \(\left.R_{k}=R_{c}\right), \Delta t\)
-is a discretization constant, and \(\omega_{k}\) is the drone's angular velocity at the \(k^{\text {th }}\) time step
+(Note: For \(k=1\), we have \(R_{k}=R_{c} \)), \( \Delta t \) is a discretization constant, and \(\omega_{k}\) is the drone's angular velocity at the \(k^{\text {th }}\) time step
 (Note: It has its own update rule, which you need not worry about in this problem).
 The operator \(\exp (\cdot)\) is the matrix exponential from \(s o(3)\) to \(S O(3)\) (also known as Rodrigues' rotation formula).
 
@@ -84,6 +83,8 @@ Thereby, we can write the matrix analogue of the above equation as
     =
     \sum_{k=0}^{\infty} \frac{1}{k!} A^k
 \end{equation*}
+which converges for every matrix \( A \).
+
 With the assumption that the \underline{discretization constant \( \Delta t \) is small}, we can approximate the exponential map as a linear function by a first-order approximation.
 For some \( \omega \in so(3)\), we have
 \begin{align*}
@@ -121,7 +122,6 @@ Thereby, we can write the linearised equation as
 
 This simplified linear form is much easier to work with than the non-linear form.
 
-\clearpage
 In general, this is a common technique in control theory to linearise non-linear systems around an operating point to make them easier to work with.
 
 \begin{figure}[htbp]
@@ -135,3 +135,15 @@ In general, this is a common technique in control theory to linearise non-linear
 Here, we modelled the drone as a \textit{single} rigid body and formulated the orientation of the drone at the \( k^{\text{th}} \) time step as a non-linear equation.
 This was followed by linearisation of the system to obtain a simpler form that is easier to work with in terms of \textit{computational complexity} and \textit{efficiency}.
 Thereby for the MPC formulation as mentioned above, this allows for a \textit{fast computation} for each time step under the validity of the assumptions made.
+
+\vspace*{2em}
+The non-commutativity of matrix multiplication requires some special care when dealing with matrix exponentials.
+In general this can be dealt with by using the \textit{Baker-Campbell-Hausdorff formula}, which provides a way to compute the product of exponentials of matrices for sufficiently small but not necessarily commuting matrices.
+\begin{equation*}
+    \exp(A) \exp(B)
+    =
+    \exp\Big(A+B+\frac{1}{2}[A,B]+\frac{1}{12}[A,[A,B]]-\frac{1}{12}[B,[A,B]]+\cdots\Big)
+\end{equation*}
+where \( [A,B] = AB - BA \) is the matrix commutator.
+For small matrices, the series is convergent and can be truncated to a few terms for an approximation.
+This arises for possibly non-commutative \( A \) and \( B \) in the Lie algebra of a Lie group.
