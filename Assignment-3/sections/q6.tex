@@ -28,7 +28,8 @@ Given the single rigid body model of the drone whose current orientation is repr
     =
     R_k \exp(\omega_k \Delta t)
 \end{equation*}
-where \( R_k \) are rotations matrices and \( R_{1} = R_c \).
+where \( R_k \) are rotations matrices at the \( k^{\text{th}} \) time step, with \( R_{1} = R_c \), and \( \omega_k \) are the drone's angular velocities at the \( k^{\text{th}} \) time step.
+The \( \omega_k \) terms are written as a skew-symmetric matrix \( \hat\omega \) such that they are in \( so(3) \).
 The Rodrigues rotation formula provides a way to compute the exponential map \( \exp(.) \) from \(so(3)\) to \(SO(3)\) as
 \[
     R = I +(\sin \theta )\hat\omega +(1-\cos \theta )\hat\omega^2
@@ -59,9 +60,10 @@ Given that \( R_{1} = R_c \), we can observe the following:
     \implies
     R_{k+1}
      & =
-    R_1 \prod_{j=1}^{k} \exp(\omega_j \Delta t)
+    R_c \prod_{j=1}^{k} \exp(\omega_j \Delta t)
 \end{align*}
 where on the right hand side, we have a product of matrix exponentials.
+Note the order of the terms, since matrix multiplication is in general not commutative.
 
 We can see that this is the non-linear equation for the orientation of the drone.
 To linearise it, we will use the Taylor (Maclaurin) series expansion and truncate the higher order terms.
@@ -82,17 +84,36 @@ Thereby, we can write the matrix analogue of the above equation as
     =
     \sum_{k=0}^{\infty} \frac{1}{k!} A^k
 \end{equation*}
-This approximation is valid for small values of \( a \Delta t \), so that the higher order terms become negligible.
-Thereby, we can write the linearised equation as:
+With the assumption that the discretization constant \( \Delta t \) is small, we can approximate the exponential map as a linear function.
+For some \( \omega \in so(3)\), we have
+\begin{align*}
+    \exp(\omega \Delta t)
+     & =
+    I + \omega \Delta t + \frac{1}{2!} {(\omega \Delta t)}^2 + \frac{1}{3!} {(\omega \Delta t)}^3 + \cdots
+    \\ & =
+    I + \omega \Delta t + \frac{{(\Delta t)}^2}{2!} \omega^2 + \frac{{(\Delta t)}^3}{3!} \omega^3 + \cdots
+    \\ & =
+    I + \omega \Delta t + O({\Delta t}^2)
+    \\
+     & \approx
+    I + \omega \Delta t
+\end{align*}
+where we have that the higher-order terms are of order \( O({\Delta t}^2) \) and go to zero as \( \Delta t \) goes to zero.
+This approximation is valid for small values of \( \Delta t \).
+Thereby, we can write the linearised equation as
 \begin{align*}
     R_{k+1}
      & =
-    R_c \exp \Big( \Delta t \sum_{j=1}^{k} \omega_j \Big)
+    R_c \exp(\omega_1 \Delta t) \exp(\omega_2 \Delta t) \cdots \exp(\omega_k \Delta t)
+    \\ & \approx
+    R_c (I + \omega_1 \Delta t) (I + \omega_2 \Delta t) \cdots (I + \omega_k \Delta t)
+    \\ & =
+    R_c \left( I + \Delta t \sum_{j=1}^{k} \omega_j + O({\Delta t}^2) \right)
     \\
     \implies
     R_{k+1}
      & \approx
-    R_c \Big( I + \Delta t \sum_{j=1}^{k} \omega_j \Big)
+    R_c \left( I + \sum_{j=1}^{k} \omega_j \Delta t \right)
 \end{align*}
 
 This simplified linear form is much easier to work with than the non-linear form.
