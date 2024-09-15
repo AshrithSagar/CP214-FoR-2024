@@ -120,3 +120,18 @@ Thereby, we can write the linearised equation as
 \end{equation*}
 
 This simplified linear form is much easier to work with than the non-linear form.
+
+\clearpage
+In general, this is a common technique in control theory to linearise non-linear systems around an operating point to make them easier to work with.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/q6/_}
+    \caption{
+        Overview of model formulations
+    }\label{fig:q6-flowchart}
+\end{figure}
+
+Here, we modelled the drone as a \textit{single} rigid body and formulated the orientation of the drone at the \( k^{\text{th}} \) time step as a non-linear equation.
+This was followed by linearisation of the system to obtain a simpler form that is easier to work with in terms of \textit{computational complexity} and \textit{efficiency}.
+Thereby for the MPC formulation as mentioned above, this allows for a \textit{fast computation} for each time step under the validity of the assumptions made.
