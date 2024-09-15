@@ -30,7 +30,7 @@ Given the single rigid body model of the drone whose current orientation is repr
 \end{equation*}
 where \( R_k \) are rotations matrices at the \( k^{\text{th}} \) time step, with \( R_{1} = R_c \), and \( \omega_k \) are the drone's angular velocities at the \( k^{\text{th}} \) time step.
 The \( \omega_k \) terms are written as a skew-symmetric matrix \( \hat\omega \) such that they are in \( so(3) \).
-The Rodrigues rotation formula provides a way to compute the exponential map \( \exp(.) \) from \(so(3)\) to \(SO(3)\) as
+The Rodrigues rotation formula provides a way to compute the exponential map \( \exp(.) \) from \( \hat \omega \in so(3)\) to \( R \in SO(3)\) for some \( \theta \in \mathbb{R} \) as
 \[
     R = I +(\sin \theta )\hat\omega +(1-\cos \theta )\hat\omega^2
 \]
@@ -38,7 +38,7 @@ Given that \( R_{1} = R_c \), we can observe the following:
 \begin{align*}
     R_{2}
      & =
-    R_{1} \exp(\omega_1 \Delta t)
+    R_{c} \exp(\omega_1 \Delta t)
     \\
     R_{3}
      & =
@@ -55,7 +55,7 @@ Given that \( R_{1} = R_c \), we can observe the following:
     \implies
     R_{k+1}
      & =
-    R_1 \exp(\omega_1 \Delta t) \exp(\omega_2 \Delta t) \cdots \exp(\omega_k \Delta t)
+    R_c \exp(\omega_1 \Delta t) \exp(\omega_2 \Delta t) \cdots \exp(\omega_k \Delta t)
     \\
     \implies
     R_{k+1}
@@ -84,7 +84,7 @@ Thereby, we can write the matrix analogue of the above equation as
     =
     \sum_{k=0}^{\infty} \frac{1}{k!} A^k
 \end{equation*}
-With the assumption that the discretization constant \( \Delta t \) is small, we can approximate the exponential map as a linear function.
+With the assumption that the \underline{discretization constant \( \Delta t \) is small}, we can approximate the exponential map as a linear function by a first-order approximation.
 For some \( \omega \in so(3)\), we have
 \begin{align*}
     \exp(\omega \Delta t)
@@ -99,7 +99,7 @@ For some \( \omega \in so(3)\), we have
     I + \omega \Delta t
 \end{align*}
 where we have that the higher-order terms are of order \( O({\Delta t}^2) \) and go to zero as \( \Delta t \) goes to zero.
-This approximation is valid for small values of \( \Delta t \).
+This approximation is valid for small values of \( \Delta t \) and small changes of the angular velocity.
 Thereby, we can write the linearised equation as
 \begin{align*}
     R_{k+1}
@@ -109,11 +109,14 @@ Thereby, we can write the linearised equation as
     R_c (I + \omega_1 \Delta t) (I + \omega_2 \Delta t) \cdots (I + \omega_k \Delta t)
     \\ & =
     R_c \left( I + \Delta t \sum_{j=1}^{k} \omega_j + O({\Delta t}^2) \right)
-    \\
-    \implies
-    R_{k+1}
-     & \approx
-    R_c \left( I + \sum_{j=1}^{k} \omega_j \Delta t \right)
 \end{align*}
+\begin{equation*}
+    \implies
+    \boxed{
+        R_{k+1}
+        \approx
+        R_c \left( I + \Delta t \sum_{j=1}^{k} \omega_j \right)
+    }
+\end{equation*}
 
 This simplified linear form is much easier to work with than the non-linear form.
