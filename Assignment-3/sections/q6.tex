@@ -122,7 +122,7 @@ Thereby, we can write the linearised equation as
 
 This simplified linear form is much easier to work with than the non-linear form.
 
-In general, this is a common technique in control theory to linearise non-linear systems around an operating point to make them easier to work with.
+In general, this is a common technique in control theory to linearise non-linear systems around an operating point to make them easier to work with, as seen in Figure~\ref{fig:q6-flowchart}.
 
 \begin{figure}[htbp]
     \centering
@@ -147,3 +147,35 @@ In general this can be dealt with by using the \textit{Baker-Campbell-Hausdorff 
 where \( [A,B] = AB - BA \) is the matrix commutator.
 For small matrices, the series is convergent and can be truncated to a few terms for an approximation.
 This arises for possibly non-commutative \( A \) and \( B \) in the Lie algebra of a Lie group.
+
+The skew-symmetric group \(so(3)\) is the Lie algebra associated with the Lie group \( SO(3) \).
+In the case of \( \omega_1 \) and \( \omega_2 \), this imples that
+\begin{align*}
+    \exp(\omega_1 \Delta t) \exp(\omega_2 \Delta t)
+     & =
+    \exp\Big(\omega_1 \Delta t + \omega_2 \Delta t + \frac{1}{2}[\omega_1 \Delta t, \omega_2 \Delta t] + \cdots\Big)
+    \\ & =
+    \exp \left( (\omega_1 + \omega_2) \Delta t + \frac{\Delta t^2}{2}[\omega_1, \omega_2] + \cdots \right)
+\end{align*}
+For \underline{small \(\Delta t\)}, the higher-order commutator terms become small, so we have
+\[
+    \exp(\omega_1 \Delta t) \exp(\omega_2 \Delta t) \approx \exp((\omega_1 + \omega_2) \Delta t)
+\]
+This is only an approximation and neglects second-order effects.
+Thereby, we have
+\begin{equation*}
+    R_{k+1}
+    \approx
+    R_c \exp((\omega_1 + \omega_2 + \cdots + \omega_k) \Delta t)
+    =
+    R_c \exp\left(\Delta t \sum_{j=1}^{k} \omega_j\right)
+\end{equation*}
+\begin{equation*}
+    \implies
+    \boxed{
+        R_{k+1}
+        \approx
+        R_c \left( I + \Delta t \sum_{j=1}^{k} \omega_j \right)
+    }
+\end{equation*}
+from the Taylor expansion as seen above.
