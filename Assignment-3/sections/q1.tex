@@ -30,7 +30,7 @@ Let \( v, w \in \mathbb{R}^{3} \) be two vectors.
 \end{align*}
 Thereby, transformation by the rotation matrix \( R \) \underline{preserves the length} of a vector.
 
-We can show that any length-preserving transformation preserves the dot product, by using the fact that the dot product can completely be expressed in terms of the lengths of the vectors as seen in the following identity, which is the law of cosines:
+We can show that any length-preserving transformation preserves the dot product, by using the fact that the dot product can completely be expressed in terms of the lengths of the vectors as seen in the following identity, which is by the law of cosines:
 \begin{align*}
     v \cdot w
      & = \frac{1}{2} \left( \left \| v + w \right \| ^{2} - \left \| v \right \| ^{2} - \left \| w \right \| ^{2} \right)
@@ -48,7 +48,7 @@ We can see that the cross product of two vectors can be expressed in terms of le
     v \times w = \left \| v \right \| \left \| w \right \| \sin(\theta) \hat{n}
 \]
 where \( \hat{n} \) is the unit vector perpendicular to the plane containing \( v \) and \( w \), and \( \theta \) is the angle between the vectors.
-The convention is to use the right-hand thumb rule to determine the direction of the cross product.
+The convention is to use the right-hand rule to determine the direction of the cross product.
 
 Let \( u, v, w \in \mathbb{R}^{3} \) be three vectors.
 Now, consider the scalar triple product \( u \cdot (v \times w) \), which can be written as a determinant as follows:
@@ -87,6 +87,7 @@ From this, we can see that after a rotation by \( R \), we would have
         u & v & w
     \end{bmatrix}_{3 \times 3} \Big)
     \\ & =
+    1 \cdot
     \det
     \begin{bmatrix}
         u & v & w
@@ -106,7 +107,7 @@ Thereby,
     =
     R u \cdot (R v \times R w)
 \]
-Now, since the dot product is preserved, and since the above equation holds for all \( u, v, w \in \mathbb{R}^{3} \), we have that
+Now, since the dot product is preserved as shown previously and since the above equation holds for all \( u, v, w \in \mathbb{R}^{3} \), we get
 \[
     R (v \times w)
     =
