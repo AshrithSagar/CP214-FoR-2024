@@ -1,5 +1,17 @@
 \section*{Problem 5}
 
+\textbf{Drone Orientation Error}:
+Recall Question 6 from Homework 3.
 
+For any ``planner/controller/AI'' aiming to follow a trajectory for the drone, it needs to assess how poorly it is currently performing or how poorly it will perform.
+One of the quantities it can examine is the error between the desired orientation \( R_{d} \in SO(3) \) and the current orientation \( R_{c} \in SO(3) \), or the \( k^{th} \) predicted orientation \( R_{k} \in SO(3) \).
+Now, answer the following questions for calculating this error.
+\begin{enumerate}[label= (\alph*)]
+    \item Simply computing \( \left \| R_{d}-R_{c}\right \| \) or \( \left \| R_{d}-R_{k}\right \| \) would yield incorrect results.
+          Why is this the case?
+    \item  Show that computing \( \left \| \log {\left(R_{d}^{T} R_{c}\right)}^{\vee}\right \| \) or \( \left \| \log {\left(R_{d}^{T} R_{k}\right)}^{\vee}\right \| \) is more appropriate, and provide a proper explanation.
+          Here, \( \log (\cdot) \) is the same as what was defined in Question 4 (Hint: you don't need to use the exact formula to answer this question), and the vee operator \( { }^{\vee} \) maps from so \( (3) \) to \( \mathbb{R}^{3} \) as the inverse of the hat operator.
+          For example, \( \hat{a}^{\vee}=a \), which extracts the vector from the corresponding skew-symmetric matrix.
+\end{enumerate}
 
 \subsection*{Solution}

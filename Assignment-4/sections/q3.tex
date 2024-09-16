@@ -1,5 +1,21 @@
 \section*{Problem 3}
 
+Properties of the matrix exponential:
+Let \( A \) be a matrix in \( \mathbb{R}^{n \times n} \).
+The exponential of \( A \) is defined as
+\begin{equation*}
+    e^{A}=I+A+A^{2} / 2!+A^{3} / 3!+\cdots
+\end{equation*}
+\begin{enumerate}[label= (\alph*)]
+    \item Let \( g \in \mathbb{R}^{n \times n} \) be an invertible matrix. Show that the following equality is true:
+          \begin{equation*}
+              g e^{A} g^{-1}=e^{g A g^{-1}}
+          \end{equation*}
 
+    \item Verify that for \( \theta \in \mathbb{R} \) below holds (Here \( \dot{\theta} \equiv \frac{d \theta}{d t} \) ).
+          \begin{equation*}
+              \frac{d}{d t} e^{A \theta}=(\dot{\theta}) e^{A \theta}=e^{A \theta}(A \dot{\theta})
+          \end{equation*}
+\end{enumerate}
 
 \subsection*{Solution}
