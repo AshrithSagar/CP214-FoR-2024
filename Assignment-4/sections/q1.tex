@@ -4,3 +4,52 @@ Show that \( so(3) \) is a vector space.
 Determine its dimension and give a basis for \( so(3) \).
 
 \subsection*{Solution}
+
+The vector space skew-symmetric matrix group \( so(3) \) is defined as the set of all skew-symmetric matrices of size \( 3 \times 3 \).
+\begin{equation*}
+    so(3) = \left \{ A \in \mathbb{R}^{3 \times 3} \mid A^{T}=-A \right \}
+\end{equation*}
+
+Let \( \hat u, \hat v, \hat w \in so(3) \).
+Since these are skew-symmetric matrices, we have
+\[
+    \hat u^{T} = -\hat u, \quad \hat v^{T} = -\hat v, \quad \hat w^{T} = -\hat w
+\]
+
+For \( so(3) \) to be a vector space, we need to show that it satisfies the following properties.
+
+\subsubsection*{Closure under addition: \( \hat v + \hat w \in so(3) \quad \forall \hat v, \hat w \in so(3) \)}
+
+
+By the linearity of the transpose operation, we have
+\begin{equation*}
+    {(\hat v + \hat w)}^{T} = \hat v^{T} + \hat w^{T} = -\hat v - \hat w = -(\hat v + \hat w)
+\end{equation*}
+
+Hence, \( \hat v + \hat w \) is also skew-symmetric matrix and \( \hat v + \hat w \in so(3) \).
+
+\subsubsection*{Closure under scalar multiplication: \( c \cdot \hat v \in so(3) \quad \forall c \in \mathbb{R}, \hat v \in so(3) \)}
+
+\begin{equation*}
+    \implies
+    {(c \cdot \hat v)}^{T} = c \cdot \hat v^{T} = c \cdot (-\hat v) = -(c \cdot \hat v)
+\end{equation*}
+
+Hence, \( c \cdot \hat v \) is also skew-symmetric matrix and \( c \cdot \hat v \in so(3) \).
+
+\subsubsection*{Additive identity: \( \hat 0 \in so(3) \)}
+
+\begin{equation*}
+    \hat 0 + \hat v = \hat v + \hat 0 = \hat v
+\end{equation*}
+The zero matrix is skew-symmetric, as \( \hat 0^{T} = -\hat 0 \).
+Hence, \( \hat 0 \in so(3) \).
+
+\subsubsection*{Additive inverse: \( -\hat v \in so(3) \quad \forall \hat v \in so(3) \)}
+
+\begin{equation*}
+    {(-\hat v)}^{T} = -\hat v^{T} = -(-\hat v) = \hat v
+\end{equation*}
+Since \( \hat v \in so(3) \), hence, we have \( -\hat v \in so(3) \).
+
+Therefore, \underline{\( so(3) \) is a vector space}.
