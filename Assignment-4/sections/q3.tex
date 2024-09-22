@@ -71,3 +71,36 @@ Now, we have
     \\ & =
     e^{g A g^{-1}}
 \end{align*}
+
+\subsubsection*{(b) \( \displaystyle \frac{d}{d t} e^{A \theta}=(A\dot{\theta}) e^{A \theta}=e^{A \theta}(A \dot{\theta}) \)}
+
+Given that \( \theta \in \mathbb{R} \), we have
+\begin{align*}
+    \frac{d}{d t} e^{A \theta}
+     & =
+    \frac{d}{d t} \left( I+A \theta+\frac{\theta^{2}}{2 !}A^{2}+\frac{\theta^{3}}{3 !}A^{3}+\cdots \right)
+    \\ & =
+    0+A \frac{d \theta}{d t}+\theta \frac{d \theta}{d t} A^{2}+\frac{\theta^{2}}{2 !} \frac{d \theta}{d t} A^{3}+\cdots
+    \\ & =
+    A \dot{\theta}+\theta \dot{\theta} A^2+\frac{\theta^{2}}{2 !} \dot{\theta} A^3+\frac{\theta^{3}}{3 !} \dot{\theta} A^4+\cdots
+    \\ & =
+    (A \dot{\theta})+(A \dot{\theta}) A\theta + (A \dot{\theta}) \frac{\theta^{2}}{2 !} A^{2}+(A \dot{\theta}) \frac{\theta^{3}}{3 !} A^{3}+\cdots
+    \\ & =
+    (A \dot{\theta}) \left( I+A \theta+\frac{\theta^{2}}{2 !}A^{2}+\frac{\theta^{3}}{3 !}A^{3}+\cdots \right)
+    \\ & =
+    (A \dot{\theta}) e^{A \theta}
+\end{align*}
+
+Similarly, we can also show that this product is commutative,
+\begin{align*}
+    \implies
+    \frac{d}{d t} e^{A \theta}
+     & =
+    A \dot{\theta}+\theta \dot{\theta} A^2+\frac{\theta^{2}}{2 !} \dot{\theta} A^3+\frac{\theta^{3}}{3 !} \dot{\theta} A^4+\cdots
+    \\ & =
+    (A \dot{\theta}) + A\theta (A \dot{\theta}) + \frac{\theta^{2}}{2 !} A^{2} (A \dot{\theta}) + \frac{\theta^{3}}{3 !} A^{3} (A \dot{\theta}) + \cdots
+    \\ & =
+    \left( I+A \theta+\frac{\theta^{2}}{2 !}A^{2}+\frac{\theta^{3}}{3 !}A^{3}+\cdots \right) (A \dot{\theta})
+    \\ & =
+    e^{A \theta}(A \dot{\theta})
+\end{align*}
