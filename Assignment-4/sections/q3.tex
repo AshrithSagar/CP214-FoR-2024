@@ -19,3 +19,55 @@ The exponential of \( A \) is defined as
 \end{enumerate}
 
 \subsection*{Solution}
+
+The Taylor series of the exponential function for a real \( x \) is given by
+\begin{equation*}
+    e^{x}
+    =
+    1+x+\frac{x^{2}}{2 !}+\frac{x^{3}}{3 !}+\cdots
+    =
+    \sum_{n=0}^{\infty} \frac{x^{n}}{n !}
+\end{equation*}
+which is an analytic function that converges for all \( x \), thereby we can then define the matrix exponential from it as
+\begin{equation*}
+    e^{A}
+    =
+    I+A+\frac{1}{2 !}A^{2}+\frac{1}{3 !}A^{3}+\cdots
+    =
+    \sum_{n=0}^{\infty} \frac{1}{n !}A^{n}
+\end{equation*}
+
+\subsubsection*{(a) \( g e^{A} g^{-1}=e^{g A g^{-1}} \)}
+
+Given that \( g \) is an invertible matrix, we first observe the following property.
+
+For any invertible matrix \( g \), we have
+\begin{equation*}
+    g A^{k} g^{-1} = {(g A g^{-1})}^{k} \quad \forall k \in \mathbb{N}
+\end{equation*}
+
+This follows from the fact that
+\begin{align*}
+    {(g A g^{-1})}^{k}
+     & =
+    (g A g^{-1})(g A g^{-1})\cdots(g A g^{-1})
+    \\ & =
+    g A (g^{-1} g) A (g^{-1} g) \cdots A g^{-1}
+    \\  & =
+    g A A \cdots A g^{-1}
+    \\ & =
+    g A^{k} g^{-1}
+\end{align*}
+
+Now, we have
+\begin{align*}
+    g e^{A} g^{-1}
+     & =
+    g \left( I+A+\frac{1}{2 !}A^{2}+\frac{1}{3 !}A^{3}+\cdots \right) g^{-1}
+    \\ & =
+    g I g^{-1}+g A g^{-1}+\frac{1}{2 !}g A^{2} g^{-1}+\frac{1}{3 !}g A^{3} g^{-1}+\cdots
+    \\ & =
+    I+(g A g^{-1})+\frac{1}{2 !}{(g A g^{-1})}^{2}+\frac{1}{3 !}{(g A g^{-1})}^{3}+\cdots
+    \\ & =
+    e^{g A g^{-1}}
+\end{align*}
