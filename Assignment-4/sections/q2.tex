@@ -5,3 +5,31 @@ Show that a rigid body moving in \( \mathbb{R}^{n} \) will have \( \left(n+n^{2}
 How many are translational and how many are rotational?
 
 \subsection*{Solution}
+
+For the degrees of translational freedom in \( \mathbb{R}^{n} \), we consider translations of the centre of mass of the rigid body.
+Translations in \( \mathbb{R}^{n} \) are represented by vectors in \( \mathbb{R}^{n} \) as
+\[
+    \begin{bmatrix}
+        x_{1}  \\
+        x_{2}  \\
+        \vdots \\
+        x_{n}
+    \end{bmatrix}
+\]
+which has \( n \) independent components, thereby giving \underline{\( n \) degrees of translational freedom}.
+
+The orientation of the rigid body can be represented by an orthogonal matrix \( R \) in \( SO(n) \) with respect to its centre of mass.
+The special orthogonal group \( SO(n) \) is defined as
+\[
+    SO(n) = \left \{ R \in \mathbb{R}^{n \times n} \mid R^{T}R = I, \det(R) = 1 \right \}
+\]
+In the \( n\times n \) matrix, which contain \( n^2 \) elements, we have the constraints that are imposed by the orthogonality condition \( R^{T}R = I \).
+This gives us \( n \) contraints on the columns of the matrix to be unit normal, thereby reducing the degrees of freedom to \( ( n^2 - n ) \).
+Since any orthogonal matrix has determinant either \( 1 \) or \( -1 \), the requirement for \( \det(R) = 1 \) reduces the degree of freedom by half, giving us \underline{\( (n^2 - n)/2 \) degrees of rotational freedom}.
+
+Thereby, the total degrees of freedom of a rigid body moving in \( \mathbb{R}^{n} \) would be the sum of the degrees of translational and rotational freedom, which is
+\[
+    n + \frac{n^2 - n}{2} = \frac{n + n^2}{2}
+\]
+
+Hence, the rigid body moving in \( \mathbb{R}^{n} \) will have \underline{\( \left(n+n^{2}\right) / 2 \) degrees of freedom}, with \( n \) degrees of translational freedom and \( (n^2 - n)/2 \) degrees of rotational freedom.
