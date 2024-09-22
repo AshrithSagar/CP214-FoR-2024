@@ -77,3 +77,28 @@ where \( \omega_1, \omega_2, \omega_3 \in \mathbb{R} \).
 The number of independent parameters is 3.
 
 Hence, the \underline{dimension of \( so(3) \) is 3}.
+
+\subsubsection*{Basis for \( so(3) \)}
+
+A basis for a vector space is a set of linearly independent vectors that span the space.
+
+The basis for \( so(3) \) is given by the set of skew-symmetric matrices
+\begin{equation*}
+    so(3) = \operatorname{span}
+    \left \{ \begin{bmatrix}
+        0 & 0 & 0  \\
+        0 & 0 & -1 \\
+        0 & 1 & 0
+    \end{bmatrix},
+    \begin{bmatrix}
+        0  & 0 & 1 \\
+        0  & 0 & 0 \\
+        -1 & 0 & 0
+    \end{bmatrix},
+    \begin{bmatrix}
+        0 & -1 & 0 \\
+        1 & 0  & 0 \\
+        0 & 0  & 0
+    \end{bmatrix} \right \}
+\end{equation*}
+which are obtained by setting \( \omega = \begin{bmatrix} \omega_1 & \omega_2 & \omega_3 \end{bmatrix}^{T} \) to \( \begin{bmatrix} 1 & 0 & 0 \end{bmatrix}^{T} \), \( \begin{bmatrix} 0 & 1 & 0 \end{bmatrix}^{T} \), and \( \begin{bmatrix} 0 & 0 & 1 \end{bmatrix}^{T} \) respectively in the skew-symmetric matrix form above.
