@@ -7,3 +7,73 @@ Show that the matrix logarithm operator \( \log (\cdot) \) from \( SO(3) \) to \
 Here \( R \in S O(3), \theta=\arccos ((\operatorname{tr}(R)-1) / 2) \), and \( \operatorname{tr}(\cdot) \) calculates the trace of a square matrix.
 
 \subsection*{Solution}
+
+The matrix exponential operator, given by the Rodrigues formula, maps a skew-symmetric matrix \( \hat \omega \) to a rotation matrix \( R \in SO(3) \), by
+\begin{equation*}
+    R
+    = e^{\hat \omega \theta}
+    = I + \sin \theta \hat \omega + (1 - \cos \theta) \hat \omega^2
+\end{equation*}
+where \( \lVert \omega \rVert = 1 \) is a unit vector and \( \theta \) is the angle of rotation about \( \omega \).
+The matrix logarithm operator, which is the inverse of the matrix exponential operator, maps a rotation matrix \( R \in SO(3) \) to a skew-symmetric matrix \( \hat \omega \in so(3) \), thereby giving
+\begin{equation*}
+    \log \left( R \right)
+    =
+    \log \left( \exp (\hat \omega \theta) \right)
+    =
+    \hat \omega \theta
+\end{equation*}
+Now, to express \( \theta \) in terms of \( R \), we can see that, since the trace of a matrix is a linear operator, we have
+\begin{align*}
+    \operatorname{tr} \left( R \right)
+     & =
+    \operatorname{tr} \left( I + \sin \theta \hat \omega + (1 - \cos \theta) \hat \omega^2 \right)
+    \\ & =
+    \operatorname{tr} \left( I \right)
+    + \operatorname{tr} \left( \sin \theta \hat \omega \right)
+    + \operatorname{tr} \left( (1 - \cos \theta) \hat \omega^2 \right)
+    \\ & =
+    3
+    + \sin \theta \operatorname{tr} \left( \hat \omega \right)
+    + (1 - \cos \theta) \operatorname{tr} \left( \hat \omega^2 \right)
+    =
+    3 + 0 + (-2) (1 - \cos \theta)
+    \\
+    \implies
+    \operatorname{tr} \left( R \right)
+     & =
+    1 + 2 \cos \theta
+    \implies
+    \theta
+    =
+    \arccos \left( \frac{\operatorname{tr} \left( R \right) - 1}{2} \right)
+\end{align*}
+To express \( \hat \omega \) in terms of \( R \), we have, since the transpose of a matrix is a linear operator,
+\begin{align*}
+    R^T
+     & =
+    I^T + \sin \theta \hat \omega^T + (1 - \cos \theta) {(\hat \omega^2)}^T
+    =
+    I - \sin \theta \hat \omega + (1 - \cos \theta) \hat \omega^2
+\end{align*}
+since \( \hat \omega^T = -\hat \omega \) and \( {(\hat \omega^2)}^T = {({\hat \omega}^T)}^2 = {(-\hat \omega)}^2 = \hat \omega^2 \).
+
+\begin{equation*}
+    \implies
+    R - R^T
+    =
+    2 \sin \theta \hat \omega
+    \implies
+    \hat \omega
+    =
+    \frac{1}{2 \sin \theta} (R - R^T)
+\end{equation*}
+Thereby,
+\begin{equation*}
+    \log \left( R \right)
+    =
+    \hat \omega \theta
+    =
+    \frac{\theta}{2 \sin \theta} (R - R^T)
+\end{equation*}
+whenever \( \theta \neq 0 \), i.e., \( R \neq I \).
