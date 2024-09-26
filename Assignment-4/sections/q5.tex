@@ -15,3 +15,59 @@ Now, answer the following questions for calculating this error.
 \end{enumerate}
 
 \subsection*{Solution}
+
+\subsubsection*{(a) Computing \( \left \| R_{d}-R_{c}\right \| \) or \( \left \| R_{d}-R_{k}\right \| \) is incorrect}
+
+We will assume the norm to be the Frobenius norm.
+We can note that \( R_{d} - R_{c} \) is not a rotation matrix.
+We can argue that even though we can compute the norm of \( R_{d} - R_{c} \), it does not give us the correct orientation error.
+We can illustrate by considering 2D rotations.
+The 2D rotation group \( SO(2) \) is bijective to rotations in the complex plane, and we can observe the following.
+Consider \( R_d = e^{i \theta} \) and \( R_c = e^{i \phi} \).
+We have by Euler's formula that \( e^{i \theta} = \cos \theta + i \sin \theta \).
+We can compute the error as \( \left \| R_d - R_c \right \| = \left \| e^{i \theta} - e^{i \phi} \right \| = \left \| \cos \theta + i \sin \theta - \cos \phi - i \sin \phi \right \| = \left \| \cos \theta - \cos \phi + i (\sin \theta - \sin \phi) \right \| = \sqrt{(\cos \theta - \cos \phi)^2 + (\sin \theta - \sin \phi)^2} = \sqrt{2 - 2 \cos (\theta - \phi)} \neq \left \| \theta - \phi \right \| \).
+
+In a rough sense, it can be used as a metric, but it is \underline{not appropriate}.
+
+\subsubsection*{(b) Computing \( \left \| \log {\left(R_{d}^{T} R_{c}\right)}^{\vee}\right \| \) or \( \left \| \log {\left(R_{d}^{T} R_{k}\right)}^{\vee}\right \| \) is more appropriate}
+
+The expression \( \left \| \log {\left(R_{d}^{T} R_{c}\right)}^{\vee}\right \| \) is more appropriate.
+The \( \left(R_{d}^{T} R_{c}\right) \) term is a rotation matrix, and denotes the rotation by \( R_c \) followed by undoing the rotation by \( R_d \).
+We can see that \( R_{err} \triangleq R_d^{T} R_c \in SO(3) \) is a rotation matrix, and thereby we can compute the logarithm of this matrix.
+This yields the following
+\begin{align*}
+      \log R_{err}
+       & =
+      \hat{\omega} \theta_{err}
+      \\
+      \implies
+      ({\log R_{err}}^{\vee})
+       & =
+      \theta_{err} \omega
+\end{align*}
+Since \( \omega \) is a unit vector, we have
+\begin{align*}
+      \left \| ({\log R_{err}}^{\vee}) \right \|
+       & =
+      \theta_{err}
+\end{align*}
+This function gives us the correct orientation error, and is thereby \underline{more appropriate}.
+
+We can also find the orientation error by considering the trace of the rotation matrix \( R_{err} \), as seen in the logarithm map.
+\begin{equation*}
+      \theta_{err} = \arccos{\frac{\text{trace}(R_{err}) - 1 }{2}}
+\end{equation*}
+
+To illustrate the correctness of this approach, we can consider the 2D rotation group \( SO(2) \) as before.
+We consider \( R_d = e^{i \theta} \) and \( R_c = e^{i \phi} \), thereby we have \( R_d^T = e^{-i \theta} \), and
+\[
+      R_d^T R_c = e^{-i \theta} e^{i \phi} = e^{i (\phi - \theta)}
+      \implies
+      \log (R_d^T R_c) = i (\phi - \theta)
+      \implies
+      \left \| \log (R_d^T R_c) \right \| = \left \| \phi - \theta \right \|
+\]
+
+Thereby, we can see that this expression appropriately computes the orientation error.
+
+In general, this discussion comes under finding metrics on Lie groups, and the logarithm map here allows us to compute the orientation error in a more appropriate manner.
