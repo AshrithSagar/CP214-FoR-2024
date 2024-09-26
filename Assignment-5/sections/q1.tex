@@ -3,3 +3,39 @@
 Show that given \( R(t) \in SO(3) \), the matrices \( \dot{R}(t) {R(t)}^{-1} \in \mathbb{R}^{3 \times 3} \) and \( R(t) {\dot{R}(t)}^{-1} \in \mathbb{R}^{3 \times 3} \) are skew-symmetric.
 
 \subsection*{Solution}
+
+Since \( R(t) \in SO(3) \), we know that \( R(t) {R(t)}^{T} = I \).\\
+Thereby, differentiating both sides with respect to \( t \), we get
+\begin{equation*}
+    \implies
+    \dot{R}(t) {R(t)}^{T}
+    + R(t) {\dot{R}(t)}^{T}
+    = 0
+\end{equation*}
+Note the order of the terms, since matrix multiplication is not commutative, in general.
+\begin{equation*}
+    \implies
+    \dot{R}(t) {R(t)}^{T}
+    =
+    -R(t) {\dot{R}(t)}^{T}
+    =
+    - {\left( \dot{R}(t) {R(t)}^{T} \right)}^{T}
+\end{equation*}
+Thereby, we have that \underline{\( \dot{R}(t) {R(t)}^{T} \) is skew-symmetric}.
+
+Similarly, by differentiating the equation \( {R(t)}^{T} R(t) = I \) with respect to \( t \), we get
+\begin{equation*}
+    \implies
+    {\dot{R}(t)}^{T} R(t)
+    + {R(t)}^{T} \dot{R}(t)
+    = 0
+\end{equation*}
+\begin{equation*}
+    \implies
+    {\dot{R}(t)}^{T} R(t)
+    =
+    - {R(t)}^{T} \dot{R}(t)
+    =
+    - {\left( {\dot{R}(t)}^{T} R(t) \right)}^{T}
+\end{equation*}
+Thereby, we have that \underline{\( R(t) {\dot{R}(t)}^{T} \) is skew-symmetric}.
