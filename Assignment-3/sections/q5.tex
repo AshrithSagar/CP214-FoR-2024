@@ -68,6 +68,20 @@ Since the determinant of a matrix is the product of its eigenvalues, we have tha
 
 Hence, \( \boxed{ R_a \in SO(3) } \).
 
+\clearpage
+Alternatively, we can see that
+\begin{equation*}
+    \det(R_a)
+    =
+    \frac{\det(I + \hat{a})}{\det(I - \hat{a})}
+    =
+    \frac{\det({(I - \hat{a})}^T)}{\det(I - \hat{a})}
+    =
+    \frac{{\det(I - \hat{a})}}{\det(I - \hat{a})}
+    =
+    1
+\end{equation*}
+
 \subsection*{Computing Cayley parameters given \( R \) }
 
 Given \( R \in SO(3) \), we have that
