@@ -1,3 +1,39 @@
 \section*{Problem 3}
 
+\textbf{Adjoint Transformation in Planar Motion:}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/images/q3.jpg}
+    \caption{
+        The twist corresponding to the instantaneous motion of the chassis of a three-wheeled vehicle can be visualized as an angular velocity w about the point r.
+    }
+\end{figure}
+
+In this question, we will have a setup of planar motion as shown in the top view of a car, with a single steerable front wheel driving (kind of like a rickshaw).
+The \( \hat{z}_{b} \)-axis of the body frame \( \{ \mathrm{b} \} \) is into the page and the \( \hat{z}_{\mathrm{s}} \)-axis of the fixed frame \( \{ \mathrm{s} \} \) is out of the page.
+The angle of the front wheel of the car causes a pure angular motion with \( \mathrm{w}=2 \mathrm{rad} / \mathrm{s} \) about an axis out of the page at the point \( r \) in the plane.
+For the sake of this problem we will write r as \( r_{s}=(2,-1,0) \) or \( r_{b}=(2,-1.4,0) \), w as \( \omega_{s}=(0,0,2) \) or \( \omega_{b}=(0,0,-2) \)
+
+Now answer the following:
+\begin{enumerate}[label= (\alph*)]
+    \item Using the figure and simple geometry (basic relation of \( v=\omega \times r \)), compute \( v_{s}, v_{b} \in \mathbb{R}^{3} \) and thus obtain the twist coordinates \( \xi_{s}, \xi_{b} \in \mathbb{R}^{6} \).
+          Verify these results using \( \xi_{s}=\operatorname{Ad}_{g_{s b}} \xi_{b} \), where \( \operatorname{Ad}_{g_{s b}}: \mathbb{R}^{6} \mapsto \mathbb{R}^{6} \) and \( g_{s b} \equiv\left(p_{s b}, R_{s b}\right) \in S E(3) \).
+    \item Recall Ques. 3 from Homework 5, where we had a similar problem.
+          However, in that case, the transformation was \( g^{\prime} \equiv\left(p^{\prime}, R^{\prime}\right) \in \) \( S E(2) \), and the twists were \( \widehat{\xi}^{\prime} \in s e(2) \) (go through that problem again for exact formulation).
+          Now coming to this assignment's question, can we show here that there exists an adjoint transformation used to map twist coordinates in the body frame \( \xi_{b}^{\prime} \in \mathbb{R}^{3} \) into fixed frame \( \xi_{s}^{\prime} \in \mathbb{R}^{3} \).
+          If not, why and what changes would be required in the problem formulation to ensure this exists?
+    \item After solving (b), show that the adjoint transformation would be of the form,
+          \[
+              \operatorname{Ad}_{g_{s b}^{\prime}}=\left[\begin{array}{cc}
+                      R_{s b}^{\prime} & {\left[\begin{array}{cc}
+                                                                0  & 1 \\
+                                                                -1 & 0
+                                                            \end{array}\right] p_{s b}^{\prime}} \\
+                      0                & 1
+                  \end{array}\right], \text { where } R_{s b}^{\prime} \in S O(2), p_{s b}^{\prime} \in \mathbb{R}^{2}
+          \]
+          (Note: To make things distinguishable, we are using ' for all variables in (b) and (c))
+\end{enumerate}
+
+\clearpage
 \subsection*{Solution}
