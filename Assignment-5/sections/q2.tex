@@ -141,6 +141,61 @@ Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, b
             0 & 0
       \end{bmatrix}
 \end{equation*}
+\begin{align*}
+      \implies
+      e^{\hat{\xi}' \theta}
+       & =
+      I + \hat{\xi}' \theta + \cancel{\frac{1}{2!} \hat{\xi}^{'2} \theta^2 + \frac{1}{3!} \hat{\xi}^{'3} \theta^3 + \ldots}
+      =
+      I_{4\times 4} + \hat{\xi}' \theta
+      \\ & =
+      \begin{bmatrix}
+            I_{3\times 3} & 0 \\
+            0             & 1
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+            \hat \omega \theta & h \theta \omega \\
+            0                  & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            I + \hat \omega \theta & h \theta \omega \\
+            0                      & 1
+      \end{bmatrix}
+      \\
+      \implies
+      e^{\hat{\xi} \theta}
+       & =
+      g e^{\hat{\xi}' \theta} g^{-1}
+      =
+      \begin{bmatrix}
+            I & \omega \times v \\
+            0 & 1
+      \end{bmatrix}
+      \begin{bmatrix}
+            I + \hat \omega \theta & h \theta \omega \\
+            0                      & 1
+      \end{bmatrix}
+      \begin{bmatrix}
+            I & - \omega \times v \\
+            0 & 1
+      \end{bmatrix}
+      \\ & =
+      \begin{bmatrix}
+            I & \omega \times v \\
+            0 & 1
+      \end{bmatrix}
+      \begin{bmatrix}
+            I + \hat \omega \theta & -(I + \hat \omega \theta)(\omega \times v) + h \theta \omega \\
+            0                      & 1
+      \end{bmatrix}
+      \\ & =
+      \begin{bmatrix}
+            I + \hat \omega \theta & \omega \times v - \omega \times v + h \theta \omega \\
+            0                      & 1
+      \end{bmatrix}
+\end{align*}
 
 \subsubsection*{(b) \( A = \left(I-e^{\hat{\omega} \theta}\right) \hat{\omega}+\omega \omega^{T} \theta \) is invertible}
 
