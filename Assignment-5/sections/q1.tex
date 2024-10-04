@@ -13,43 +13,32 @@ thereby, for \( R(t) \in SO(3) \), we have that
 \begin{equation}\label{eq:RRT}
     R(t) {R(t)}^{T} = I
 \end{equation}
-and
-\begin{equation}\label{eq:RTR}
-    {R(t)}^{T} R(t) = I
-\end{equation}
-
 Differentiating both sides of equation~\eqref{eq:RRT} with respect to \( t \), we get
-\begin{equation*}
+\begin{equation}\label{eq:dt-RRT}
     \implies
     \dot{R}(t) {R(t)}^{T}
     + R(t) {\dot{R}(t)}^{T}
     = 0
-\end{equation*}
+\end{equation}
 Note the order of the terms, since matrix multiplication is not commutative, in general.
-\begin{equation*}
+Now, from equation~\eqref{eq:dt-RRT}, we can observe that
+\begin{equation}\label{eq:Rdot-RTinv}
     \implies
     \dot{R}(t) {R(t)}^{T}
     =
     -R(t) {\dot{R}(t)}^{T}
     =
     - {\left( \dot{R}(t) {R(t)}^{T} \right)}^{T}
-\end{equation*}
-Thereby, we have that \( \dot{R}(t) {R(t)}^{T} \) is skew-symmetric.
-By equation~\eqref{eq:RRT} and~\eqref{eq:RTR}, we also have that \( {R(t)}^{T} = {R(t)}^{-1} \).
-Thereby, we have that \underline{\( \dot{R}(t) {R(t)}^{-1} \) is skew-symmetric}.
+\end{equation}
+\begin{equation}\label{eq:Rdot-Rinv}
+    \implies
+    R(t) {\dot{R}(t)}^{T}
+    =
+    -\dot{R}(t) {R(t)}^{T}
+    =
+    - {\left( R(t) {\dot{R}(t)}^{T} \right)}^{T}
+\end{equation}
+Thereby, we have that \( \dot{R}(t) {R(t)}^{T} \) is skew-symmetric from equation~\eqref{eq:Rdot-RTinv} and \( R(t) {\dot{R}(t)}^{T} \) is skew-symmetric from equation~\eqref{eq:Rdot-Rinv}.
+By equation~\eqref{eq:RRT}, we have that \( {R(t)}^{T} = {R(t)}^{-1} \), and from this we can see that \( {\dot{R}(t)}^{T} = {\dot{R}(t)}^{-1} \).
 
-Similarly, by differentiating the equation~\eqref{eq:RTR} with respect to \( t \), we get
-\begin{equation*}
-    \implies
-    {\dot{R}(t)}^{T} R(t)
-    + {R(t)}^{T} \dot{R}(t)
-    = 0
-\end{equation*}
-\begin{equation*}
-    \implies
-    {\dot{R}(t)}^{T} R(t)
-    =
-    - {R(t)}^{T} \dot{R}(t)
-    =
-    - {\left( {\dot{R}(t)}^{T} R(t) \right)}^{T}
-\end{equation*}
+Thereby, \underline{\( \dot{R}(t) {R(t)}^{-1} \) and \( R(t) {\dot{R}(t)}^{-1} \) are skew-symmetric}.
