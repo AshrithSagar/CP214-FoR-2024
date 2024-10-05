@@ -274,10 +274,11 @@ Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, b
             \\
             0 & 1
       \end{bmatrix}
-      \\
+\end{align*}
+\begin{equation}\label{eq:SE3-exponential}
       \implies
       e^{\hat{\xi} \theta}
-       & =
+      =
       \begin{bmatrix}
             e^{\hat \omega \theta}
               &
@@ -285,7 +286,7 @@ Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, b
             \\
             0 & 1
       \end{bmatrix}
-\end{align*}
+\end{equation}
 Since \( e^{\hat \omega \theta} \in SO(3) \) and \( \Big( (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta \Big) \in \mathbb{R}^3 \), we have that \( e^{\hat{\xi} \theta} \) satisfies equation~\eqref{eq:SE3-homogeneous}.
 
 Note that for the case \( \omega = 0 \), we can see that \( \hat{xi}^k = 0, \forall k \geq 2 \implies e^{\hat{\xi} \theta} = I + \hat{\xi} \theta \).
@@ -315,3 +316,80 @@ Given \( A = \left(I-e^{\hat{\omega} \theta}\right) \hat{\omega}+\omega \omega^{
 \end{align*}
 
 \subsubsection*{(c) \( \exists \; \xi \in se(3), \, \theta \in \mathbb{R} \) such that \( g = \exp(\hat{\xi} \theta) \)}
+
+Given \( g \in SE(3) \), we can see that \( g \) can be represented as
+\begin{equation*}
+      g
+      =
+      \begin{bmatrix}
+            R & t \\
+            0 & 1
+      \end{bmatrix}
+\end{equation*}
+
+In the case of \( R = I \), we can see that with
+\begin{equation*}
+      \hat \xi =
+      \begin{bmatrix}
+            0 & \frac{t}{\lVert t \rVert} \\
+            0 & 0
+      \end{bmatrix}
+\end{equation*}
+and \( \theta = \lVert t \rVert \), we have that
+\begin{align*}
+      \exp(\hat{\xi} \theta)
+       & =
+      \exp\left(
+      \begin{bmatrix}
+                  0 & \frac{t}{\lVert t \rVert} \lVert t \rVert \\
+                  0 & 0
+            \end{bmatrix}
+      \right)
+      =
+      \exp\left(
+      \begin{bmatrix}
+                  0 & t \\
+                  0 & 0
+            \end{bmatrix}
+      \right)
+      =
+      \begin{bmatrix}
+            I & t \\
+            0 & 1
+      \end{bmatrix}
+      =
+      g
+\end{align*}
+
+In the case of \( R \neq I \), we have, from equation~\eqref{eq:SE3-exponential}, that
+\begin{equation*}
+      g
+      =
+      \begin{bmatrix}
+            e^{\hat \omega \theta}
+              &
+            (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta
+            \\
+            0 & 1
+      \end{bmatrix}
+\end{equation*}
+Thereby, we can set \( R = e^{\hat \omega \theta} \) and \( t = (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta \), and thereby we can have \( g = \exp(\hat{\xi} \theta) \).
+To find \( \omega \), we can use the matrix logarithm, as
+\begin{equation*}
+      \hat\omega = \frac{1}{\theta} \log(R) = \frac{1}{2 \sin(\theta)} \left( R - R^T \right)
+\end{equation*}
+Now, to express \( v \) in terms of \( t \), we use the fact that \( A = \left(I-e^{\hat{\omega} \theta}\right) \hat{\omega}+\omega \omega^{T} \theta \) is invertible,
+\begin{align*}
+      t
+       & =
+      (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta
+      =
+      \Big( (I - e^{\hat \omega \theta}) \hat \omega + \omega \omega^T \theta \Big) v
+      =
+      A v
+      \implies
+      v
+      =
+      A^{-1} t
+\end{align*}
+Thereby, \underline{given \( g \in SE(3) \), we can find \( \xi \in se(3) \) and \( \theta \in \mathbb{R} \) such that \( g = \exp(\hat{\xi} \theta) \)}.
