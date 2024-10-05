@@ -249,3 +249,34 @@ Thereby, \( e^{\hat \xi'} \in SE(2) \), and by evaluating \( e^{\hat \xi} = g e^
 \subsubsection*{(b) Planar twists for pure rotation and translation}
 
 \subsubsection*{(c) \( \hat{V}^{s} = \dot{g} g^{-1} \) and \( \hat{V}^{b} = g^{-1} \dot{g} \) are twists}
+
+The spatial velocity is defined as:
+\[
+    \hat{V}^{s} = \dot{g} g^{-1}
+\]
+where \( g \in SE(2) \) is the rigid body transformation. This describes the velocity of the body with respect to the fixed frame in space. \( \hat{V}^{s} \in se(2) \) is a twist, meaning it can be expressed in the form of a matrix:
+\[
+    \hat{V}^{s} = \begin{bmatrix}
+        0      & -\omega & v_x \\
+        \omega & 0       & v_y \\
+        0      & 0       & 0
+    \end{bmatrix}
+\]
+
+The body velocity is defined as:
+\[
+    \hat{V}^{b} = g^{-1} \dot{g}
+\]
+This represents the velocity of the robot as seen in the body frame (i.e., attached to the robot). It also belongs to the Lie algebra \( se(2) \) and is of the form:
+\[
+    \hat{V}^{b} = \begin{bmatrix}
+        0      & -\omega & v_x \\
+        \omega & 0       & v_y \\
+        0      & 0       & 0
+    \end{bmatrix}
+\]
+
+\begin{itemize}
+    \item Spatial Velocity \( V^s \): The velocity observed from a stationary world frame.
+    \item Body Velocity \( V^b \): The velocity measured relative to the robot's own frame of reference.
+\end{itemize}
