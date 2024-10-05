@@ -1,4 +1,6 @@
 \section*{Problem 3}
+\setcounter{section}{3}
+\setcounter{equation}{0}
 
 \textbf{Planar Differential Drive Robot:}
 Consider a mobile robot performing planar motion through a differential drive mechanism (see figure).
@@ -56,6 +58,193 @@ Now given this information, answer all the following questions.
 \subsection*{Solution}
 
 \subsubsection*{(a) \( \hat{\xi} \in se(2) \implies e^{\hat{\xi}} \in SE(2) \) is a rigid body transformation}
+
+Given a twist \( \hat{\xi} \in se(2) \) with twist coordinates \( \xi = (v, \omega) \in \mathbb{R}^3, v \in \mathbb{R}^2, \omega \in \mathbb{R} \), we need to show that the matrix exponential \( e^{\hat{\xi}} \in SE(2) \) is a rigid body transformation.
+
+As given, we have that the group \( SE(2) \) is defined by, in homogeneous coordinates as
+\begin{equation}\label{eq:SE2-homogeneous}
+    SE(2) = \left \{ g = \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix} \; \middle| \; R \in SO(2), \, p \in \mathbb{R}^2 \right \}
+\end{equation}
+
+The matrix exponential of a twist \( \hat{\xi} \in se(2) \) is given by:
+\[
+    e^{\hat{\xi}} = \sum_{k=0}^{\infty} \frac{1}{k!} \hat{\xi}^k
+\]
+
+Case 1: Pure translation \( \xi = (v, 0) \)
+
+The twist in this case is \( \hat{\xi} = \left[ \begin{array}{cc} 0 & v \\ 0 & 0 \end{array} \right]_{3\times 3} \), and the the matrix exponential is
+\begin{align*}
+    e^{\hat{\xi}}
+     & =
+    \sum_{k=0}^{\infty} \frac{1}{k!} \hat{\xi}^k
+    =
+    I_{3\times 3} + \sum_{k=1}^{\infty} \frac{1}{k!}
+    \begin{bmatrix}
+        0 & v \\
+        0 & 0
+    \end{bmatrix}
+    ^k
+    \\ & =
+    \begin{bmatrix}
+        I_{2\times 2} & 0 \\
+        0             & 1
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0 & v \\
+        0 & 0
+    \end{bmatrix}
+    +
+    \cancel{\sum_{k=2}^{\infty} \frac{1}{k!}
+        \begin{bmatrix}
+            0 & v \\
+            0 & 0
+        \end{bmatrix}
+        ^k
+    }
+    =
+    \begin{bmatrix}
+        I_{2\times 2} & v \\
+        0             & 1
+    \end{bmatrix}_{3\times 3}
+\end{align*}
+From equation~\eqref{eq:SE2-homogeneous}, we see that \( e^{\hat{\xi}} \) is a rigid body transformation in \( SE(2) \), for the case of pure translation.
+
+Case 2: General case \( \xi = (v, \omega), \omega \neq 0 \)
+
+The twist in this case is \( \hat{\xi} = \left[ \begin{array}{cc} \hat \omega & v \\ 0 & 0 \end{array} \right]_{3\times 3} \).
+Now, define \( g = \begin{bmatrix}
+    I_{2\times 2} & \hat \omega v \\
+    0             & 1
+\end{bmatrix}_{3\times 3}
+\).
+We can see that \( g \in SE(2) \), and it's inverse \( g^{-1} = \begin{bmatrix}
+    I_{2\times 2} & -\hat \omega v \\
+    0             & 1
+\end{bmatrix}_{3\times 3} \in SE(2)
+\).
+Now, we define \( \hat \xi' \) using \( \hat \xi = g \hat \xi' g^{-1} \), and we get
+\begin{align*}
+    \hat \xi'
+     & =
+    g^{-1} \hat \xi g
+    =
+    \begin{bmatrix}
+        I_{2\times 2} & -\hat \omega v \\
+        0             & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \hat \omega & v \\
+        0           & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        I_{2\times 2} & \hat \omega v \\
+        0             & 1
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        I_{2\times 2} & -\hat \omega v \\
+        0             & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \hat \omega & \hat \omega^2 v + v \\
+        0           & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \hat \omega & \hat \omega^2 v + v \\
+        0           & 0
+    \end{bmatrix}
+    \in se(2)
+\end{align*}
+Now, using
+\begin{align*}
+    e^{\hat \xi}
+     & =
+    e^{g \hat \xi' g^{-1}}
+    =
+    g e^{\hat \xi'} g^{-1}
+\end{align*}
+we can evaluate the matrix exponential \( \hat \xi' \) as
+\begin{align*}
+    e^{\hat \xi'}
+     & =
+    \sum_{k=0}^{\infty} \frac{1}{k!} \hat \xi'^k
+    =
+    I_{3\times 3} + \sum_{k=1}^{\infty} \frac{1}{k!}
+    \begin{bmatrix}
+        \hat \omega & \hat \omega^2 v + v \\
+        0           & 0
+    \end{bmatrix}
+    ^k
+    \\ & =
+    \begin{bmatrix}
+        I_{2\times 2} & 0 \\
+        0             & 1
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \hat \omega & \hat \omega^2 v + v \\
+        0           & 0
+    \end{bmatrix}
+    +
+    \sum_{k=2}^{\infty} \frac{1}{k!}
+    \begin{bmatrix}
+        \hat \omega & \hat \omega^2 v + v \\
+        0           & 0
+    \end{bmatrix}
+    ^k
+    \\ & =
+    \begin{bmatrix}
+        I_{2\times 2} & 0 \\
+        0             & 1
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \hat \omega & \hat \omega^2 v + v \\
+        0           & 0
+    \end{bmatrix}
+    +
+    \sum_{k=2}^{\infty} \frac{1}{k!}
+    \begin{bmatrix}
+        \hat \omega ^k & 0 \\
+        0              & 0
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        e^{i \omega} & \hat \omega^2 v + v \\
+        0            & 1
+    \end{bmatrix}
+\end{align*}
+Now,
+\begin{align*}
+    \hat \omega^2 v + v
+     & =
+    \begin{bmatrix}
+        0      & -\omega \\
+        \omega & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0      & -\omega \\
+        \omega & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_x \\
+        v_y
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        v_x \\
+        v_y
+    \end{bmatrix}
+    \implies
+    \hat \omega^2 v + v \in \mathbb{R}^2
+\end{align*}
+Thereby, \( e^{\hat \xi'} \in SE(2) \), and by evaluating \( e^{\hat \xi} = g e^{\hat \xi'} g^{-1} \), we can see that \( e^{\hat \xi} \in SE(2) \) as well.
 
 \subsubsection*{(b) Planar twists for pure rotation and translation}
 
