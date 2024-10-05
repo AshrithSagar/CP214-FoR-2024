@@ -87,6 +87,7 @@ Now, we define \( \hat{\xi}' \) through \( \hat \xi = g \hat{\xi}' g^{-1} \), th
             0           & 0
       \end{bmatrix}
 \end{align*}
+from which we can see that \( \hat{\xi}' \) is in \( se(3) \).\\
 From the lemma which was proved earlier in previous assignments, we know that
 \begin{equation*}
       {\hat{a}}^2 = a a^T - \lVert a \rVert I, \quad \forall a \in \mathbb{R}^3
@@ -286,6 +287,18 @@ Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, b
       \end{bmatrix}
 \end{align*}
 Since \( e^{\hat \omega \theta} \in SO(3) \) and \( \Big( (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta \Big) \in \mathbb{R}^3 \), we have that \( e^{\hat{\xi} \theta} \) satisfies equation~\eqref{eq:SE3-homogeneous}.
+
+Note that for the case \( \omega = 0 \), we can see that \( \hat{xi}^k = 0, \forall k \geq 2 \implies e^{\hat{\xi} \theta} = I + \hat{\xi} \theta \).
+\begin{align*}
+      e^{\hat{\xi} \theta}
+       & =
+      \begin{bmatrix}
+            I_{3\times 3} & v \theta \\
+            0             & 1
+      \end{bmatrix}
+      \in
+      SE(3)
+\end{align*}
 
 Thereby, we have that \underline{\( e^{\hat{\xi} \theta} \in SE(3) \)}.
 
