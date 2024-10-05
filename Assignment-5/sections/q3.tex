@@ -280,6 +280,7 @@ For movement in the direction of the vector \( v \) with no rotation, we have
     \end{bmatrix}
 \]
 
+\clearpage
 \subsubsection*{(c) \( \hat{V}^{s} = \dot{g} g^{-1} \) and \( \hat{V}^{b} = g^{-1} \dot{g} \) are twists}
 
 The spatial velocity is defined as:
@@ -291,9 +292,9 @@ This describes the velocity of the body with respect to the fixed frame in space
 \( \hat{V}^{s} \in se(2) \) is a twist,
 \[
     \hat{V}^{s} = \begin{bmatrix}
-        0      & -\omega & v_x \\
-        \omega & 0       & v_y \\
-        0      & 0       & 0
+        0            & -\omega^{(s)} & v_x^{(s)} \\
+        \omega^{(s)} & 0             & v_y^{(s)} \\
+        0            & 0             & 0
     \end{bmatrix}
 \]
 
@@ -305,13 +306,11 @@ This represents the velocity of the robot as seen in the body frame (i.e., attac
 \( \hat{V}^{s} \) is also a twist,
 \[
     \hat{V}^{b} = \begin{bmatrix}
-        0      & -\omega & v_x \\
-        \omega & 0       & v_y \\
-        0      & 0       & 0
+        0            & -\omega^{(b)} & v_x^{(b)} \\
+        \omega^{(b)} & 0             & v_y^{(b)} \\
+        0            & 0             & 0
     \end{bmatrix}
 \]
 
-\begin{itemize}
-    \item Spatial Velocity \( V^s \): The velocity observed from a stationary world frame.
-    \item Body Velocity \( V^b \): The velocity measured relative to the robot's own frame of reference.
-\end{itemize}
+The spatial velocity \( V^s \) is the velocity observed from a stationary world frame.
+The body velocity \( V^b \) is the velocity measured relative to the robot's own frame of reference.
