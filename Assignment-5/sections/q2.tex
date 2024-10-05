@@ -1,4 +1,6 @@
 \section*{Problem 2}
+\setcounter{section}{2}
+\setcounter{equation}{0}
 
 \textbf{Connection between \( s e(3) \) and \( S E(3) \)}:
 \begin{enumerate}[label= (\alph*)]
@@ -18,12 +20,12 @@ The special Euclidean group \( SE(3) \) is defined as
       SE(3) = \left \{ (R, t) \; \middle| \; R \in SO(3), \, t \in \mathbb{R}^3 \right \}
 \end{equation*}
 or equivalently, in homogeneous coordinates as
-\begin{equation*}
+\begin{equation}\label{eq:SE3-homogeneous}
       SE(3) = \left \{ g = \begin{bmatrix}
             R & t \\
             0 & 1
       \end{bmatrix} \; \middle| \; R \in SO(3), \, t \in \mathbb{R}^3 \right \}
-\end{equation*}
+\end{equation}
 The group \( SE(3) \) is a Lie group, and it's Lie algebra \( se(3) \) is defined by
 \begin{equation*}
       se(3) = \left \{ \hat \xi = \begin{bmatrix}
@@ -124,30 +126,62 @@ We have, by expanding through the matrix exponential, that
       g e^{\hat{\xi}' \theta} g^{-1}
 \end{equation*}
 Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, by noticing that
-\begin{equation*}
-      \hat{\xi}^{'2}
-      =
-      \begin{bmatrix}
-            \hat \omega & h \omega \\
-            0           & 0
-      \end{bmatrix}
-      \begin{bmatrix}
-            \hat \omega & h \omega \\
-            0           & 0
-      \end{bmatrix}
-      =
-      \begin{bmatrix}
-            0 & 0 \\
-            0 & 0
-      \end{bmatrix}
-\end{equation*}
 \begin{align*}
+      \hat{\xi}^{'2}
+       & =
+      \begin{bmatrix}
+            \hat \omega & h \omega \\
+            0           & 0
+      \end{bmatrix}
+      \begin{bmatrix}
+            \hat \omega & h \omega \\
+            0           & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            \hat{\omega}^2 & h \cancel{\hat{\omega} \omega} \\
+            0              & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            \hat{\omega}^2 & 0 \\
+            0              & 0
+      \end{bmatrix}
+      \\
+      \hat{\xi}^{'3}
+       & =
+      \begin{bmatrix}
+            \hat{\omega}^2 & 0 \\
+            0              & 0
+      \end{bmatrix}
+      \begin{bmatrix}
+            \hat \omega & h \omega \\
+            0           & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            \hat{\omega}^3 & h \cancel{\hat{\omega}^2 \omega} \\
+            0              & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            \hat{\omega}^3 & 0 \\
+            0              & 0
+      \end{bmatrix}
+      \\
+      \implies
+      \hat{\xi}^{'k}
+       & =
+      \begin{bmatrix}
+            \hat{\omega}^k & 0 \\
+            0              & 0
+      \end{bmatrix}
+      \quad \forall k \geq 2
+      \\
       \implies
       e^{\hat{\xi}' \theta}
        & =
-      I + \hat{\xi}' \theta + \cancel{\frac{1}{2!} \hat{\xi}^{'2} \theta^2 + \frac{1}{3!} \hat{\xi}^{'3} \theta^3 + \ldots}
-      =
-      I_{4\times 4} + \hat{\xi}' \theta
+      I + \hat{\xi}' \theta + \frac{1}{2!} \hat{\xi}^{'2} \theta^2 + \frac{1}{3!} \hat{\xi}^{'3} \theta^3 + \ldots
       \\ & =
       \begin{bmatrix}
             I_{3\times 3} & 0 \\
@@ -158,9 +192,30 @@ Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, b
             \hat \omega \theta & h \theta \omega \\
             0                  & 0
       \end{bmatrix}
+      +
+      \frac{1}{2!}
+      \begin{bmatrix}
+            \hat \omega^2 \theta^2 & 0 \\
+            0                      & 0
+      \end{bmatrix}
+      +
+      \frac{1}{3!}
+      \begin{bmatrix}
+            \hat \omega^3 \theta^3 & 0 \\
+            0                      & 0
+      \end{bmatrix}
+      + \ldots
+      \\ & =
+      \begin{bmatrix}
+            \left( I_{3\times 3} + \hat \omega \theta + \frac{1}{2!} \hat \omega^2 \theta^2 + \frac{1}{3!} \hat \omega^3 \theta^3 + \ldots \right)
+              &
+            h \theta \omega
+            \\
+            0 & 1
+      \end{bmatrix}
       =
       \begin{bmatrix}
-            I + \hat \omega \theta & h \theta \omega \\
+            e^{\hat \omega \theta} & h \theta \omega \\
             0                      & 1
       \end{bmatrix}
       \\
@@ -170,33 +225,70 @@ Now, \( e^{\hat{\xi}' \theta} \) can be obtained using the matrix exponential, b
       g e^{\hat{\xi}' \theta} g^{-1}
       =
       \begin{bmatrix}
-            I & \omega \times v \\
+            I & \hat \omega v \\
             0 & 1
       \end{bmatrix}
       \begin{bmatrix}
-            I + \hat \omega \theta & h \theta \omega \\
+            e^{\hat \omega \theta} & h \theta \omega \\
             0                      & 1
       \end{bmatrix}
       \begin{bmatrix}
-            I & - \omega \times v \\
+            I & - \hat \omega v \\
             0 & 1
       \end{bmatrix}
       \\ & =
       \begin{bmatrix}
-            I & \omega \times v \\
+            I & \hat \omega v \\
             0 & 1
       \end{bmatrix}
       \begin{bmatrix}
-            I + \hat \omega \theta & -(I + \hat \omega \theta)(\omega \times v) + h \theta \omega \\
-            0                      & 1
+            e^{\hat \omega \theta}
+              &
+            -e^{\hat \omega \theta} \hat \omega v + h \theta \omega
+            \\
+            0 & 1
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            e^{\hat \omega \theta}
+              &
+            -e^{\hat \omega \theta} \hat \omega v + h \theta \omega + \hat \omega v
+            \\
+            0 & 1
       \end{bmatrix}
       \\ & =
       \begin{bmatrix}
-            I + \hat \omega \theta & \omega \times v - \omega \times v + h \theta \omega \\
-            0                      & 1
+            e^{\hat \omega \theta}
+              &
+            (I - e^{\hat \omega \theta}) \hat \omega v + h \theta \omega
+            \\
+            0 & 1
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+            e^{\hat \omega \theta}
+              &
+            (I - e^{\hat \omega \theta}) \hat \omega v + (\omega^T v \theta) \omega
+            \\
+            0 & 1
+      \end{bmatrix}
+      \\
+      \implies
+      e^{\hat{\xi} \theta}
+       & =
+      \begin{bmatrix}
+            e^{\hat \omega \theta}
+              &
+            (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta
+            \\
+            0 & 1
       \end{bmatrix}
 \end{align*}
+Since \( e^{\hat \omega \theta} \in SO(3) \) and \( \Big( (I - e^{\hat \omega \theta}) \hat \omega v + \omega \omega^T v \theta \Big) \in \mathbb{R}^3 \), we have that \( e^{\hat{\xi} \theta} \) satisfies equation~\eqref{eq:SE3-homogeneous}.
 
+Thereby, we have that \underline{\( e^{\hat{\xi} \theta} \in SE(3) \)}.
+
+\clearpage
 \subsubsection*{(b) \( A = \left(I-e^{\hat{\omega} \theta}\right) \hat{\omega}+\omega \omega^{T} \theta \) is invertible}
 
 \subsubsection*{(c) \( \exists \; \xi \in se(3), \, \theta \in \mathbb{R} \) such that \( g = \exp(\hat{\xi} \theta) \)}
