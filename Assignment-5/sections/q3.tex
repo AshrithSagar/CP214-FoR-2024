@@ -216,8 +216,8 @@ we can evaluate the matrix exponential \( \hat \xi' \) as
     \end{bmatrix}
     \\ & =
     \begin{bmatrix}
-        e^{i \omega} & \hat \omega^2 v + v \\
-        0            & 1
+        e^{\hat \omega} & \hat \omega^2 v + v \\
+        0               & 1
     \end{bmatrix}
 \end{align*}
 Now,
@@ -244,7 +244,41 @@ Now,
     \implies
     \hat \omega^2 v + v \in \mathbb{R}^2
 \end{align*}
-Thereby, \( e^{\hat \xi'} \in SE(2) \), and by evaluating \( e^{\hat \xi} = g e^{\hat \xi'} g^{-1} \), we can see that \( e^{\hat \xi} \in SE(2) \) as well.
+Thereby, \( e^{\hat \xi'} \in SE(2) \).
+\begin{align*}
+    \implies
+    e^{\hat \xi}
+     & =
+    g e^{\hat \xi'} g^{-1}
+    =
+    \begin{bmatrix}
+        I_{2\times 2} & \hat \omega v \\
+        0             & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        e^{\hat \omega} & \hat \omega^2 v + v \\
+        0               & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        I_{2\times 2} & -\hat \omega v \\
+        0             & 1
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        I_{2\times 2} & \hat \omega v \\
+        0             & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        e^{\hat \omega} & - e^{\hat\omega} \hat \omega v + \hat \omega^2 v + v \\
+        0               & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        e^{\hat \omega} & - e^{\hat\omega} \hat \omega v + \hat \omega^2 v + v + \hat \omega v \\
+        0               & 1
+    \end{bmatrix}
+\end{align*}
+\( e^{\hat \omega} \in SO(2) \) and \( - e^{\hat\omega} \hat \omega v + \hat \omega^2 v + v + \hat \omega v \in \mathbb{R}^2 \), there by we can see that the matrix exponential of a twist in \( se(2) \) gives a rigid body transformation in \( SE(2) \).
 
 \subsubsection*{(b) Planar twists for pure rotation and translation}
 
