@@ -323,28 +323,81 @@ The spatial velocity is defined as:
 \]
 where \( g \in SE(2) \) is the rigid body transformation.
 This describes the velocity of the body with respect to the fixed frame in space.
-\( \hat{V}^{s} \in se(2) \) is a twist,
-\[
-    \hat{V}^{s} = \begin{bmatrix}
+\( g^{-1} \) and \( \dot g \) are given by
+\begin{equation*}
+    g^{-1} = \begin{bmatrix}
+        R^T & -R^T p \\
+        0   & 1
+    \end{bmatrix},
+    \quad
+    \dot{g} = \begin{bmatrix}
+        \dot R & \dot v \\
+        0      & 0
+    \end{bmatrix}
+\end{equation*}
+\begin{align*}
+    \implies
+    \hat{V}^{s}
+     & =
+    \dot{g} g^{-1}
+    =
+    \begin{bmatrix}
+        \dot R & \dot v \\
+        0      & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        R^T & -R^T p \\
+        0   & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \dot R R^T & \dot v - \dot R R^T p \\
+        0          & 0
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
         0            & -\omega^{(s)} & v_x^{(s)} \\
         \omega^{(s)} & 0             & v_y^{(s)} \\
         0            & 0             & 0
     \end{bmatrix}
-\]
+    \implies
+    \hat{V}^{s} \text{ is a twist}
+\end{align*}
+since \( \dot R R^T \) can be expressed as a skew-symmetric matrix.
 
 The body velocity is defined as:
 \[
     \hat{V}^{b} = g^{-1} \dot{g}
 \]
 This represents the velocity of the robot as seen in the body frame (i.e., attached to the robot).
-\( \hat{V}^{s} \) is also a twist,
-\[
-    \hat{V}^{b} = \begin{bmatrix}
+\begin{align*}
+    \implies
+    \hat{V}^{b}
+     & =
+    g^{-1} \dot{g}
+    =
+    \begin{bmatrix}
+        R^T & -R^T p \\
+        0   & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \dot R & \dot v \\
+        0      & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R^T \dot R & R^T \dot v \\
+        0          & 0
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
         0            & -\omega^{(b)} & v_x^{(b)} \\
         \omega^{(b)} & 0             & v_y^{(b)} \\
         0            & 0             & 0
     \end{bmatrix}
-\]
+    \implies
+    \hat{V}^{b} \text{ is a twist}
+\end{align*}
 
 The spatial velocity \( V^s \) is the velocity observed from a stationary world frame.
 The body velocity \( V^b \) is the velocity measured relative to the robot's own frame of reference.
