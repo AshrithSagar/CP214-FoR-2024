@@ -1,5 +1,120 @@
 \section*{Problem 2}
+\setcounter{section}{2}
+\setcounter{equation}{0}
 
 If \( \widehat{\xi} \in s e(3) \) is a twist, with twist coordinates \( \xi \in \mathbb{R}^{6} \), then show that for any \( g \in S E(3), g \widehat{\xi} g^{-1} \) is a twist, with twist coordinates \( \operatorname{Ad}_{g} \xi \in \mathbb{R}^{6} \)
 
 \subsection*{Solution}
+
+Given that \( \widehat{\xi} \in s e(3) \) is a twist, with twist coordinates \( \xi \in \mathbb{R}^{6} \), we can write \( \widehat{\xi} \) as
+\begin{equation}
+    \xi
+    =
+    \begin{bmatrix}
+        \omega \\
+        v
+    \end{bmatrix}
+    \in \mathbb{R}^{6}
+    \implies
+    \widehat{\xi}
+    =
+    \begin{bmatrix}
+        \widehat{\omega} & v \\
+        0                & 0
+    \end{bmatrix}
+    \in s e(3)
+\end{equation}\label{eq:twist}
+where \( \omega \in \mathbb{R}^{3} \) and \( v \in \mathbb{R}^{3} \).
+Given \( g \in S E(3) \), we can write \( g \) as \( g = (p, R) \), where \( p \in \mathbb{R}^{3} \) and \( R \in S O(3) \).
+In homogeneous coordinates, it is
+\begin{equation*}
+    g
+    =
+    \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix}
+    \in S E(3)
+    \implies
+    g^{-1}
+    =
+    \begin{bmatrix}
+        R^{T} & -R^{T} p \\
+        0     & 1
+    \end{bmatrix}
+\end{equation*}
+We can now write \( g \widehat{\xi} g^{-1} \) as
+\begin{align*}
+    g \widehat{\xi} g^{-1}
+     & =
+    \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \widehat{\omega} & v \\
+        0                & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        R^{T} & -R^{T} p \\
+        0     & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \widehat{\omega} R^{T} & -\widehat{\omega} R^{T} p + v \\
+        0                      & 0
+    \end{bmatrix}
+    \\
+     & =
+    \begin{bmatrix}
+        R \widehat{\omega} R^{T} & R \widehat{\omega} R^{T} p + R v \\
+        0                        & 0
+    \end{bmatrix}
+\end{align*}
+From the form given in equation~\ref{eq:twist}, we can see that \underline{\( g \widehat{\xi} g^{-1} \) is a indeed a twist}.
+
+Let \( \widehat{\xi}' \) be the twist obtained from \( g \widehat{\xi} g^{-1} \), i.e., \( \widehat{\xi}' = g \widehat{\xi} g^{-1} \), and the correponding twist coordinates be \( \xi' \).
+Then, to find \( \xi' \), we can write
+\begin{equation*}
+    \xi'
+    =
+    \begin{bmatrix}
+        \omega' \\
+        v'
+    \end{bmatrix}
+    \in \mathbb{R}^{6}
+    \implies
+    \widehat{\xi}'
+    =
+    \begin{bmatrix}
+        \widehat{\omega}' & v' \\
+        0                 & 0
+    \end{bmatrix}
+    \in s e(3)
+\end{equation*}
+Comparing the two forms, we then have
+\begin{align*}
+    \widehat{\omega}'
+     & =
+    R \widehat{\omega} R^{T}
+     &
+    \implies
+    \omega'
+     & =
+    R \omega
+    \\
+    v'
+     & =
+    R \widehat{\omega} R^{T} p + R v
+     &
+    \implies
+    v'
+     & =
+    R v + R \omega \times p
+    =
+    R ( v + \omega \times p )
+\end{align*}
