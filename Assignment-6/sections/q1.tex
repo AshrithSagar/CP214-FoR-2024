@@ -9,3 +9,106 @@ Show that the adjoint transformation \( \operatorname{Ad}_{g}: \mathbb{R}^{6} \m
 \]
 
 \subsection*{Solution}
+
+Given \( g \in SE(3) \), we can write \( g \) as \( g = (p, R) \), where \( p \in \mathbb{R}^{3} \) and \( R \in SO(3) \). The adjoint transformation \( \operatorname{Ad}_{g}: \mathbb{R}^{6} \mapsto \mathbb{R}^{6} \) is defined by
+\begin{equation*}
+    \operatorname{Ad}_{g}
+    =
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}_{6 \times 6}
+\end{equation*}
+
+To show that \( \operatorname{Ad}_{g} \) is invertible, we need to show that \( \operatorname{Ad}_{g} \) is a square matrix and that its determinant is non-zero.
+The matrix \( \operatorname{Ad}_{g} \) is a \( 6 \times 6 \) matrix, and its determinant is given by
+\begin{equation*}
+    \det(\operatorname{Ad}_{g})
+    =
+    \det
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}
+    =
+    \det( R R - \widehat{p} R \cdot 0 )
+    =
+    \det(R^{2})
+    =
+    \det(R) \det(R)
+    =
+    1
+\end{equation*}
+where we considered the matrices as block matrices.
+Thereby, the inverse of \( \operatorname{Ad}_{g} \) exists, and is given by
+\begin{equation*}
+    \boxed{
+    \operatorname{Ad}_{g}^{-1}
+    =
+    \begin{bmatrix}
+        R^{-1} & -R^{-1} \widehat{p} \\
+        0      & R^{-1}
+    \end{bmatrix}_{6 \times 6}
+    =
+    \begin{bmatrix}
+        R^{T} & -R^{T} \widehat{p} \\
+        0     & R^{T}
+    \end{bmatrix}
+    }
+\end{equation*}
+
+We can indeed verify that this is the inverse, by
+\begin{align*}
+    \operatorname{Ad}_{g}^{-1}
+    \operatorname{Ad}_{g}
+     & =
+    \begin{bmatrix}
+        R^{T} & -R^{T} \widehat{p} \\
+        0     & R^{T}
+    \end{bmatrix}
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R^{T} R & R^{T} \widehat{p} R - R^{T} \widehat{p} R \\
+        0       & R^{T} R
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        I_{3 \times 3} & 0              \\
+        0              & I_{3 \times 3}
+    \end{bmatrix}
+    =
+    I_{6 \times 6}
+    \\
+    \operatorname{Ad}_{g}
+    \operatorname{Ad}_{g}^{-1}
+     & =
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}
+    \begin{bmatrix}
+        R^{T} & -R^{T} \widehat{p} \\
+        0     & R^{T}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R R^{T} & -R R^{T} \widehat{p} + \widehat{p} R R^T \\
+        0       & R R^{T}
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        I_{3 \times 3} & - \widehat{p} + \widehat{p} \\
+        0              & I_{3 \times 3}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        I_{3 \times 3} & 0              \\
+        0              & I_{3 \times 3}
+    \end{bmatrix}
+    =
+    I_{6 \times 6}
+\end{align*}
