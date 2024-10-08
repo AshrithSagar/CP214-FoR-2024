@@ -37,3 +37,305 @@ Now answer the following:
 
 \clearpage
 \subsection*{Solution}
+
+\subsubsection*{(a) Computing \( v_{s}, v_{b} \) and \( \xi_{s}, \xi_{b} \)}
+
+Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and \( \omega_{b}=(0,0,-2) \), we can compute the linear velocity \( v_{s}, v_{b} \) as
+\begin{align*}
+    v_{s}
+     & =
+    \omega_{s} \times r_{s}
+    =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        2
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        2  \\
+        -1 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & -2 & 0 \\
+        2 & 0  & 0 \\
+        0 & 0  & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        2  \\
+        -1 \\
+        0
+    \end{bmatrix}
+    \implies
+    \boxed{
+        v_{s}
+        =
+        \begin{bmatrix}
+            2 \\
+            4 \\
+            0
+        \end{bmatrix}
+    }
+    \\
+    v_{b}
+     & =
+    \omega_{b} \times r_{b}
+    =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        -2
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        2    \\
+        -1.4 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0  & 2 & 0 \\
+        -2 & 0 & 0 \\
+        0  & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        2    \\
+        -1.4 \\
+        0
+    \end{bmatrix}
+    \implies
+    \boxed{
+        v_{b}
+        =
+        \begin{bmatrix}
+            -2.8 \\
+            -4   \\
+            0
+        \end{bmatrix}
+    }
+\end{align*}
+\begin{equation*}
+    \implies
+    \xi_{s}
+    =
+    \begin{bmatrix}
+        v_{s} \\
+        \omega_{s}
+    \end{bmatrix}
+    \implies
+    \boxed{
+        \xi_{s}
+        =
+        \begin{bmatrix}
+            2 \\
+            4 \\
+            0 \\
+            0 \\
+            0 \\
+            2
+        \end{bmatrix}
+    }
+    \quad \text{and} \quad
+    \xi_{b}
+    =
+    \begin{bmatrix}
+        v_{b} \\
+        \omega_{b}
+    \end{bmatrix}
+    \implies
+    \boxed{
+        \xi_{b}
+        =
+        \begin{bmatrix}
+            -2.8 \\
+            -4   \\
+            0    \\
+            0    \\
+            0    \\
+            -2
+        \end{bmatrix}
+    }
+\end{equation*}
+Now, given \( g_{s b} = (R_{s b}, p_{s b}) \), we have it in homogeneous coordinates as
+\begin{align*}
+    g_{s b}
+     & =
+    \begin{bmatrix}
+        R_{s b} & p_{s b} \\
+        0       & 1
+    \end{bmatrix}_{4 \times 4}
+\end{align*}
+Now, from the figure, we can compute \( R_{s b} \) and \( p_{s b} \) as follows.
+\( p_{s b} \) would denote the position of the origin of the body frame w.r.t the fixed frame, and we have
+\begin{align*}
+    p_{s b}
+     & =
+    \begin{bmatrix}
+        2 + 2       \\
+        -1 - (-1.4) \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        4   \\
+        0.4 \\
+        0
+    \end{bmatrix}
+\end{align*}
+Now, for \( R_{s b} \), we can see that the fixed frame is rotated by \( 180^{\circ} \) about the \( \hat{y}_{b} \)-axis, w.r.t the body frame, and we have
+\begin{align*}
+    R_{s b}
+     & =
+    \begin{bmatrix}
+        \cos(180^{\circ})  & 0 & \sin(180^{\circ}) \\
+        0                  & 1 & 0                 \\
+        -\sin(180^{\circ}) & 0 & \cos(180^{\circ})
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -1 & 0 & 0  \\
+        0  & 1 & 0  \\
+        0  & 0 & -1
+    \end{bmatrix}
+\end{align*}
+Thus, we have the adjoint transformation \( \operatorname{Ad}_{g_{s b}} \) as
+\begin{align*}
+    \operatorname{Ad}_{g_{s b}}
+     & =
+    \begin{bmatrix}
+        R_{s b} & - \widehat{p}_{s b} R_{s b} \\
+        0       & R_{s b}
+    \end{bmatrix}_{6 \times 6}
+    \\
+    \implies
+    - \widehat{p}_{s b} R_{s b}
+     & =
+    - \begin{bmatrix}
+          0    & 0 & 0.4 \\
+          0    & 0 & -4  \\
+          -0.4 & 4 & 0
+      \end{bmatrix}
+    \begin{bmatrix}
+        -1 & 0 & 0  \\
+        0  & 1 & 0  \\
+        0  & 0 & -1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0    & 0  & 0.4 \\
+        0    & 0  & -4  \\
+        -0.4 & -4 & 0
+    \end{bmatrix}
+\end{align*}
+Thus, we have
+\begin{align*}
+    \implies
+    \operatorname{Ad}_{g_{s b}} \xi_{b}
+     & =
+    \begin{bmatrix}
+        R_{s b} & - \widehat{p}_{s b} R_{s b} \\
+        0       & R_{s b}
+    \end{bmatrix}
+    \begin{bmatrix}
+        v_b \\
+        \omega_b
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R_{s b} v_b - \widehat{p}_{s b} R_{s b} \omega_b \\
+        R_{s b} \omega_b
+    \end{bmatrix}
+    \\ \implies
+    R_{s b} v_b + (- \widehat{p}_{s b} R_{s b}) \omega_b
+     & =
+    \begin{bmatrix}
+        -1 & 0 & 0  \\
+        0  & 1 & 0  \\
+        0  & 0 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        -2.8 \\
+        -4   \\
+        0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0    & 0  & 0.4 \\
+        0    & 0  & -4  \\
+        -0.4 & -4 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        -2
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        2.8 \\
+        -4  \\
+        0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        -0.8 \\
+        8    \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        2 \\
+        4 \\
+        0
+    \end{bmatrix}
+    =
+    v_s
+    \\
+    \implies
+    R_{s b} \omega_b
+     & =
+    \begin{bmatrix}
+        -1 & 0 & 0  \\
+        0  & 1 & 0  \\
+        0  & 0 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        -2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        2
+    \end{bmatrix}
+    =
+    \omega_s
+\end{align*}
+Thereby,
+\begin{align*}
+    \implies
+    \operatorname{Ad}_{g_{s b}} \xi_{b}
+    =
+    \begin{bmatrix}
+        R_{s b} v_b + (- \widehat{p}_{s b} R_{s b}) \omega_b \\
+        R_{s b} \omega_b
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_s \\
+        \omega_s
+    \end{bmatrix}
+    =
+    \xi_s
+\end{align*}
+\begin{equation*}
+    \therefore
+    \boxed{
+    \operatorname{Ad}_{g_{s b}} \xi_{b}
+    =
+    \xi_s
+    }
+\end{equation*}
