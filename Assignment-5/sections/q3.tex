@@ -376,7 +376,7 @@ This describes the velocity of the body with respect to the fixed frame in space
     \end{bmatrix},
     \quad
     \dot{g} = \begin{bmatrix}
-        \dot R & \dot v \\
+        \dot R & \dot p \\
         0      & 0
     \end{bmatrix}
 \end{equation*}
@@ -387,7 +387,7 @@ This describes the velocity of the body with respect to the fixed frame in space
     \dot{g} g^{-1}
     =
     \begin{bmatrix}
-        \dot R & \dot v \\
+        \dot R & \dot p \\
         0      & 0
     \end{bmatrix}
     \begin{bmatrix}
@@ -396,19 +396,13 @@ This describes the velocity of the body with respect to the fixed frame in space
     \end{bmatrix}
     =
     \begin{bmatrix}
-        \dot R R^T & \dot v - \dot R R^T p \\
+        \dot R R^T & \dot p - \dot R R^T p \\
         0          & 0
     \end{bmatrix}
-    \\ & =
-    \begin{bmatrix}
-        0            & -\omega^{(s)} & v_x^{(s)} \\
-        \omega^{(s)} & 0             & v_y^{(s)} \\
-        0            & 0             & 0
-    \end{bmatrix}
-    \implies
-    \hat{V}^{s} \text{ is a twist}
 \end{align*}
-since \( \dot R R^T \) can be expressed as a skew-symmetric matrix.
+Since \( \dot R R^T \) can be expressed as a skew-symmetric matrix, \( \implies \dot R R^T \in so(2) \),\\
+and \( (\dot p - \dot R R^T p) \in \mathbb{R}^2 \), \( \implies \hat{V}^{s} \) is a twist.
+
 
 The body velocity is defined as:
 \[
@@ -434,15 +428,9 @@ This represents the velocity of the robot as seen in the body frame (i.e., attac
         R^T \dot R & R^T \dot v \\
         0          & 0
     \end{bmatrix}
-    \\ & =
-    \begin{bmatrix}
-        0            & -\omega^{(b)} & v_x^{(b)} \\
-        \omega^{(b)} & 0             & v_y^{(b)} \\
-        0            & 0             & 0
-    \end{bmatrix}
-    \implies
-    \hat{V}^{b} \text{ is a twist}
 \end{align*}
+Similarly, \( R^T \dot R \) can be expressed as a skew-symmetric matrix, \( \implies R^T \dot R \in so(2) \),\\
+and \( R^T \dot v \in \mathbb{R}^2 \), \( \implies \hat{V}^{b} \) is a twist.
 
 The spatial velocity \( V^s \) is the velocity observed from a stationary world frame.
 The body velocity \( V^b \) is the velocity measured relative to the robot's own frame of reference.
