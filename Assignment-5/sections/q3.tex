@@ -289,33 +289,74 @@ Thereby, \( e^{\hat \xi'} \in SE(2) \).
 A pure rotation about a point \( r = (r_x, r_y) \) corresponds to a twist where the velocity vector \( v \) at the origin is perpendicular to the vector from the origin to the point of rotation, all of them being in the plane.
 We can see that, for rotating around the point \( r \) with an angular velocity of 1 radian per second, we have
 \[
-    \hat{\xi} = \begin{bmatrix}
+    \widehat \omega
+    =
+    \begin{bmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{bmatrix}_{2\times 2}
+    \implies
+    \hat{\xi}
+    =
+    \begin{bmatrix}
+        \widehat{\omega} & -\widehat{\omega} r \\
+        0                & 0
+    \end{bmatrix}_{3\times 3}
+    =
+    \begin{bmatrix}
         0 & -1 & r_y  \\
         1 & 0  & -r_x \\
         0 & 0  & 0
     \end{bmatrix}
     \implies
-    \xi = \begin{bmatrix}
-        r_y  \\
-        -r_x \\
-        1
-    \end{bmatrix}
+    \boxed{
+        \xi
+        =
+        \begin{bmatrix}
+            r_y  \\
+            -r_x \\
+            1
+        \end{bmatrix}
+    }
 \]
 
 A pure translation corresponds to a twist where there is no angular velocity (i.e., \( \omega = 0 \)).
 For movement in the direction of the vector \( v \) with no rotation, we have
 \[
-    \hat{\xi} = \begin{bmatrix}
+    \widehat \omega
+    =
+    \begin{bmatrix}
+        0 & 0 \\
+        0 & 0
+    \end{bmatrix}_{2\times 2}
+    \implies
+    \hat{\xi}
+    =
+    \begin{bmatrix}
+        \widehat{\omega} & v \\
+        0                & 0
+    \end{bmatrix}_{3\times 3}
+    =
+    \begin{bmatrix}
         0 & 0 & v_x \\
         0 & 0 & v_y \\
         0 & 0 & 0
-    \end{bmatrix}
+    \end{bmatrix}_{3\times 3}
     \implies
-    \xi = \begin{bmatrix}
+    \boxed{
+    \xi
+    =
+    \begin{bmatrix}
+        v \\
+        0
+    \end{bmatrix}_{3\times 1}
+    =
+    \begin{bmatrix}
         v_x \\
         v_y \\
         0
-    \end{bmatrix}
+    \end{bmatrix}_{3\times 1}
+    }
 \]
 
 \clearpage
