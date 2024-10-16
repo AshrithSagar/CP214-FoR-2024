@@ -21,6 +21,66 @@ Given \( g \in SE(3) \), we can write \( g \) as \( g = (p, R) \), where \( p \i
 \end{equation*}
 
 To show that \( \operatorname{Ad}_{g} \) is invertible, we need to show that \( \operatorname{Ad}_{g} \) is a square matrix and that its determinant is non-zero.
+
+\begin{lemma}
+    (Schur's formula)
+    If \( A \) is invertible, then the determinant of the block matrix \( M \) is given by
+    \begin{equation*}
+        \det M
+        =
+        \det
+        \begin{bmatrix}
+            A & B \\
+            C & D
+        \end{bmatrix}
+        =
+        \det(A)\det \left(D-CA^{-1}B\right)
+    \end{equation*}
+    where \( \left(D-CA^{-1}B\right) \) is the Schur complement of \( A \) in \( M \).
+\end{lemma}
+\begin{proof}
+    Since \( A^{-1} \) exists, left-multiply \( M \) by the block matrix
+    \(
+    P = \begin{bmatrix}
+        I        & 0 \\
+        -CA^{-1} & I
+    \end{bmatrix}
+    \)
+    \[
+        \implies
+        PM
+        =
+        \begin{bmatrix}
+            I        & 0 \\
+            -CA^{-1} & I
+        \end{bmatrix}
+        \begin{bmatrix}
+            A & B \\
+            C & D
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            A & B            \\
+            0 & D - CA^{-1}B
+        \end{bmatrix}
+    \]
+    Now, the determinant of \( PM \) is given by
+    \begin{align*}
+        \det(PM)
+         & =
+        \det(P)\det(M)
+        =
+        1 \cdot \det(M)
+        \\
+        \implies
+        \det(M)
+         & =
+        \det(PM)
+        =
+        \det(A) \det(D - CA^{-1}B)
+    \end{align*}
+\end{proof}
+
 The matrix \( \operatorname{Ad}_{g} \) is a \( 6 \times 6 \) matrix, and its determinant is given by
 \begin{equation*}
     \det(\operatorname{Ad}_{g})
@@ -31,16 +91,13 @@ The matrix \( \operatorname{Ad}_{g} \) is a \( 6 \times 6 \) matrix, and its det
         0 & R
     \end{bmatrix}
     =
-    \det( R R - \widehat{p} R \cdot 0 )
+    \det( R ) \det \left( R - 0 \cdot R^\top \widehat{p} R \right)
     =
-    \det(R^{2})
-    =
-    \det(R) \det(R)
+    \det( R ) \det( R )
     =
     1
 \end{equation*}
-where we considered the matrices as block matrices.
-Thereby, the inverse of \( \operatorname{Ad}_{g} \) exists, and is given by
+Thereby, the \underline{inverse of \( \operatorname{Ad}_{g} \) exists}, and is given by
 \begin{equation*}
     \boxed{
     \operatorname{Ad}_{g}^{-1}
