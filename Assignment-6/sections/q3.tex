@@ -44,7 +44,9 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
 \begin{align*}
     v_{s}
      & =
-    \omega_{s} \times r_{s}
+    \omega_{s} \times (r_{r \to s})
+    =
+    \omega_{s} \times (-r_{s})
     =
     \begin{bmatrix}
         0 \\
@@ -53,8 +55,8 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
     \end{bmatrix}
     \times
     \begin{bmatrix}
-        2  \\
-        -1 \\
+        -2 \\
+        1  \\
         0
     \end{bmatrix}
     =
@@ -64,8 +66,8 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
         0 & 0  & 0
     \end{bmatrix}
     \begin{bmatrix}
-        2  \\
-        -1 \\
+        -2 \\
+        1
         0
     \end{bmatrix}
     \implies
@@ -73,15 +75,17 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
         v_{s}
         =
         \begin{bmatrix}
-            2 \\
-            4 \\
+            -2 \\
+            -4 \\
             0
         \end{bmatrix}
     }
     \\
     v_{b}
      & =
-    \omega_{b} \times r_{b}
+    \omega_{b} \times r_{r \to b}
+    =
+    \omega_{b} \times (-r_{b})
     =
     \begin{bmatrix}
         0 \\
@@ -90,8 +94,8 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
     \end{bmatrix}
     \times
     \begin{bmatrix}
-        2    \\
-        -1.4 \\
+        -2  \\
+        1.4 \\
         0
     \end{bmatrix}
     =
@@ -101,8 +105,8 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
         0  & 0 & 0
     \end{bmatrix}
     \begin{bmatrix}
-        2    \\
-        -1.4 \\
+        -2  \\
+        1.4 \\
         0
     \end{bmatrix}
     \implies
@@ -110,8 +114,8 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
         v_{b}
         =
         \begin{bmatrix}
-            -2.8 \\
-            -4   \\
+            2.8 \\
+            4   \\
             0
         \end{bmatrix}
     }
@@ -129,11 +133,11 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
         \xi_{s}
         =
         \begin{bmatrix}
-            2 \\
-            4 \\
-            0 \\
-            0 \\
-            0 \\
+            -2 \\
+            -4 \\
+            0  \\
+            0  \\
+            0  \\
             2
         \end{bmatrix}
     }
@@ -149,11 +153,11 @@ Given \( r_{s}=(2,-1,0) \), \( r_{b}=(2,-1.4,0) \), \( \omega_{s}=(0,0,2) \) and
         \xi_{b}
         =
         \begin{bmatrix}
-            -2.8 \\
-            -4   \\
-            0    \\
-            0    \\
-            0    \\
+            2.8 \\
+            4   \\
+            0   \\
+            0   \\
+            0   \\
             -2
         \end{bmatrix}
     }
@@ -281,8 +285,8 @@ Thus, we have
         0  & 0 & -1
     \end{bmatrix}
     \begin{bmatrix}
-        -2.8 \\
-        -4   \\
+        2.8 \\
+        4   \\
         0
     \end{bmatrix}
     +
@@ -298,8 +302,8 @@ Thus, we have
     \end{bmatrix}
     \\ & =
     \begin{bmatrix}
-        2.8 \\
-        -4  \\
+        -2.8 \\
+        4    \\
         0
     \end{bmatrix}
     +
@@ -310,8 +314,8 @@ Thus, we have
     \end{bmatrix}
     =
     \begin{bmatrix}
-        2 \\
-        4 \\
+        -2 \\
+        -4 \\
         0
     \end{bmatrix}
     =
