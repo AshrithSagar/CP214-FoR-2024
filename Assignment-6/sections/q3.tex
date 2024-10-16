@@ -1,4 +1,6 @@
 \section*{Problem 3}
+\setcounter{section}{3}
+\setcounter{equation}{0}
 
 \textbf{Adjoint Transformation in Planar Motion:}
 \begin{figure}[h]
@@ -372,3 +374,184 @@ Thereby,
 \subsubsection*{(b) Existence of Adjoint Transformation}
 
 We need to assess the existence of an adjoint transformation such that \( \xi'_s = \operatorname{Ad}_{g'_{s b}} \xi'_b \), where \( g'_{s b} \equiv (p'_{s b}, R'_{s b}) \in SE(2) \) and \( \xi'_s, \xi'_b \in \mathbb{R}^3 \).
+Given the problem formulation, we have \( \xi'_s, \xi'_b \) as the twist coordinates in the fixed and body frames, respectively.
+
+\subsubsection*{(c) Form of Adjoint Transformation}
+
+Given that \( \widehat{\xi} \in s e(2) \) is a twist, with twist coordinates \( \xi \in \mathbb{R}^{3} \), we can write \( \widehat{\xi} \) as
+\begin{equation}\label{eq:twist-2D}
+    \xi
+    =
+    \begin{bmatrix}
+        v \\
+        \omega
+    \end{bmatrix}
+    \in \mathbb{R}^{3}
+    \implies
+    \widehat{\xi}
+    =
+    \begin{bmatrix}
+        \widehat{\omega} & v \\
+        0                & 0
+    \end{bmatrix}_{3 \times 3}
+    \in s e(2),
+    \quad
+    \text{where}
+    \quad
+    \widehat{\omega}
+    =
+    \begin{bmatrix}
+        0      & -\omega \\
+        \omega & 0
+    \end{bmatrix}_{2 \times 2}
+    \in s o(2)
+\end{equation}
+where \( \omega \in \mathbb{R}^{3} \) and \( v \in \mathbb{R}^{3} \).
+Given \( g \in S E(2) \), we can write \( g \) as \( g = (p, R) \), where \( p \in \mathbb{R}^{2} \) and \( R \in S O(2) \).
+In homogeneous coordinates, it is
+\begin{equation*}
+    g
+    =
+    \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix}_{3 \times 3}
+    \in S E(2)
+    \implies
+    g^{-1}
+    =
+    \begin{bmatrix}
+        R^{T} & -R^{T} p \\
+        0     & 1
+    \end{bmatrix}_{3 \times 3}
+\end{equation*}
+We can now write \( g \widehat{\xi} g^{-1} \) as
+\begin{align*}
+    g \widehat{\xi} g^{-1}
+     & =
+    \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \widehat{\omega} & v \\
+        0                & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        R^{T} & -R^{T} p \\
+        0     & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R & p \\
+        0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \widehat{\omega} R^{T} & -\widehat{\omega} R^{T} p + v \\
+        0                      & 0
+    \end{bmatrix}
+    \\
+     & =
+    \begin{bmatrix}
+        R \widehat{\omega} R^{T} & R \widehat{\omega} R^{T} p + R v \\
+        0                        & 0
+    \end{bmatrix}
+\end{align*}
+For \( R \in SO(2) \) and \( \widehat{\omega} \in so(2) \), we have that \( R \widehat{\omega} R^{T} = \widehat{\omega} \).
+\begin{equation*}
+    \implies
+    g \widehat{\xi} g^{-1}
+    =
+    \begin{bmatrix}
+        \widehat{\omega} & \widehat{\omega} p + R v \\
+        0                & 0
+    \end{bmatrix}
+\end{equation*}
+
+From the form given in equation~\eqref{eq:twist-2D}, we can see that \underline{\( g \widehat{\xi} g^{-1} \) is a indeed a twist}.
+
+Let \( \widehat{\xi}' \) be the twist obtained from \( g \widehat{\xi} g^{-1} \), i.e., \( \widehat{\xi}' = g \widehat{\xi} g^{-1} \), and the correponding twist coordinates be \( \xi' \).
+Then, to find \( \xi' \), we can write
+\begin{equation*}
+    \xi'
+    =
+    \begin{bmatrix}
+        v' \\
+        \omega'
+    \end{bmatrix}
+    \in \mathbb{R}^{3}
+    \implies
+    \widehat{\xi}'
+    =
+    \begin{bmatrix}
+        \widehat{\omega}' & v' \\
+        0                 & 0
+    \end{bmatrix}
+    \in s e(2)
+\end{equation*}
+Comparing the two forms, we then have
+\begin{align*}
+    \widehat{\omega}'
+     & =
+    \widehat{\omega}
+     &
+    \implies
+    \omega'
+     & =
+    \omega
+    \\
+    v'
+     & =
+    \widehat{\omega} p + R v
+     &
+    \implies
+    v'
+     & =
+    R v + \omega \times p
+    =
+    R v - \widehat{p} \omega
+\end{align*}
+where we've used the property that \( R \widehat{\omega} R^T = \widehat{\omega} \) and that \( \widehat{\omega} p = \omega \times p = - p \times \omega = - \widehat{p} \omega \).
+\begin{equation*}
+    \implies
+    \xi'
+    =
+    \begin{bmatrix}
+        R v - \widehat{p} \omega \\
+        \omega
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R & -\widehat{p} \\
+        0 & 1
+    \end{bmatrix}_{3 \times 3}
+    \begin{bmatrix}
+        v \\
+        \omega
+    \end{bmatrix}
+    \implies
+    \boxed{
+        \xi'
+        =
+        \operatorname{Ad}_{g} \xi
+    }
+\end{equation*}
+Thereby, the adjoint transformation is of the form
+\begin{equation*}
+    \operatorname{Ad}_{g}
+    =
+    \begin{bmatrix}
+        R & -\widehat{p} \\
+        0 & 1
+    \end{bmatrix}
+\end{equation*}
+i.e.,
+\begin{equation*}
+    \operatorname{Ad}_{g_{s b}^{\prime}}=\left[\begin{array}{cc}
+            R_{s b}^{\prime} & {\left[\begin{array}{cc}
+                                                      0  & 1 \\
+                                                      -1 & 0
+                                                  \end{array}\right] p_{s b}^{\prime}} \\
+            0                & 1
+        \end{array}\right], \text { where } R_{s b}^{\prime} \in S O(2), p_{s b}^{\prime} \in \mathbb{R}^{2}
+\end{equation*}
