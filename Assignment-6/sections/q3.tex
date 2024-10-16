@@ -168,23 +168,7 @@ Now, given \( g_{s b} = (R_{s b}, p_{s b}) \), we have it in homogeneous coordin
     \end{bmatrix}_{4 \times 4}
 \end{align*}
 Now, from the figure, we can compute \( R_{s b} \) and \( p_{s b} \) as follows.
-\( p_{s b} \) would denote the position of the origin of the body frame w.r.t the fixed frame, and we have
-\begin{align*}
-    p_{s b}
-     & =
-    \begin{bmatrix}
-        2 + 2       \\
-        -1 - (-1.4) \\
-        0
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        4   \\
-        0.4 \\
-        0
-    \end{bmatrix}
-\end{align*}
-Now, for \( R_{s b} \), we can see that the fixed frame is rotated by \( 180^{\circ} \) about the \( \hat{y}_{b} \)-axis, w.r.t the body frame, and we have
+For \( R_{s b} \), we can see that the fixed frame is rotated by \( 180^{\circ} \) about the \( \hat{y}_{b} \)-axis, w.r.t the body frame, and we have
 \begin{align*}
     R_{s b}
      & =
@@ -200,23 +184,64 @@ Now, for \( R_{s b} \), we can see that the fixed frame is rotated by \( 180^{\c
         0  & 0 & -1
     \end{bmatrix}
 \end{align*}
+Now, \( p_{s b} \) can be computed as
+\begin{align*}
+    p_{s b}
+     & =
+    r_{s} - R_{s b} r_{b}
+    =
+    \begin{bmatrix}
+        2  \\
+        -1 \\
+        0
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        -1 & 0 & 0  \\
+        0  & 1 & 0  \\
+        0  & 0 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        2    \\
+        -1.4 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        2  \\
+        -1 \\
+        0
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        -2   \\
+        -1.4 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        4   \\
+        0.4 \\
+        0
+    \end{bmatrix}
+\end{align*}
 Thus, we have the adjoint transformation \( \operatorname{Ad}_{g_{s b}} \) as
 \begin{align*}
     \operatorname{Ad}_{g_{s b}}
      & =
     \begin{bmatrix}
-        R_{s b} & - \widehat{p}_{s b} R_{s b} \\
+        R_{s b} & \widehat{p}_{s b} R_{s b} \\
         0       & R_{s b}
     \end{bmatrix}_{6 \times 6}
     \\
     \implies
-    - \widehat{p}_{s b} R_{s b}
+    \widehat{p}_{s b} R_{s b}
      & =
-    - \begin{bmatrix}
-          0    & 0 & 0.4 \\
-          0    & 0 & -4  \\
-          -0.4 & 4 & 0
-      \end{bmatrix}
+    \begin{bmatrix}
+        0    & 0 & 0.4 \\
+        0    & 0 & -4  \\
+        -0.4 & 4 & 0
+    \end{bmatrix}
     \begin{bmatrix}
         -1 & 0 & 0  \\
         0  & 1 & 0  \\
@@ -224,9 +249,9 @@ Thus, we have the adjoint transformation \( \operatorname{Ad}_{g_{s b}} \) as
     \end{bmatrix}
     =
     \begin{bmatrix}
-        0    & 0  & 0.4 \\
-        0    & 0  & -4  \\
-        -0.4 & -4 & 0
+        0   & 0 & -0.4 \\
+        0   & 0 & 4    \\
+        0.4 & 4 & 0
     \end{bmatrix}
 \end{align*}
 Thus, we have
@@ -235,7 +260,7 @@ Thus, we have
     \operatorname{Ad}_{g_{s b}} \xi_{b}
      & =
     \begin{bmatrix}
-        R_{s b} & - \widehat{p}_{s b} R_{s b} \\
+        R_{s b} & \widehat{p}_{s b} R_{s b} \\
         0       & R_{s b}
     \end{bmatrix}
     \begin{bmatrix}
@@ -244,11 +269,11 @@ Thus, we have
     \end{bmatrix}
     =
     \begin{bmatrix}
-        R_{s b} v_b - \widehat{p}_{s b} R_{s b} \omega_b \\
+        R_{s b} v_b + \widehat{p}_{s b} R_{s b} \omega_b \\
         R_{s b} \omega_b
     \end{bmatrix}
     \\ \implies
-    R_{s b} v_b + (- \widehat{p}_{s b} R_{s b}) \omega_b
+    R_{s b} v_b + (\widehat{p}_{s b} R_{s b}) \omega_b
      & =
     \begin{bmatrix}
         -1 & 0 & 0  \\
@@ -262,9 +287,9 @@ Thus, we have
     \end{bmatrix}
     +
     \begin{bmatrix}
-        0    & 0  & 0.4 \\
-        0    & 0  & -4  \\
-        -0.4 & -4 & 0
+        0   & 0 & -0.4 \\
+        0   & 0 & 4    \\
+        0.4 & 4 & 0
     \end{bmatrix}
     \begin{bmatrix}
         0 \\
@@ -279,8 +304,8 @@ Thus, we have
     \end{bmatrix}
     +
     \begin{bmatrix}
-        -0.8 \\
-        8    \\
+        0.8 \\
+        -8  \\
         0
     \end{bmatrix}
     =
@@ -320,7 +345,7 @@ Thereby,
     \operatorname{Ad}_{g_{s b}} \xi_{b}
     =
     \begin{bmatrix}
-        R_{s b} v_b + (- \widehat{p}_{s b} R_{s b}) \omega_b \\
+        R_{s b} v_b + (\widehat{p}_{s b} R_{s b}) \omega_b \\
         R_{s b} \omega_b
     \end{bmatrix}
     =
