@@ -95,6 +95,8 @@ Thus, we have
     \\ & =
     I + \widehat{\omega} \left[ \sin \theta - \cos \theta \tan(\theta / 2) \right] + \widehat{\omega}^{2} \left[(1 - \cos \theta) - \sin \theta \tan(\theta / 2) \right]
 \end{align*}
+where we've used the relation \( \widehat{\omega}^{3} = -\widehat{\omega} \), which was derived in the previous assignments.
+[Seen in \( \hat{w}^{3}=-\|w\|^{2} \hat{w} \) for \( \hat{w} \in so(3) \)].
 
 Now, from the half-angle formulas, we have
 \begin{equation*}
@@ -124,3 +126,9 @@ Now, from the half-angle formulas, we have
 \end{align*}
 
 Thus, we have shown that \( R(I + \widehat{a}) = I - \widehat{a} \implies \boxed{a = -\omega \tan(\theta / 2)} \) holds.
+
+\vspace{1em}
+Now, we want to prove the relationships,
+\[
+    R = \frac{(1 - a^{T} a) I + 2 a a^{T} + 2 \widehat{a}}{1 + a^{T} a}, \quad \widehat{a} = \frac{R - R^{T}}{1 + \operatorname{trace}(R)}
+\]
