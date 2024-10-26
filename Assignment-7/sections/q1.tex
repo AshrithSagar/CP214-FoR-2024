@@ -70,6 +70,57 @@ Now answer the following,
 
 \subsubsection*{(a) Case \( k=1 \)}
 
+Given \( R = e^{\widehat{\omega} \theta} \in SO(3) \) for some unit vector \( \omega \) along the axis of rotation and angle \( \theta \), we have to show that \( a = -\omega \tan(\theta / 2) \).
+For this, we will first find the value of \( \widehat{a} \) and then substitute it in the equation \( R(I + \widehat{a}) \) to verify that it matches the RHS, as given in the hint.
+
+From the Rodrigues formula, we have
 \begin{equation*}
-    R = (I - \widehat{a}) {(I + \widehat{a})}^{-1} \in SO(3)
+    R = e^{\widehat{\omega} \theta} = I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta)
 \end{equation*}
+Now, with \( a = -\omega \tan(\theta / 2) \), we have \( \widehat{a} = -\widehat{\omega} \tan(\theta / 2) \), which is clear to see based on the matrix representation of the hat operator.
+Thus, we have
+\begin{align*}
+    \implies
+    R(I + \widehat{a})
+     & =
+    (I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta))(I - \widehat{\omega} \tan(\theta / 2))
+    \\ & =
+    I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta) - \widehat{\omega} \tan(\theta / 2)
+    \\ & \quad
+    - \widehat{\omega}^{2} \sin \theta \tan(\theta / 2) - \widehat{\omega}^{3} (1 - \cos \theta) \tan(\theta / 2)
+    \\ & =
+    I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta) - \cancel{\widehat{\omega} \tan(\theta / 2)}
+    \\ & \quad
+    - \widehat{\omega}^{2} \sin \theta \tan(\theta / 2) + \cancel{\widehat{\omega} \tan(\theta / 2)} - \widehat{\omega} \cos \theta \tan(\theta / 2)
+    \\ & =
+    I + \widehat{\omega} \left[ \sin \theta - \cos \theta \tan(\theta / 2) \right] + \widehat{\omega}^{2} \left[(1 - \cos \theta) - \sin \theta \tan(\theta / 2) \right]
+\end{align*}
+
+Now, from the half-angle formulas, we have
+\begin{equation*}
+    \tan (\theta / 2)
+    =
+    \frac{\sin \theta}{1 + \cos \theta}
+    =
+    \frac{1 - \cos \theta}{\sin \theta}
+\end{equation*}
+\begin{align*}
+    \implies
+    R(I + \widehat{a})
+     & =
+    I + \widehat{\omega} \left[ \sin \theta - \cos \theta \frac{\sin \theta}{1 + \cos \theta} \right] + \widehat{\omega}^{2} \left[\cancel{(1 - \cos \theta)} - \cancel{\sin \theta \tan(\theta / 2)} \right]
+    \\ & =
+    I + \widehat{\omega} \sin \theta \left[ 1 - \frac{\cos \theta}{1 + \cos \theta} \right]
+    =
+    I + \widehat{\omega} \sin \theta \left[ \frac{1 + \cancel{\cos \theta} - \cancel{\cos \theta}}{1 + \cos \theta} \right]
+    \\ & =
+    I + \widehat{\omega} \frac{\sin \theta}{1 + \cos \theta}
+    =
+    I + \widehat{\omega} \tan(\theta / 2)
+    \\ & =
+    I - (-\widehat{\omega} \tan(\theta / 2))
+    =
+    (I - \widehat{a})
+\end{align*}
+
+Thus, we have shown that \( R(I + \widehat{a}) = I - \widehat{a} \implies \boxed{a = -\omega \tan(\theta / 2)} \) holds.
