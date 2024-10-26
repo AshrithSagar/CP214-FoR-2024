@@ -27,20 +27,6 @@ Now answer the following,
 
           Using these, can we know what the vectors ``\( -a \)'' and ``\( a=0 \)'' represent?
 
-          An attractive feature of the Cayley parameters is the simple form for the composition of two rotation matrices.
-          If \( a_{1} \) and \( a_{2} \) denote the Cayley parameters for two rotations \( R_{1} \) and \( R_{2} \) respectively, then show that for \( R_{3}=R_{1} R_{2} \) we would have the corresponding \( a_{3} \) given by
-          \[
-              a_{3}=\frac{a_{1}+a_{2}+\left(a_{1} \times a_{2}\right)}{1-a_{1}^{T} a_{2}}
-          \]
-          Lastly, show that we can even find body frame and spatial frame angular velocities in a simple form like
-          \[
-              \omega_{s}=\frac{2}{1+\|a\|^{2}}(a \times \dot{a}+\dot{a}), \quad \omega_{b}=\frac{2}{1+\|a\|^{2}}(-a \times \dot{a}+\dot{a})
-          \]
-
-          (What would happen in the case when trace \( (R)=-1 \) or \( a_{1}^{T} a_{2}=1 \equiv \operatorname{trace}\left(R_{1} R_{2}\right)=-1 \)?
-          Does everything fail, or can we still work around it?
-          Maybe try deriving everything in terms of a variable \( s=\frac{a}{\sqrt{1+a^{T} a}} \) and see where it leads to \( \ldots \))
-
     \item (Case \( k=2 \)) Now show that the rotation \( R \) corresponding to \( a \) can be computed from the formula
           \[
               R=I-4 \frac{1-a^{T} a}{\left(1+a^{T} a\right)^{2}} \widehat{a}+\frac{8}{\left(1+a^{T} a\right)^{2}} \widehat{a}^{2}
@@ -59,8 +45,25 @@ Now answer the following,
     \item For \( k \geq 2 \), explain what happens to the singularity at \( \pi \) that exists for the standard Cayley parameters \( (k=1) \).
           Also, discuss the relative advantages and disadvantages of choosing different \( k \).
 
-    \item Compare the number of arithmetic operations needed for multiplying two rotation matrices or two Cayley representations.
+    \item An attractive feature of the Cayley parameters is the simple form for the composition of two rotation matrices.
+          If \( a_{1} \) and \( a_{2} \) denote the Cayley parameters for two rotations \( R_{1} \) and \( R_{2} \) respectively, then show that for \( R_{3}=R_{1} R_{2} \) we would have the corresponding \( a_{3} \) given by
+          \[
+              a_{3}=\frac{a_{1}+a_{2}+\left(a_{1} \times a_{2}\right)}{1-a_{1}^{T} a_{2}}
+          \]
+
+          Compare the number of arithmetic operations needed for multiplying two rotation matrices or two Cayley representations.
           Which requires the fewest arithmetic operations?
+
+          [Extra]:
+
+          Lastly, show that we can even find body frame and spatial frame angular velocities in a simple form like
+          \[
+              \omega_{s}=\frac{2}{1+\|a\|^{2}}(a \times \dot{a}+\dot{a}), \quad \omega_{b}=\frac{2}{1+\|a\|^{2}}(-a \times \dot{a}+\dot{a})
+          \]
+
+          (What would happen in the case when trace \( (R)=-1 \) or \( a_{1}^{T} a_{2}=1 \equiv \operatorname{trace}\left(R_{1} R_{2}\right)=-1 \)?
+          Does everything fail, or can we still work around it?
+          Maybe try deriving everything in terms of a variable \( s=\frac{a}{\sqrt{1+a^{T} a}} \) and see where it leads to \( \ldots \))
 \end{enumerate}
 
 \subsection*{Solution}
