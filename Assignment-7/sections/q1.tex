@@ -96,7 +96,7 @@ Thus, we have
     I + \widehat{\omega} \left[ \sin \theta - \cos \theta \tan(\theta / 2) \right] + \widehat{\omega}^{2} \left[(1 - \cos \theta) - \sin \theta \tan(\theta / 2) \right]
 \end{align*}
 where we've used the relation \( \widehat{\omega}^{3} = -\widehat{\omega} \), which was derived in the previous assignments.
-[Seen in \( \hat{w}^{3}=-\|w\|^{2} \hat{w} \) for \( \hat{w} \in so(3) \)].
+[Seen in \( \hat{w}^{3}=-\|w\|^{2} \hat{w} \) for \( \hat{w} \in so(3) \), and here \( \|w\|=1 \)].
 
 Now, from the half-angle formulas, we have
 \begin{equation*}
@@ -130,5 +130,54 @@ Thus, we have shown that \( R(I + \widehat{a}) = I - \widehat{a} \implies \boxed
 \vspace{1em}
 Now, we want to prove the relationships,
 \[
-    R = \frac{(1 - a^{T} a) I + 2 a a^{T} + 2 \widehat{a}}{1 + a^{T} a}, \quad \widehat{a} = \frac{R - R^{T}}{1 + \operatorname{trace}(R)}
+    R = \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}, \quad \widehat{a} = \frac{R - R^{\top}}{1 + \operatorname{trace}(R)}
 \]
+
+With \( a = -\omega \tan(\theta / 2) \), we have
+\begin{align*}
+    a^\top
+     & =
+    {(-\omega \tan(\theta / 2))}^\top
+    =
+    -\tan(\theta / 2) \omega^\top
+    \\
+    \implies
+    a^{\top} a
+     & =
+    \tan^{2}(\theta / 2) \omega^\top \omega
+    =
+    \tan^{2}(\theta / 2) \| \omega \|^{2}
+    =
+    \tan^{2}(\theta / 2)
+    \\
+    \implies
+    1 + a^{\top} a
+     & =
+    1 + \tan^{2}(\theta / 2)
+    =
+    \sec^{2}(\theta / 2)
+    =
+    \frac{1}{\cos^{2}(\theta / 2)}
+    \\
+    \implies
+    1 - a^{\top} a
+     & =
+    1 - \tan^{2}(\theta / 2)
+    =
+    1 - \frac{\sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)}
+    =
+    \frac{\cos^{2}(\theta / 2) - \sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)}
+    \\
+    \implies
+    a a^{\top}
+     & =
+    \tan^{2}(\theta / 2) \omega \omega^{\top}
+    =
+    \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I)
+\end{align*}
+\begin{align*}
+    \implies
+    \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}
+     & =
+    \frac{\left( \frac{\cos^{2}(\theta / 2) - \sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)} \right) I + 2 \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I) + 2 \widehat{a}}{\sec^{2}(\theta / 2)}
+\end{align*}
