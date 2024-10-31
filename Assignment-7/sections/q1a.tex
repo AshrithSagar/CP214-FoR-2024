@@ -1,0 +1,171 @@
+\subsubsection*{(a) Case \( k=1 \)}
+
+Given \( R = e^{\widehat{\omega} \theta} \in SO(3) \) for some unit vector \( \omega \) along the axis of rotation and angle \( \theta \), we have to show that \( a = -\omega \tan(\theta / 2) \).
+For this, we will first find the value of \( \widehat{a} \) and then substitute it in the equation \( R(I + \widehat{a}) \) to verify that it matches the RHS, as given in the hint.
+
+From the Rodrigues formula, we have
+\begin{equation*}
+    R = e^{\widehat{\omega} \theta} = I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta)
+\end{equation*}
+Now, with \( a = -\omega \tan(\theta / 2) \), we have \( \widehat{a} = -\widehat{\omega} \tan(\theta / 2) \), which is clear to see based on the matrix representation of the hat operator.
+Thus, we have
+\begin{align*}
+    \implies
+    R(I + \widehat{a})
+     & =
+    (I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta))(I - \widehat{\omega} \tan(\theta / 2))
+    \\ & =
+    I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta) - \widehat{\omega} \tan(\theta / 2)
+    \\ & \quad
+    - \widehat{\omega}^{2} \sin \theta \tan(\theta / 2) - \widehat{\omega}^{3} (1 - \cos \theta) \tan(\theta / 2)
+    \\ & =
+    I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta) - \cancel{\widehat{\omega} \tan(\theta / 2)}
+    \\ & \quad
+    - \widehat{\omega}^{2} \sin \theta \tan(\theta / 2) + \cancel{\widehat{\omega} \tan(\theta / 2)} - \widehat{\omega} \cos \theta \tan(\theta / 2)
+    \\ & =
+    I + \widehat{\omega} \left[ \sin \theta - \cos \theta \tan(\theta / 2) \right] + \widehat{\omega}^{2} \left[(1 - \cos \theta) - \sin \theta \tan(\theta / 2) \right]
+\end{align*}
+where we've used the relation \( \widehat{\omega}^{3} = -\widehat{\omega} \), which was derived in the previous assignments.
+[Seen in \( \hat{w}^{3}=-\|w\|^{2} \hat{w} \) for \( \hat{w} \in so(3) \), and here \( \|w\|=1 \)].
+
+Now, from the half-angle formulas, we have
+\begin{equation*}
+    \tan (\theta / 2)
+    =
+    \frac{\sin \theta}{1 + \cos \theta}
+    =
+    \frac{1 - \cos \theta}{\sin \theta}
+\end{equation*}
+\begin{align*}
+    \implies
+    R(I + \widehat{a})
+     & =
+    I + \widehat{\omega} \left[ \sin \theta - \cos \theta \frac{\sin \theta}{1 + \cos \theta} \right] + \widehat{\omega}^{2} \left[\cancel{(1 - \cos \theta)} - \cancel{\sin \theta \tan(\theta / 2)} \right]
+    \\ & =
+    I + \widehat{\omega} \sin \theta \left[ 1 - \frac{\cos \theta}{1 + \cos \theta} \right]
+    =
+    I + \widehat{\omega} \sin \theta \left[ \frac{1 + \cancel{\cos \theta} - \cancel{\cos \theta}}{1 + \cos \theta} \right]
+    \\ & =
+    I + \widehat{\omega} \frac{\sin \theta}{1 + \cos \theta}
+    =
+    I + \widehat{\omega} \tan(\theta / 2)
+    \\ & =
+    I - (-\widehat{\omega} \tan(\theta / 2))
+    =
+    (I - \widehat{a})
+\end{align*}
+
+Thus, we have shown that \( R(I + \widehat{a}) = I - \widehat{a} \implies \boxed{a = -\omega \tan(\theta / 2)} \) holds.
+
+\vspace{1em}
+Now, we want to prove the relationships,
+\[
+    R = \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}, \quad \widehat{a} = \frac{R - R^{\top}}{1 + \operatorname{trace}(R)}
+\]
+
+With \( a = -\omega \tan(\theta / 2) \), we have
+\begin{align*}
+    a^\top
+     & =
+    {(-\omega \tan(\theta / 2))}^\top
+    =
+    -\tan(\theta / 2) \omega^\top
+    \\
+    \implies
+    a^{\top} a
+     & =
+    \tan^{2}(\theta / 2) \omega^\top \omega
+    =
+    \tan^{2}(\theta / 2) \| \omega \|^{2}
+    =
+    \tan^{2}(\theta / 2)
+    \\
+    \implies
+    1 + a^{\top} a
+     & =
+    1 + \tan^{2}(\theta / 2)
+    =
+    \sec^{2}(\theta / 2)
+    =
+    \frac{1}{\cos^{2}(\theta / 2)}
+    \\
+    \implies
+    1 - a^{\top} a
+     & =
+    1 - \tan^{2}(\theta / 2)
+    =
+    1 - \frac{\sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)}
+    =
+    \frac{\cos^{2}(\theta / 2) - \sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)}
+    \\
+    \implies
+    a a^{\top}
+     & =
+    \tan^{2}(\theta / 2) \omega \omega^{\top}
+    =
+    \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I)
+\end{align*}
+\begin{align*}
+    \implies
+     &
+    \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}
+    =
+    \frac{\left( \frac{\cos^{2}(\theta / 2) - \sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)} \right) I + 2 \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I) + 2 \widehat{a}}{\sec^{2}(\theta / 2)}
+    \\ & =
+    \left( \cos^{2}(\theta / 2) - \sin^{2}(\theta / 2) \right) I + 2 \cos^{2}(\theta / 2) \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I) + 2 \cos^{2}(\theta / 2) \widehat{a}
+    \\ & =
+    \cos(\theta) I + 2 \sin^{2}(\theta / 2) (\widehat{\omega}^2 + I) - 2 \cos^{2}(\theta / 2) \tan(\theta / 2) \widehat{w}
+    \\ & =
+    \cos(\theta) I + (1 - \cos(\theta)) (\widehat{\omega}^2 + I) - \sin(\theta / 2) \widehat{w}
+    \\ & =
+    I - \sin(\theta / 2) \widehat{w} + (1 - \cos(\theta)) \widehat{\omega}^2
+    =
+    R
+\end{align*}
+by the Rodrigues formula.
+Thus, we have shown that \( \boxed{R = \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}} \).
+
+Now, we have to show that \( \displaystyle \widehat{a} = \frac{R - R^{\top}}{1 + \operatorname{tr}(R)} \).
+We have
+\begin{align*}
+    R - R^\top
+     & =
+    \frac{\cancel{(1 - a^{\top} a) I} + \cancel{2 a a^{\top}} + 2 \widehat{a}}{1 + a^{\top} a} - \frac{\cancel{(1 - a^{\top} a) I^\top} + \cancel{2 {(a a^{\top})}^\top} + 2 \widehat{a}^\top}{1 + a^{\top} a}
+    =
+    \frac{4 \widehat{a}}{1 + a^{\top} a}
+    \\
+    \operatorname{tr}(R)
+     & =
+    \operatorname{tr}\left( \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a} \right)
+    =
+    \frac{1 - a^{\top} a}{1 + a^{\top} a} \operatorname{tr}(I) + \frac{2 \operatorname{tr}(a a^{\top})}{1 + a^{\top} a} + \cancel{\frac{2 \operatorname{tr}(\widehat{a})}{1 + a^{\top} a}}
+    \\ & =
+    \frac{3 (1 - a^{\top} a)}{1 + a^{\top} a} + \frac{2 \operatorname{tr}(a a^{\top})}{1 + a^{\top} a}
+    =
+    \frac{3 (1 - a^{\top} a) + 2 a^{\top} a}{1 + a^{\top} a}
+    =
+    \frac{3 - a^{\top} a}{1 + a^{\top} a}
+    \\
+    \implies
+    1 + \operatorname{tr}(R)
+     & =
+    1 + \frac{3 - a^{\top} a}{1 + a^{\top} a}
+    =
+    \frac{1 + \cancel{a^{\top} a} + 3 - \cancel{a^{\top} a}}{1 + a^{\top} a}
+    =
+    \frac{4}{1 + a^{\top} a}
+    \\
+    \implies
+    R - R^\top
+     & =
+    \frac{4 \widehat{a}}{1 + a^{\top} a}
+    =
+    \widehat{a} (1 + \operatorname{tr}(R))
+    \implies
+    \boxed{
+        \widehat{a}
+        =
+        \frac{R - R^\top}{1 + \operatorname{tr}(R)}
+    }
+\end{align*}
+as required.

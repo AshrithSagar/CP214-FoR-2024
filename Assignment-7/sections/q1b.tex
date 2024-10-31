@@ -1,0 +1,120 @@
+\subsubsection*{(b) Case \( k=2 \)}
+
+Given \( R \in SO(3) \), we want to show that \( R \) can be expressed as
+\begin{equation}\label{eq:cayley-k2}
+    R
+    =
+    {(I - \widehat{a})}^{2} {(I + \widehat{a})}^{-2}
+    =
+    I - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a} + \frac{8}{{(1 + a^{\top} a)}^{2}} \widehat{a}^{2}
+\end{equation}
+for some \( a \in \mathbb{R}^{3} \).
+The first half of the equation in~\eqref{eq:cayley-k2} is valid from~\eqref{eq:cayley-k} with \( k = 2 \). \\
+Now, we will show the second half of the equation in~\eqref{eq:cayley-k2} is valid.
+\begin{align*}
+    \text{Let }
+    E_0
+     & =
+    \left[
+        I
+        - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a}
+        + \frac{8}{{(1 + a^{\top} a)}^{2}} \widehat{a}^{2}
+        \right]
+    \text{and }
+    E_0
+    {(I + \widehat{a})}^{2}
+    =
+    E_1
+    , \text{ say}
+    \\
+    \implies
+    E_1
+     & =
+    \left[
+        I
+        - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a}
+        + \frac{8}{{(1 + a^{\top} a)}^{2}} \widehat{a}^{2}
+        \right]
+    (I + 2 \widehat{a} + \widehat{a}^{2})
+    \\ & =
+    I
+    + \widehat{a} \left( 2 - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \right)
+    + \widehat{a}^{2} \left( 1 - 8 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + \frac{8}{{(1 + a^{\top} a)}^{2}} \right)
+    \\ & \qquad
+    + \widehat{a}^{3} \left( -4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + \frac{16}{{(1 + a^{\top} a)}^{2}} \right)
+    + \widehat{a}^{4} \left( \frac{8}{{(1 + a^{\top} a)}^{2}} \right)
+\end{align*}
+Now, using the relation \( \widehat{a}^{3} = - \| a \|^{2} \widehat{a} = - (a^{\top} a) \widehat{a} \), which were proved in previous assignment, thereby \( \widehat{a}^{4} = - (a^{\top} a) \widehat{a}^{2} \) and we get
+\begin{align*}
+    \implies
+    E_1
+     & =
+    I
+    + \widehat{a} \left( 2 - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + 4 (a^{\top} a) \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} - \frac{16 (a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \right)
+    \\ & \qquad
+    + \widehat{a}^{2} \left( 1 - 8 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + \frac{8}{{(1 + a^{\top} a)}^{2}} - \frac{8(a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \right)
+    \\
+    \implies
+    E_1
+     & =
+    I
+    + E_2 \widehat{a}
+    + E_3 \widehat{a}^{2},
+    \text{ say}
+    \\
+    \implies
+    E_2
+     & =
+    2 - 4 \frac{1 - a^{\top} a}{{(1 + a^{\top} a)}^{2}} + 4 (a^{\top} a) \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} - \frac{16 (a^{\top} a)}{{(1 + a^{\top} a)}^{2}}
+    \\ & =
+    \frac{
+        2 {(1 + a^{\top} a)}^{2} - 4 (1 - a^{\top} a) + 4 (a^{\top} a) (1 - a^{\top} a) - 16 (a^{\top} a)
+    }{{(1 + a^{\top} a)}^{2}}
+    \\ & =
+    \frac{
+        2 + 4 (a^{\top} a) + 2 {(a^{\top} a)}^{2} - 4 + 4 (a^{\top} a) + 4 (a^{\top} a) - 4 {(a^{\top} a)}^{2} - 16 (a^{\top} a)
+    }{{(1 + a^{\top} a)}^{2}}
+    \\ & =
+    \frac{
+        -2 - 4 (a^{\top} a) - 4 {(a^{\top} a)}^{2}
+    }{{(1 + a^{\top} a)}^{2}}
+    =
+    -2 \frac{\cancel{{(1 + a^{\top} a)}^{2}}}{\cancel{{(1 + a^{\top} a)}^{2}}}
+    =
+    -2
+    \\
+    \implies
+    E_3
+     & =
+    1 - 8 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + \frac{8}{{(1 + a^{\top} a)}^{2}} - \frac{8(a^{\top} a)}{{(1 + a^{\top} a)}^{2}}
+    \\ & =
+    1 +
+    \frac{
+        - 8 (1 - a^{\top} a) + 8 - 8 (a^{\top} a)
+    }{{(1 + a^{\top} a)}^{2}}
+    =
+    1 +
+    \frac{
+        - \cancel{8} + \cancel{8 (a^{\top} a)} + \cancel{8} - \cancel{8 (a^{\top} a)}
+    }{{(1 + a^{\top} a)}^{2}}
+    =
+    1
+\end{align*}
+\begin{equation*}
+    \implies
+    E_1
+    =
+    I - 2 \widehat{a} + \widehat{a}^{2}
+    =
+    {(I - \widehat{a})}^{2}
+    =
+    E_0
+    {(I + \widehat{a})}^{2}
+    \implies
+    E_0
+    =
+    {(I - \widehat{a})}^{2} {(I + \widehat{a})}^{-2}
+    =
+    R
+\end{equation*}
+Thereby, we have shown that the second half of the equation in~\eqref{eq:cayley-k2} is valid.
