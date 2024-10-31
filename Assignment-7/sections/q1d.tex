@@ -1,1 +1,17 @@
 \subsubsection*{(d) Composition of rotations}
+
+Let \( a_{1} \) and \( a_{2} \) denote the Cayley parameters for two rotations \( R_{1} \) and \( R_{2} \) respectively. \\
+We need to show that for \( R_{3}=R_{1} R_{2} \), the corresponding Cayley parameter \( a_{3} \) is given by
+\[
+    a_{3}=\frac{a_{1}+a_{2}+\left(a_{1} \times a_{2}\right)}{1-a_{1}^{\top} a_{2}}
+\]
+With \( R_1 = (I - \widehat{a_1}) {(I + \widehat{a_1})}^{-1} \), \( R_2 = (I - \widehat{a_2}) {(I + \widehat{a_2})}^{-1} \), we have
+\begin{align*}
+    \widehat{a_1}
+     & =
+    \frac{R_1 - R_1^\top}{1+\operatorname{trace}(R_1)}
+    , \quad
+    \widehat{a_2}
+    =
+    \frac{R_2 - R_2^\top}{1+\operatorname{trace}(R_2)}
+\end{align*}
