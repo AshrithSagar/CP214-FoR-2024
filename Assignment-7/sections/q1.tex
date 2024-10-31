@@ -71,7 +71,8 @@ Now answer the following,
 We can see that the Cayley parametrization satisfies the definition of elements in \( SO(3) \).
 \begin{align*}
     \implies
-     &
+    R R^{\top}
+     & =
     \left[
         {(I - \widehat{a})}^{k}
             {(I + \widehat{a})}^{-k}
@@ -141,6 +142,8 @@ We can see that the Cayley parametrization satisfies the definition of elements 
 \end{align*}
 \begin{equation*}
     \implies
+    \det R
+    =
     \det
     \left[
         {(I - \widehat{a})}^{k}
@@ -156,11 +159,12 @@ We can see that the Cayley parametrization satisfies the definition of elements 
     =
     1
 \end{equation*}
-\begin{equation}
+\begin{equation}\label{eq:cayley-k}
     \implies
     R = {(I - \widehat{a})}^{k} {(I + \widehat{a})}^{-k} \in SO(3)
 \end{equation}
 
+\clearpage
 \subsubsection*{(a) Case \( k=1 \)}
 
 Given \( R = e^{\widehat{\omega} \theta} \in SO(3) \) for some unit vector \( \omega \) along the axis of rotation and angle \( \theta \), we have to show that \( a = -\omega \tan(\theta / 2) \).
@@ -331,6 +335,7 @@ We have
 \end{align*}
 as required.
 
+\clearpage
 \subsubsection*{(b) Case \( k=2 \)}
 
 Given \( R \in SO(3) \), we want to show that \( R \) can be expressed as
@@ -342,29 +347,27 @@ Given \( R \in SO(3) \), we want to show that \( R \) can be expressed as
     I - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a} + \frac{8}{{(1 + a^{\top} a)}^{2}} \widehat{a}^{2}
 \end{equation}
 for some \( a \in \mathbb{R}^{3} \).
-
-We know that \( \forall R \in SO(3) \) we can express \( R \) such that \( R = e^{\widehat{\omega} \theta} \) for some unit vector \( \omega \in \mathbb{R}^{3} \) along the axis of rotation and angle \( \theta \in \mathbb{R} \), and is given by the Rodrigues formula as
-\begin{equation}\label{eq:rodrigues}
-    R
-    =
-    e^{\widehat{\omega} \theta}
-    =
-    I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta)
-\end{equation}
-Now, we have to show that the rotation matrix \( R \) corresponding to \( a \) can be computed from the formula in~\eqref{eq:cayley-k2}.
-First, we will show the second half of the equation in~\eqref{eq:cayley-k2} is valid.
+The first half of the equation in~\eqref{eq:cayley-k2} is valid from~\eqref{eq:cayley-k} with \( k = 2 \). \\
+Now, we will show the second half of the equation in~\eqref{eq:cayley-k2} is valid.
 \begin{align*}
-    \implies
-     &
+    \text{Let }
+    E_0
+     & =
     \left[
         I
         - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a}
         + \frac{8}{{(1 + a^{\top} a)}^{2}} \widehat{a}^{2}
         \right]
+    \text{and }
+    E_0
     {(I + \widehat{a})}^{2}
     =
-    E_1, \text{ say}
-    \\ & =
+    E_1
+    , \text{ say}
+    \\
+    \implies
+    E_1
+     & =
     \left[
         I
         - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a}
@@ -388,17 +391,15 @@ Now, using the relation \( \widehat{a}^{3} = - \| a \|^{2} \widehat{a} = - (a^{\
     + \widehat{a} \left( 2 - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + 4 (a^{\top} a) \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} - \frac{16 (a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \right)
     \\ & \qquad
     + \widehat{a}^{2} \left( 1 - 8 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} + \frac{8}{{(1 + a^{\top} a)}^{2}} - \frac{8(a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \right)
-\end{align*}
-\begin{equation*}
+    \\
     \implies
     E_1
-    =
+     & =
     I
     + E_2 \widehat{a}
     + E_3 \widehat{a}^{2},
     \text{ say}
-\end{equation*}
-\begin{align*}
+    \\
     \implies
     E_2
      & =
@@ -444,5 +445,14 @@ Now, using the relation \( \widehat{a}^{3} = - \| a \|^{2} \widehat{a} = - (a^{\
     I - 2 \widehat{a} + \widehat{a}^{2}
     =
     {(I - \widehat{a})}^{2}
+    =
+    E_0
+    {(I + \widehat{a})}^{2}
+    \implies
+    E_0
+    =
+    {(I - \widehat{a})}^{2} {(I + \widehat{a})}^{-2}
+    =
+    R
 \end{equation*}
 Thereby, we have shown that the second half of the equation in~\eqref{eq:cayley-k2} is valid.
