@@ -177,7 +177,63 @@ With \( a = -\omega \tan(\theta / 2) \), we have
 \end{align*}
 \begin{align*}
     \implies
+     &
     \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}
-     & =
+    =
     \frac{\left( \frac{\cos^{2}(\theta / 2) - \sin^{2}(\theta / 2)}{\cos^{2}(\theta / 2)} \right) I + 2 \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I) + 2 \widehat{a}}{\sec^{2}(\theta / 2)}
+    \\ & =
+    \left( \cos^{2}(\theta / 2) - \sin^{2}(\theta / 2) \right) I + 2 \cos^{2}(\theta / 2) \tan^{2}(\theta / 2) (\widehat{\omega}^2 + I) + 2 \cos^{2}(\theta / 2) \widehat{a}
+    \\ & =
+    \cos(\theta) I + 2 \sin^{2}(\theta / 2) (\widehat{\omega}^2 + I) - 2 \cos^{2}(\theta / 2) \tan(\theta / 2) \widehat{w}
+    \\ & =
+    \cos(\theta) I + (1 - \cos(\theta)) (\widehat{\omega}^2 + I) - \sin(\theta / 2) \widehat{w}
+    \\ & =
+    I - \sin(\theta / 2) \widehat{w} + (1 - \cos(\theta)) \widehat{\omega}^2
+    =
+    R
 \end{align*}
+by the Rodriguez formula.
+Thus, we have shown that \( \boxed{R = \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}} \).
+
+Now, we have to show that \( \widehat{a} = \frac{R - R^{\top}}{1 + \operatorname{tr}(R)} \).
+We have
+\begin{align*}
+    R - R^\top
+     & =
+    \frac{\cancel{(1 - a^{\top} a) I} + \cancel{2 a a^{\top}} + 2 \widehat{a}}{1 + a^{\top} a} - \frac{\cancel{(1 - a^{\top} a) I^\top} + \cancel{2 {(a a^{\top})}^\top} + 2 \widehat{a}^\top}{1 + a^{\top} a}
+    =
+    \frac{4 \widehat{a}}{1 + a^{\top} a}
+    \\
+    \operatorname{tr}(R)
+     & =
+    \operatorname{tr}\left( \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a} \right)
+    =
+    \frac{1 - a^{\top} a}{1 + a^{\top} a} \operatorname{tr}(I) + \frac{2 \operatorname{tr}(a a^{\top})}{1 + a^{\top} a} + \cancel{\frac{2 \operatorname{tr}(\widehat{a})}{1 + a^{\top} a}}
+    \\ & =
+    \frac{3 (1 - a^{\top} a)}{1 + a^{\top} a} + \frac{2 \operatorname{tr}(a a^{\top})}{1 + a^{\top} a}
+    =
+    \frac{3 (1 - a^{\top} a) + 2 a^{\top} a}{1 + a^{\top} a}
+    =
+    \frac{3 - a^{\top} a}{1 + a^{\top} a}
+    \\
+    \implies
+    1 + \operatorname{tr}(R)
+     & =
+    1 + \frac{3 - a^{\top} a}{1 + a^{\top} a}
+    =
+    \frac{1 + \cancel{a^{\top} a} + 3 - \cancel{a^{\top} a}}{1 + a^{\top} a}
+    =
+    \frac{4}{1 + a^{\top} a}
+    \\
+    \implies
+    R - R^\top
+     & =
+    \frac{4 \widehat{a}}{1 + a^{\top} a}
+    =
+    \widehat{a} (1 + \operatorname{tr}(R))
+    \implies
+    \widehat{a}
+    =
+    \frac{R - R^\top}{1 + \operatorname{tr}(R)}
+\end{align*}
+as required.
