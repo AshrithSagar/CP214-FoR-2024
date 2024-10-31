@@ -68,6 +68,99 @@ Now answer the following,
 
 \subsection*{Solution}
 
+We can see that the Cayley parametrization satisfies the definition of elements in \( SO(3) \).
+\begin{align*}
+    \implies
+     &
+    \left[
+        {(I - \widehat{a})}^{k}
+            {(I + \widehat{a})}^{-k}
+        \right]
+    {\left[
+            {(I - \widehat{a})}^{k}
+                {(I + \widehat{a})}^{-k}
+            \right]}^{\top}
+    \\ & =
+    \left[
+        {(I - \widehat{a})}^{k}
+            {(I + \widehat{a})}^{-k}
+        \right]
+    \left[
+        {\left({(I + \widehat{a})}^{-k}\right)}^{\top}
+            {\left({(I - \widehat{a})}^{k}\right)}^{\top}
+        \right]
+    \\ & =
+    \left[
+        {(I - \widehat{a})}^{k}
+            {(I + \widehat{a})}^{-k}
+        \right]
+    \left[
+        {\left({(I + \widehat{a})}^{\top}\right)}^{-k}
+            {\left({(I - \widehat{a})}^{\top}\right)}^{k}
+        \right]
+    \\ & =
+    \left[
+        {(I - \widehat{a})}^{k}
+            {(I + \widehat{a})}^{-k}
+        \right]
+    \left[
+        {(I - \widehat{a})}^{-k}
+            {(I + \widehat{a})}^{k}
+        \right]
+    \\ & =
+    {(I - \widehat{a})}^{k}
+    \left[
+        {(I + \widehat{a})}^{-k}
+            {(I - \widehat{a})}^{-k}
+        \right]
+    {(I + \widehat{a})}^{k}
+    \\ & =
+    {(I - \widehat{a})}^{k}
+    \left[
+        {(I - \widehat{a}^{2})}^{-k}
+        \right]
+    {(I + \widehat{a})}^{k}
+    \\ & =
+    {(I - \widehat{a})}^{k}
+    \left[
+        {(I - \widehat{a})}^{-k}
+            {(I + \widehat{a})}^{-k}
+        \right]
+    {(I + \widehat{a})}^{k}
+    \\ & =
+    \left[
+        {(I - \widehat{a})}^{k} {(I - \widehat{a})}^{-k}
+        \right]
+    \left[
+        {(I - \widehat{a})}^{-k} {(I - \widehat{a})}^{k}
+        \right]
+    =
+    (I)(I)
+    =
+    I
+\end{align*}
+\begin{equation*}
+    \implies
+    \det
+    \left[
+        {(I - \widehat{a})}^{k}
+            {(I + \widehat{a})}^{-k}
+        \right]
+    =
+    {\left[
+        \det (I - \widehat{a})
+        {\det (I + \widehat{a})}^{-1}
+        \right]}^{k}
+    =
+    1^{k}
+    =
+    1
+\end{equation*}
+\begin{equation}
+    \implies
+    R = {(I - \widehat{a})}^{k} {(I + \widehat{a})}^{-k} \in SO(3)
+\end{equation}
+
 \subsubsection*{(a) Case \( k=1 \)}
 
 Given \( R = e^{\widehat{\omega} \theta} \in SO(3) \) for some unit vector \( \omega \) along the axis of rotation and angle \( \theta \), we have to show that \( a = -\omega \tan(\theta / 2) \).
