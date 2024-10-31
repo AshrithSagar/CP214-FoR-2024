@@ -16,3 +16,30 @@ Now prove the following Lie bracket identity (called the Jacobi identity) for ar
 \]
 
 \subsection*{Solution}
+
+Let \( \xi_{1} \), \( \xi_{2} \), \( \xi_{3} \) be any arbitrary twists.
+Then, we have
+\begin{align*}
+    \left[\widehat{\xi}_{1},\left[\widehat{\xi}_{2}, \widehat{\xi}_{3}\right]\right]
+     & =
+    \widehat{\xi}_{1} \widehat{\xi}_{2} \widehat{\xi}_{3}-\widehat{\xi}_{2} \widehat{\xi}_{3} \widehat{\xi}_{1}
+    \\
+    \left[\widehat{\xi}_{3},\left[\widehat{\xi}_{1}, \widehat{\xi}_{2}\right]\right]
+     & =
+    \widehat{\xi}_{3} \widehat{\xi}_{1} \widehat{\xi}_{2}-\widehat{\xi}_{1} \widehat{\xi}_{2} \widehat{\xi}_{3}
+    \\
+    \left[\widehat{\xi}_{2},\left[\widehat{\xi}_{3}, \widehat{\xi}_{1}\right]\right]
+     & =
+    \widehat{\xi}_{2} \widehat{\xi}_{3} \widehat{\xi}_{1}-\widehat{\xi}_{3} \widehat{\xi}_{1} \widehat{\xi}_{2}
+\end{align*}
+Adding the above three equations, we get
+\begin{align*}
+     &
+    \left[\widehat{\xi}_{1},\left[\widehat{\xi}_{2}, \widehat{\xi}_{3}\right]\right]+\left[\widehat{\xi}_{3},\left[\widehat{\xi}_{1}, \widehat{\xi}_{2}\right]\right]+\left[\widehat{\xi}_{2},\left[\widehat{\xi}_{3}, \widehat{\xi}_{1}\right]\right]
+    \\ & =
+    \widehat{\xi}_{1} \widehat{\xi}_{2} \widehat{\xi}_{3}-\widehat{\xi}_{2} \widehat{\xi}_{3} \widehat
+    {\xi}_{1}+\widehat{\xi}_{3} \widehat{\xi}_{1} \widehat{\xi}_{2}-\widehat{\xi}_{1} \widehat{\xi}_{2} \widehat{\xi}_{3}+\widehat{\xi}_{2} \widehat{\xi}_{3} \widehat{\xi}_{1}-\widehat{\xi}_{3} \widehat{\xi}_{1} \widehat{\xi}_{2}
+    \\ & =
+    0
+\end{align*}
+Hence, the Jacobi identity is proved.
