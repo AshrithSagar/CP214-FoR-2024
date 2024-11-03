@@ -118,3 +118,58 @@ Now, using the relation \( \widehat{a}^{3} = - \| a \|^{2} \widehat{a} = - (a^{\
     R
 \end{equation*}
 Thereby, we have shown that the second half of the equation in~\eqref{eq:cayley-k2} is valid.
+
+\clearpage
+Now, we want to show that the Cayley parameter \( a \) exists and satisfies \( a = -\omega \tan(\theta / 2) \) for some \( \omega \in \mathbb{R}^{3}, \| \omega \| = 1 \) and \( \theta \in \mathbb{R} \).
+From the equation~\eqref{eq:cayley-k2}, suppose we had that \( a = -\omega \tan(\theta / 4) \), then we have \( \widehat{a} = -\widehat{\omega} \tan(\theta / 4) \), \( a^\top a = \tan^{2}(\theta / 4) \| \omega \|^{2} = \tan^{2}(\theta / 4) \), and we can see that
+\begin{align*}
+    R
+     & =
+    I - 4 \frac{(1 - a^{\top} a)}{{(1 + a^{\top} a)}^{2}} \widehat{a} + \frac{8}{{(1 + a^{\top} a)}^{2}} \widehat{a}^{2}
+    \\ & =
+    I - 4 \frac{1 - \tan^{2}(\theta / 4)}{{(1 + \tan^{2}(\theta / 4))}^{2}}{(-\widehat{\omega} \tan(\theta / 4))} + \frac{8}{{(1 + \tan^{2}(\theta / 4))}^{2}}{(-\widehat{\omega} \tan(\theta / 4))}^{2}
+    \\ & =
+    I + E_1 \widehat{\omega} + E_2 \widehat{\omega}^{2}, \text{ say}
+    \\
+    \implies
+    E_1
+     & =
+    4 \frac{1 - \tan^{2}(\theta / 4)}{{(1 + \tan^{2}(\theta / 4))}^{2}} \tan(\theta / 4)
+    =
+    4
+    \frac{ \cancel{\sec^{2}{(\theta / 4)}} \left[ \cos^{2}{(\theta / 4)} - \sin^{2}{(\theta / 4)} \right] }{ \cancel{\sec^{2}{(\theta / 4)}} \sec^{2}{(\theta / 4)} }
+    \tan(\theta / 4)
+    \\ & =
+    4 \cos{(\theta / 2)} \frac{\sin(\theta / 4)}{\cos(\theta / 4)} \cos^{2}{(\theta / 4)}
+    =
+    4 \cos{(\theta / 2)} \sin(\theta / 4) \cos{(\theta / 4)}
+    \\ & =
+    2 \cos{(\theta / 2)} \sin(\theta / 2)
+    =
+    \sin(\theta)
+    \\
+    \implies
+    E_2
+     & =
+    \frac{8}{{(1 + \tan^{2}(\theta / 4))}^{2}} \tan^{2}(\theta / 4)
+    =
+    \frac{8}{{\sec^{4}(\theta / 4)}} \tan^{2}(\theta / 4)
+    =
+    8 \cos^{4}(\theta / 4) \frac{\sin^{2}(\theta / 4)}{\cos^{2}(\theta / 4)}
+    \\ & =
+    8 \cos^{2}(\theta / 4) \sin^{2}(\theta / 4)
+    =
+    2 {\Big[ 2 \cos(\theta / 4) \sin(\theta / 4) \Big]}^{2}
+    =
+    2 \sin^{2}(\theta / 2)
+    =
+    1 - \cos(\theta)
+    \\
+    \implies
+    R
+     & =
+    I + \sin(\theta) \widehat{\omega} + (1 - \cos(\theta)) \widehat{\omega}^{2}
+\end{align*}
+which is the Rodrigues' formula for \( R \) with \( \theta \) and \( \omega \) as the parameters.
+
+\( \implies \boxed{a = -\omega \tan(\theta / 4)} \) holds.
