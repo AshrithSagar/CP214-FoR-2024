@@ -23,3 +23,26 @@ Now, with the form in equation~\eqref{eq:q1d}, the corresponding rotation for it
     \| a_1 + a_2 \|^2 + \| a_1 \times a_2 \|^2
     }{{(1-a_{1}^{\top} a_{2})}^{2}}
 \end{align*}
+
+We can then see that
+\begin{align*}
+    \implies
+    R_{3}
+     & =
+    \frac{(1 - a_3^{\top} a_3) I + 2 a_3 a_3^{\top} + 2 \widehat{a_3}}{1 + a_3^{\top} a_3}
+    \\ & =
+    \frac{(1 - a_1^{\top} a_1) I + 2 a_1 a_1^{\top} + 2 \widehat{a_1}}{1 + a_1^{\top} a_1}
+    \frac{(1 - a_2^{\top} a_2) I + 2 a_2 a_2^{\top} + 2 \widehat{a_2}}{1 + a_2^{\top} a_2}
+    =
+    R_1 R_2
+\end{align*}
+
+\subsubsection*{Computational complexity of composition of two rotations}
+
+For each element in the composed rotation matrix, we obtain it by 3 multiplications and 2 additions \( \implies \) For the entire rotation matrix, we need \underline{27 multiplications and 18 additions}, since there are 9 elements in the rotation matrix.
+
+Using Cayley representation, for \( a_1^\top a_2 \), we need 3 multiplications and 2 additions, for \( a_1 \times a_2 \), we need 6 multiplications and 3 additions, and for \( a_1 + a_2 \), we need 3 additions, and now for \( (a_1 + a_2) + (a_1 \times a_2) \), we need 3 more additions.
+For incorporating \( 1 - a_1^\top a_2 \) in the above sum, we need one addition and one multiplication.
+Thereby, in total, we would need
+(3 + 6 + 1) multiplications and (2+3+3+3+1) additions i.e., \underline{10 multiplications and 12 additions}.
+Here, we considered division taking up one multiplication operation, and similarly subtraction taking up one addition operation.
