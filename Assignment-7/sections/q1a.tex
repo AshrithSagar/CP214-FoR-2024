@@ -1,6 +1,6 @@
 \subsubsection*{(a) Case \( k=1 \)}
 
-Given \( R = e^{\widehat{\omega} \theta} \in SO(3) \) for some unit vector \( \omega \) along the axis of rotation and angle \( \theta \), we have to show that \( a = -\omega \tan(\theta / 2) \).
+Given \( R = e^{\widehat{\omega} \theta} \in SO(3) \) for some unit vector \( \omega \) along the axis of rotation and angle \( \theta \), we have to show that \( a = -\omega \tan(\theta / 2) \), where \( a \) is the Cayley parameter for \( R \), i.e. \( R \) satisfies \( R = (I - \widehat{a}) {(I + \widehat{a})}^{-1} \).
 For this, we will first find the value of \( \widehat{a} \) and then substitute it in the equation \( R(I + \widehat{a}) \) to verify that it matches the RHS, as given in the hint.
 
 From the Rodrigues formula, we have
@@ -13,6 +13,8 @@ Thus, we have
     \implies
     R(I + \widehat{a})
      & =
+    R(I - \widehat{\omega} \tan(\theta / 2))
+    \\ & =
     (I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta))(I - \widehat{\omega} \tan(\theta / 2))
     \\ & =
     I + \widehat{\omega} \sin \theta + \widehat{\omega}^{2} (1 - \cos \theta) - \widehat{\omega} \tan(\theta / 2)
@@ -57,7 +59,7 @@ Now, from the half-angle formulas, we have
 
 Thus, we have shown that \( R(I + \widehat{a}) = I - \widehat{a} \implies \boxed{a = -\omega \tan(\theta / 2)} \) holds.
 
-\vspace{1em}
+\clearpage
 Now, we want to prove the relationships,
 \[
     R = \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}, \quad \widehat{a} = \frac{R - R^{\top}}{1 + \operatorname{trace}(R)}
