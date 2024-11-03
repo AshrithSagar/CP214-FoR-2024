@@ -59,7 +59,6 @@ Now, from the half-angle formulas, we have
 
 Thus, we have shown that \( R(I + \widehat{a}) = I - \widehat{a} \implies \boxed{a = -\omega \tan(\theta / 2)} \) holds.
 
-\clearpage
 Now, we want to prove the relationships,
 \[
     R = \frac{(1 - a^{\top} a) I + 2 a a^{\top} + 2 \widehat{a}}{1 + a^{\top} a}, \quad \widehat{a} = \frac{R - R^{\top}}{1 + \operatorname{trace}(R)}
@@ -171,3 +170,7 @@ We have
     }
 \end{align*}
 as required.
+
+Now, we want to see what the vectors ``-a'' and ``a = 0'' represent.
+We can see that \( -a = \omega \tan(\theta / 2) \) and thereby, this represents the axis of the rotation, but scaled by \( \tan(\theta / 2) \).
+For \( a = 0 \), we can see that \( R = (I - \widehat{0}) {(I + \widehat{0})}^{-1} = I \), which is the identity matrix, and thereby, this represents no rotation, or in other words, the identity rotation.
