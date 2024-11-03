@@ -267,18 +267,21 @@ We can compute each of these transformation matrices as
         0 & 0 & 0 & 1
     \end{bmatrix}
 \end{align*}
+There is probably a mistake in the above calculation, but I am unable to find it.
 
 \clearpage
 In the zero configuration, we should actually have
 \begin{equation*}
-    g_{e e}(0)
-    =
-    \begin{bmatrix}
-        0  & 0 & 1 & L_1  \\
-        0  & 1 & 0 & 0    \\
-        -1 & 0 & 0 & -L_2 \\
-        0  & 0 & 0 & 1
-    \end{bmatrix}
+    \boxed{
+        g_{e e}(0)
+        =
+        \begin{bmatrix}
+            0  & 0 & 1 & L_1  \\
+            0  & 1 & 0 & 0    \\
+            -1 & 0 & 0 & -L_2 \\
+            0  & 0 & 0 & 1
+        \end{bmatrix}
+    }
 \end{equation*}
 which can be written by inspection, based on frame \( \{0\} \), since w.r.t.\@ frame \( \{0\} \), the end-effector frame is translated by \( L_1 \) along the \( x \)-axis and \( -L_2 \) along the \( z \)-axis, and there is a 90 degree rotation about the y-axis.
 
