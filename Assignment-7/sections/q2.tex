@@ -81,8 +81,8 @@ We can compute each of these transformation matrices as
     \end{bmatrix}
     =
     \begin{bmatrix}
-        0   \\
-        L_1 \\
+        0    \\
+        -L_1 \\
         0
     \end{bmatrix}
     \\
@@ -115,8 +115,8 @@ We can compute each of these transformation matrices as
     \end{bmatrix}
     =
     \begin{bmatrix}
-        0   \\
-        L_2 \\
+        0    \\
+        -L_2 \\
         0
     \end{bmatrix}
 \end{align*}
@@ -153,11 +153,11 @@ We can compute each of these transformation matrices as
     \xi_{2}
     =
     \begin{bmatrix}
-        0   \\
-        L_1 \\
-        0   \\
-        0   \\
-        0   \\
+        0    \\
+        -L_1 \\
+        0    \\
+        0    \\
+        0    \\
         1
     \end{bmatrix}
     \implies
@@ -169,9 +169,9 @@ We can compute each of these transformation matrices as
     \end{bmatrix}
     =
     \begin{bmatrix}
-        0 & -1 & 0 & 0   \\
-        1 & 0  & 0 & L_1 \\
-        0 & 0  & 0 & 0   \\
+        0 & -1 & 0 & 0    \\
+        1 & 0  & 0 & -L_1 \\
+        0 & 0  & 0 & 0    \\
         0 & 0  & 0 & 0
     \end{bmatrix}
 \end{equation*}
@@ -180,11 +180,11 @@ We can compute each of these transformation matrices as
     \xi_{3}
     =
     \begin{bmatrix}
-        0   \\
-        L_2 \\
-        0   \\
-        0   \\
-        0   \\
+        0    \\
+        -L_2 \\
+        0    \\
+        0    \\
+        0    \\
         1
     \end{bmatrix}
     \implies
@@ -196,9 +196,9 @@ We can compute each of these transformation matrices as
     \end{bmatrix}
     =
     \begin{bmatrix}
-        0 & -1 & 0 & 0   \\
-        1 & 0  & 0 & L_2 \\
-        0 & 0  & 0 & 0   \\
+        0 & -1 & 0 & 0    \\
+        1 & 0  & 0 & -L_2 \\
+        0 & 0  & 0 & 0    \\
         0 & 0  & 0 & 0
     \end{bmatrix}
 \end{equation*}
@@ -218,9 +218,9 @@ We can compute each of these transformation matrices as
     e^{\widehat{\xi}_{2} \theta_{2}}
      & =
     \begin{bmatrix}
-        \cos \theta_{2} & -\sin \theta_{2} & 0 & L_1 \\
-        \sin \theta_{2} & \cos \theta_{2}  & 0 & 0   \\
-        0               & 0                & 1 & 0   \\
+        \cos \theta_{2} & -\sin \theta_{2} & 0 & 0    \\
+        \sin \theta_{2} & \cos \theta_{2}  & 0 & -L_1 \\
+        0               & 0                & 1 & 0    \\
         0               & 0                & 0 & 1
     \end{bmatrix}
     \\
@@ -228,9 +228,9 @@ We can compute each of these transformation matrices as
     e^{\widehat{\xi}_{3} \theta_{3}}
      & =
     \begin{bmatrix}
-        \cos \theta_{3} & -\sin \theta_{3} & 0 & L_2 \\
-        \sin \theta_{3} & \cos \theta_{3}  & 0 & 0   \\
-        0               & 0                & 1 & 0   \\
+        \cos \theta_{3} & -\sin \theta_{3} & 0 & 0    \\
+        \sin \theta_{3} & \cos \theta_{3}  & 0 & -L_2 \\
+        0               & 0                & 1 & 0    \\
         0               & 0                & 0 & 1
     \end{bmatrix}
 \end{align*}
@@ -248,22 +248,57 @@ We can compute each of these transformation matrices as
         0 & 0 & 0 & 1
     \end{bmatrix}
     \begin{bmatrix}
-        1 & 0 & 0 & L_1 \\
-        0 & 1 & 0 & 0   \\
-        0 & 0 & 1 & 0   \\
+        1 & 0 & 0 & 0    \\
+        0 & 1 & 0 & -L_1 \\
+        0 & 0 & 1 & 0    \\
         0 & 0 & 0 & 1
     \end{bmatrix}
     \begin{bmatrix}
-        1 & 0 & 0 & L_2 \\
-        0 & 1 & 0 & 0   \\
-        0 & 0 & 1 & 0   \\
+        1 & 0 & 0 & 0    \\
+        0 & 1 & 0 & -L_2 \\
+        0 & 0 & 1 & 0    \\
         0 & 0 & 0 & 1
     \end{bmatrix}
     \\ & =
     \begin{bmatrix}
-        1 & 0 & 0 & L_1 + L_2 \\
-        0 & 1 & 0 & 0         \\
-        0 & 0 & 1 & 0         \\
+        1 & 0 & 0 & 0        \\
+        0 & 1 & 0 & -L_1-L_2 \\
+        0 & 0 & 1 & 0        \\
         0 & 0 & 0 & 1
     \end{bmatrix}
 \end{align*}
+
+\clearpage
+In the zero configuration, we should actually have
+\begin{equation*}
+    g_{e e}(0)
+    =
+    \begin{bmatrix}
+        0  & 0 & 1 & L_1  \\
+        0  & 1 & 0 & 0    \\
+        -1 & 0 & 0 & -L_2 \\
+        0  & 0 & 0 & 1
+    \end{bmatrix}
+\end{equation*}
+which can be written by inspection, based on frame \( \{0\} \), since w.r.t.\@ frame \( \{0\} \), the end-effector frame is translated by \( L_1 \) along the \( x \)-axis and \( -L_2 \) along the \( z \)-axis, and there is a 90 degree rotation about the y-axis.
+
+Rotation matrix about the y-axis is given by
+\begin{equation*}
+    R_y(\theta)
+    =
+    \begin{bmatrix}
+        \cos \theta  & 0 & \sin \theta \\
+        0            & 1 & 0           \\
+        -\sin \theta & 0 & \cos \theta
+    \end{bmatrix}
+\end{equation*}
+and we put \( \theta = \frac{\pi}{2} \) to get
+\begin{equation*}
+    R_y\left(\frac{\pi}{2}\right)
+    =
+    \begin{bmatrix}
+        0  & 0 & 1 \\
+        0  & 1 & 0 \\
+        -1 & 0 & 0
+    \end{bmatrix}
+\end{equation*}
