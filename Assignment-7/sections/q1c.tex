@@ -1,1 +1,25 @@
 \subsubsection*{(c) Singularity at \( \pi \)}
+
+For \( k \geq 2 \), the singularity at \( \pi \) that exists for the standard Cayley parameters \( (k=1) \) is removed.
+The singularity at \( \pi \) is due to the fact that for the standard Cayley parameters with \( k = 1 \), we have that \( {(I + \widehat{a})}^{-1} \) is singular when \( \theta = \pi \), i.e., \( a = -w \tan (\theta/2) \) blows to \( \pm \infty \) near \( \theta = \pi \).
+At higher \( k \), say \( k = 2 \), we have \( a = -w \tan (\theta/4) \implies a = -w \tan (\pi/4) = -w \) at \( \theta = \pi \).
+The singularity at \( \theta = \pi \) is removed in this case, but we have a singularity at \( \theta = 2\pi \) instead.
+If we consider the principal values for \( \theta \in [0, 2\pi) \), the singularity at \( \theta = \pi \) is effectively removed for higher \( k \).
+
+\subsubsection*{Advantages of higher \( k \)}
+
+The advantages of using higher \( k \) are as follows:
+\begin{itemize}[noitemsep]
+    \item The singularity at \( \pi \) is removed.
+    \item The Cayley parameters are more numerically stable. \\
+          This is in part due to the behavior of the tangent function.
+    \item The Cayley parameters are more robust to numerical errors.
+\end{itemize}
+
+\subsubsection*{Disadvantages of higher \( k \)}
+
+The disadvantages of using higher \( k \) are as follows:
+\begin{itemize}[noitemsep]
+    \item Increased computational complexity. \\
+          The Cayley parameters are harder to compute as \( k \) increases.
+\end{itemize}
