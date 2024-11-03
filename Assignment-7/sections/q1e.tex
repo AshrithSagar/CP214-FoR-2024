@@ -1,0 +1,70 @@
+\subsection*{Extra}
+
+\subsubsection*{When \( \operatorname{tr}(R) = -1 \) or \( a_1^\top a_2 = 1 \equiv \operatorname{tr}(R_1 R_2) = -1 \)}
+
+Defining \( s=\frac{a}{\sqrt{1+a^{T} a}} \), we can see that
+\begin{align*}
+    \implies
+    a
+     & =
+    s \sqrt{1 + {\| a \|}^2}
+    \implies
+    a^{T} a
+    =
+    s^{T} s \left( 1 + {\| a \|}^2 \right)
+    \implies
+    {\| a \|}^2
+    =
+    {\| s \|}^2 \left( 1 + {\| a \|}^2 \right)
+    \\
+    \implies
+    {\| s \|}^2
+     & =
+    \frac{{\| a \|}^2}{1 + {\| a \|}^2}
+    \implies
+    \frac{1}{{\| s \|}^2}
+    =
+    1 + \frac{1}{{\| a \|}^2}
+    \\
+    \implies
+    \frac{1}{{\| a \|}^2}
+     & =
+    \frac{1}{{\| s \|}^2} - 1
+    \implies
+    {\| a \|}^2
+    =
+    \frac{{\| s \|}^2}{1 - {\| s \|}^2}
+\end{align*}
+\begin{align*}
+    \implies
+    R
+     & =
+    \frac{\left( 1 - {\| a \|}^2 \right) I + 2 a a^{T} + 2 \widehat{a}}{1 + {\| a \|}^2}
+    \\
+    \implies
+    R
+     & =
+    \frac{
+    \left( 1 - {\| s \|}^2 \left( 1 + {\| a \|}^2 \right) \right) I
+    + 2 \left( s \sqrt{1 + {\| a \|}^2} \right) {\left( s \sqrt{1 + {\| a \|}^2} \right)}^{\top}
+    + 2 \sqrt{1 + {\| a \|}^2} \widehat{s}
+    }
+    {1 + {\| a \|}^2}
+    \\ & =
+    \frac{
+    I
+    + 2 \sqrt{1 + {\| a \|}^2} \widehat{s}
+    }
+    {1 + {\| a \|}^2}
+    - {\| s \|}^2 I
+    + 2 s s^{\top}
+\end{align*}
+
+We can then see that
+\begin{equation*}
+    \implies
+    R
+    =
+    \left(1 - 2\|s\|^2\right) I + 2 ss^{\top} + 2\widehat{s}(1 - \|s\|^2)
+\end{equation*}
+which does not suffer from the singularity problem.
