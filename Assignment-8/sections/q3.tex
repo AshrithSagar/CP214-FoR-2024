@@ -4,7 +4,7 @@
 
 \textbf{Passivity of Robot Dynamics:} \\
 Let \( \mathcal{H}(\theta)=\mathcal{T}(\theta)+\mathcal{V}(\theta) \) be the total energy for a rigid robot.
-Show that if \( \dot{\mathcal{M}}-2 \mathcal{C} \) is skew-symmetric, then energy is conserved, i.e., \( \dot{\mathcal{H}}=\dot{\theta}^{T} \tau \).
+Show that if \( \dot{\mathcal{M}}-2 \mathcal{C} \) is skew-symmetric, then energy is conserved, i.e., \( \dot{\mathcal{H}}=\dot{\theta}^{\top} \tau \).
 (Basically total energy only changes due to the input work applied to the system.).
 
 \subsection*{Solution}
@@ -17,54 +17,58 @@ With
     +
     \mathcal{V}(\theta)
 \end{equation*}
-as the total energy for a rigid robot, we have
+as the total energy for a rigid robot, we have the kinetic and potential energies as
 \begin{equation*}
-    \dot{\mathcal{H}}
+    \mathcal{T}(\theta)
     =
-    \frac{d}{dt} \left( \mathcal{T}(\theta) + \mathcal{V}(\theta) \right)
+    \frac{1}{2} \dot{\theta}^{\top} \mathcal{M}(\theta) \dot{\theta}
+    \quad \text{and} \quad
+    \mathcal{V}
     =
-    \frac{d}{dt} \mathcal{T}(\theta) + \frac{d}{dt} \mathcal{V}(\theta)
-    =
-    \dot{\mathcal{T}} + \dot{\mathcal{V}}
+    \mathcal{C}(\theta) \dot{\theta}
 \end{equation*}
-Given that \( \dot{\mathcal{M}} - 2 \mathcal{C} \) is skew-symmetric, we have
-\begin{equation*}
-    {\left( \dot{\mathcal{M}} - 2 \mathcal{C} \right)}^{\top}
-    =
-    -\left( \dot{\mathcal{M}} - 2 \mathcal{C} \right)
-\end{equation*}
-Now, we have
+where \( \mathcal{M}(\theta) \) is the inertia matrix and \( \mathcal{C}(\theta) \) is the Coriolis matrix.
 \begin{align*}
+    \implies
     \dot{\mathcal{T}}
      & =
-    \frac{d}{dt} \left( \frac{1}{2} \dot{\theta}^{T} \mathcal{M}(\theta) \dot{\theta} \right)
+    \frac{d}{dt} \left( \frac{1}{2} \dot{\theta}^{\top} \mathcal{M}(\theta) \dot{\theta} \right)
     =
-    \frac{1}{2} \left( \ddot{\theta}^{T} \mathcal{M}(\theta) \dot{\theta} + \dot{\theta}^{T} \mathcal{M}(\theta) \ddot{\theta} \right)
+    \frac{1}{2} \left( \ddot{\theta}^{\top} \mathcal{M}(\theta) \dot{\theta} + \dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta} \right)
     =
-    \dot{\theta}^{T} \mathcal{M}(\theta) \ddot{\theta}
-    =
-    \dot{\theta}^{T} \tau
-\end{align*}
-
-\begin{align*}
+    \dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta}
+    \\
+    \implies
     \dot{\mathcal{V}}
      & =
-    \frac{d}{dt} \mathcal{V}(\theta)
+    \frac{d}{dt} \left( \mathcal{C}(\theta) \dot{\theta} \right)
     =
-    \frac{d}{dt} \left( \mathcal{C}(\theta) \right)
-    =
-    \dot{\mathcal{C}}
-    =
-    \frac{1}{2} \left( \dot{\mathcal{M}} \dot{\theta} - \dot{\mathcal{M}} \dot{\theta} \right)
-    =
-    0
+    \dot{\mathcal{C}}(\theta) \dot{\theta} + \mathcal{C}(\theta) \ddot{\theta}
 \end{align*}
-Therefore,
+Given that \( \dot{\mathcal{M}}-2 \mathcal{C} \) is skew-symmetric, we have
 \begin{equation*}
-    \dot{\mathcal{H}}
+    {\left( \dot{\mathcal{M}}-2 \mathcal{C} \right)}^{\top}
     =
+    -\left( \dot{\mathcal{M}}-2 \mathcal{C} \right)
+\end{equation*}
+\begin{align*}
+    \implies
+    \dot{\mathcal{H}}
+     & =
     \dot{\mathcal{T}} + \dot{\mathcal{V}}
     =
-    \dot{\theta}^{T} \tau
-\end{equation*}
-Hence, the total energy only changes due to the input work applied to the system.
+    \dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta} + \dot{\mathcal{C}}(\theta) \dot{\theta} + \mathcal{C}(\theta) \ddot{\theta}
+    \\ & =
+    \dot{\theta}^{\top} \left( \mathcal{M}(\theta) \ddot{\theta} + \mathcal{C}(\theta) \dot{\theta} \right) + \dot{\mathcal{C}}(\theta) \dot{\theta}
+    \\ & =
+    \dot{\theta}^{\top} \left( \tau - \mathcal{V}(\theta) \right) + \dot{\mathcal{C}}(\theta) \dot{\theta}
+    =
+    \dot{\theta}^{\top} \tau - \dot{\theta}^{\top} \mathcal{V}(\theta) + \dot{\mathcal{C}}(\theta) \dot{\theta}
+    \\ & =
+    \dot{\theta}^{\top} \tau - \dot{\theta}^{\top} \mathcal{C}(\theta) \dot{\theta} + \dot{\mathcal{C}}(\theta) \dot{\theta}
+    =
+    \dot{\theta}^{\top} \tau - \dot{\theta}^{\top} \mathcal{C}(\theta) \dot{\theta} + \dot{\mathcal{C}}(\theta) \dot{\theta}
+    =
+    \dot{\theta}^{\top} \tau
+\end{align*}
+Thus, the total energy only changes due to the input work applied to the system.
