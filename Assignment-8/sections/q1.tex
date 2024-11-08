@@ -5,3 +5,16 @@
 Show that the forward kinematics map for a manipulator is independent of the order in which rotations and translations are performed.
 
 \subsection*{Solution}
+
+The forward kinematics of a manipulator is described by a mapping \( g_{st} : Q \to SE (3) \)which describes the end-eﬀector configuration as a function of the robot joint variables.
+For open-chain manipulators consisting of revolute and prismatic joints, the kinematics can be written using the product of exponentials formula as
+\begin{equation}
+    g_{st}(\theta)
+    =
+    e^{\widehat{\xi}_1 \theta_1}
+    e^{\widehat{\xi}_2 \theta_2}
+    \cdots
+    e^{\widehat{\xi}_n \theta_n}
+    g_{st}(0)
+\end{equation}
+where \( \xi_{i} \) is the twist corresponding to the \(i\)-th joint axis in the reference \( (\theta = 0) \) conﬁguration.
