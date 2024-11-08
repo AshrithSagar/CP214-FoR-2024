@@ -43,12 +43,12 @@ To show that the product of exponentials formula is invariant to the order in wh
 
 To illustrate this, consider a simple example of a manipulator with two degrees of freedom, an example of which is shown in Figure~\ref{fig:2dof-manipulator}, with two revolute joints with joint variables \( \theta_1 \) and \( \theta_2 \).
 Keeping \( \theta_1 \) fixed and varying \( \theta_2 \) gives the configuration of the tool frame as a function of \( \theta_2 \) only, as
-\begin{equation}
+\begin{equation*}
     g_{st}(\theta_2)
     =
     e^{\widehat{\xi}_2 \theta_2}
     g_{st}(0)
-\end{equation}
+\end{equation*}
 Now, fixing \( \theta_2 \) and varying \( \theta_1 \) gives the overall configuration of the tool frame as
 \begin{equation}\label{eq:varying-theta2-first}
     g_{st}(\theta_1, \theta_2)
@@ -62,20 +62,21 @@ Now, fixing \( \theta_2 \) and varying \( \theta_1 \) gives the overall configur
 \end{equation}
 Now consider the case where the order is reversed, i.e., first varying \( \theta_1 \) and then varying \( \theta_2 \).
 Keeping \( \theta_2 \) fixed and varying \( \theta_1 \), we have
-\begin{equation}
+\begin{equation*}
     g_{st}(\theta_1)
     =
     e^{\widehat{\xi}_1 \theta_1}
     g_{st}(0)
-\end{equation}
+\end{equation*}
 This motion moves the axis of \( \theta_2 \), and the new axis is given by
-\begin{equation}
-    \xi_2'
-    =
-    \operatorname{Ad}_{e^{\widehat{\xi}_1 \theta_1}} \xi_2
-\end{equation}
-and the overall motion is then given by
-\begin{equation}
+\(
+\displaystyle
+\xi_2'
+=
+\operatorname{Ad}_{e^{\widehat{\xi}_1 \theta_1}} \xi_2
+\)
+, and the overall motion is then given by
+\begin{equation*}
     g_{st}(\theta_1, \theta_2)
     =
     e^{\widehat{\xi}_2' \theta_2}
@@ -84,16 +85,15 @@ and the overall motion is then given by
     e^{\widehat{\xi}_2' \theta_2}
     e^{\widehat{\xi}_1 \theta_1}
     g_{st}(0)
-\end{equation}
-Now, by properties of the adjoint map, we have that
-\begin{equation}
+\end{equation*}
+Now, by properties of the adjoint transformation, we know that \( \operatorname{Ad}_X Y = X Y X^{-1} \) and \( \operatorname{Ad}_X e^Y = e^{X Y X^{-1}} = X e^Y X^{-1} \), where \( X \in SE (3) \) and \( Y \in se (3) \), and thus we have
+\begin{align*}
     e^{\widehat{\xi}_2' \theta_2}
-    =
+     & =
     e^{\widehat{\xi}_1 \theta_1}
     e^{\widehat{\xi}_2 \theta_2}
     e^{-\widehat{\xi}_1 \theta_1}
-\end{equation}
-\begin{align}
+    \\
     \implies
     g_{st}(\theta_1, \theta_2)
      & =
@@ -107,6 +107,6 @@ Now, by properties of the adjoint map, we have that
     e^{\widehat{\xi}_1 \theta_1}
     e^{\widehat{\xi}_2 \theta_2}
     g_{st}(0)
-\end{align}
+\end{align*}
 which is the same as the result obtained in~\eqref{eq:varying-theta2-first}.
 Thus, we have the result.
