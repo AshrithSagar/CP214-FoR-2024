@@ -7,7 +7,19 @@ Show that the forward kinematics map for a manipulator is independent of the ord
 \subsection*{Solution}
 
 The forward kinematics of a manipulator is described by a mapping \( g_{st} : Q \to SE (3) \)which describes the end-eﬀector configuration as a function of the robot joint variables, where \( Q \) is the joint space/configuration space of the manipulator consisting of all possible values of the joint variables of the robot.
-For open-chain manipulators consisting of revolute and prismatic joints, the kinematics can be written using the product of exponentials formula as
+For open-chain manipulators with \( p \) revolute joints and \( r \) prismatic joints, the configuration has \( p+r \) degrees of freedom and we have that \( Q \subseteq \mathbb{T}^{p} \times \mathbb{R}^{r} \), where \( \mathbb{T} \) is the \(p\)-torus, i.e., \( \mathbb{T}^{p} = \mathbb{S}^{1} \times \cdots \times \mathbb{S}^{1} \) (p times), with \( \mathbb{S}^{1} \) being the unit circle in the plane, and \( \mathbb{R}^{r} \) is the \(r\)-dimensional Euclidean space.
+The general form of the forward kinematics map can be written as
+\begin{equation}
+    g_{st}(\theta)
+    =
+    g_{s l_1}(\theta_1)
+    g_{l_1 l_2}(\theta_2)
+    \cdots
+    g_{l_{n-1} l_n}(\theta_n)
+    g_{l_n t}
+\end{equation}
+where the frames are denoted successively by \( S \) (base frame), \( L_i \) (link \(i\) frame), and \( T \) (tool frame), and the relative transformation matrices between the frames are denoted by \( g_{ij} \) where the subscripts \( i \) and \( j \) denote the frames between which the transformation is defined.
+In terms of twists, the forward kinematics map is given by the product of exponentials formula,
 \begin{equation}
     g_{st}(\theta)
     =
