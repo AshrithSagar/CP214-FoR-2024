@@ -7,7 +7,7 @@ Show that the forward kinematics map for a manipulator is independent of the ord
 \subsection*{Solution}
 
 The forward kinematics of a manipulator is described by a mapping \( g_{st} : Q \to SE (3) \)which describes the end-eﬀector configuration as a function of the robot joint variables, where \( Q \) is the joint space/configuration space of the manipulator consisting of all possible values of the joint variables of the robot.
-For open-chain manipulators with \( p \) revolute joints and \( r \) prismatic joints, the configuration has \( p+r \) degrees of freedom and we have that \( Q \subseteq \mathbb{T}^{p} \times \mathbb{R}^{r} \), where \( \mathbb{T} \) is the \(p\)-torus, i.e., \( \mathbb{T}^{p} = \mathbb{S}^{1} \times \cdots \times \mathbb{S}^{1} \) (p times), with \( \mathbb{S}^{1} \) being the unit circle in the plane, and \( \mathbb{R}^{r} \) is the \(r\)-dimensional Euclidean space.
+For open-chain manipulators with \( p \) revolute joints and \( r \) prismatic joints, the configuration has \( p+r \) degrees of freedom and we have that \( Q \subseteq \mathbb{T}^{p} \times \mathbb{R}^{r} \), where \( \mathbb{T} \) is the \(p\)-torus, i.e., \( \mathbb{T}^{p} = \mathbb{S}^{1} \times \cdots \times \mathbb{S}^{1} \) (p times), with \( \mathbb{S}^{1} \) being the unit circle in the plane and \( \times \) denoting the Cartesian product/direct product of groups, and \( \mathbb{R}^{r} \) is the \(r\)-dimensional Euclidean space.
 The general form of the forward kinematics map can be written as
 \begin{equation}
     g_{st}(\theta)
@@ -30,3 +30,21 @@ In terms of twists, the forward kinematics map is given by the product of expone
     g_{st}(0)
 \end{equation}
 where \( \xi_{i} \) is the twist corresponding to the \(i\)-th joint axis in the reference \( (\theta = 0) \) conﬁguration.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/images/q1.png}
+    \caption{
+        Two degree of freedom manipulator
+    }\label{fig:2dof-manipulator}
+\end{figure}
+
+In the case of a two degree of freedom manipulator, an example of which is shown in Figure~\ref{fig:2dof-manipulator}, the forward kinematics map can be calculated using the product of exponentials formula, which is invariant to the order in which the rotations and translations are performed.
+The manipulator has two revolute joints with joint variables \( \theta_1 \) and \( \theta_2 \), and the forward kinematics map is given by
+\begin{equation}
+    g_{st}(\theta)
+    =
+    e^{\widehat{\xi}_1 \theta_1}
+    e^{\widehat{\xi}_2 \theta_2}
+    g_{st}(0)
+\end{equation}
