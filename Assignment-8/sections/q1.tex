@@ -30,21 +30,83 @@ In terms of twists, the forward kinematics map is given by the product of expone
     g_{st}(0)
 \end{equation}
 where \( \xi_{i} \) is the twist corresponding to the \(i\)-th joint axis in the reference \( (\theta = 0) \) conﬁguration.
+To show that the product of exponentials formula is invariant to the order in which the rotations and translations are performed, we will prove it by mathematical induction.
 
+\newpage
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.45\textwidth]{figures/images/q1.png}
+    \includegraphics[width=0.6\textwidth]{figures/images/q1.png}
     \caption{
-        Two degree of freedom manipulator
+        Two degree of freedom manipulator, with two revolute joints.
     }\label{fig:2dof-manipulator}
 \end{figure}
 
-In the case of a two degree of freedom manipulator, an example of which is shown in Figure~\ref{fig:2dof-manipulator}, the forward kinematics map can be calculated using the product of exponentials formula, which is invariant to the order in which the rotations and translations are performed.
-The manipulator has two revolute joints with joint variables \( \theta_1 \) and \( \theta_2 \), and the forward kinematics map is given by
+To illustrate this, consider a simple example of a manipulator with two degrees of freedom, an example of which is shown in Figure~\ref{fig:2dof-manipulator}, with two revolute joints with joint variables \( \theta_1 \) and \( \theta_2 \).
+Keeping \( \theta_1 \) fixed and varying \( \theta_2 \) gives the configuration of the tool frame as a function of \( \theta_2 \) only, as
 \begin{equation}
-    g_{st}(\theta)
+    g_{st}(\theta_2)
+    =
+    e^{\widehat{\xi}_2 \theta_2}
+    g_{st}(0)
+\end{equation}
+Now, fixing \( \theta_2 \) and varying \( \theta_1 \) gives the overall configuration of the tool frame as
+\begin{equation}\label{eq:varying-theta2-first}
+    g_{st}(\theta_1, \theta_2)
+    =
+    e^{\widehat{\xi}_1 \theta_1}
+    g_{st}(\theta_2)
     =
     e^{\widehat{\xi}_1 \theta_1}
     e^{\widehat{\xi}_2 \theta_2}
     g_{st}(0)
 \end{equation}
+Now consider the case where the order is reversed, i.e., first varying \( \theta_1 \) and then varying \( \theta_2 \).
+Keeping \( \theta_2 \) fixed and varying \( \theta_1 \), we have
+\begin{equation}
+    g_{st}(\theta_1)
+    =
+    e^{\widehat{\xi}_1 \theta_1}
+    g_{st}(0)
+\end{equation}
+This motion moves the axis of \( \theta_2 \), and the new axis is given by
+\begin{equation}
+    \xi_2'
+    =
+    \operatorname{Ad}_{e^{\widehat{\xi}_1 \theta_1}} \xi_2
+\end{equation}
+and the overall motion is then given by
+\begin{equation}
+    g_{st}(\theta_1, \theta_2)
+    =
+    e^{\widehat{\xi}_2' \theta_2}
+    g_{st}(\theta_1)
+    =
+    e^{\widehat{\xi}_2' \theta_2}
+    e^{\widehat{\xi}_1 \theta_1}
+    g_{st}(0)
+\end{equation}
+Now, by properties of the adjoint map, we have that
+\begin{equation}
+    e^{\widehat{\xi}_2' \theta_2}
+    =
+    e^{\widehat{\xi}_1 \theta_1}
+    e^{\widehat{\xi}_2 \theta_2}
+    e^{-\widehat{\xi}_1 \theta_1}
+\end{equation}
+\begin{align}
+    \implies
+    g_{st}(\theta_1, \theta_2)
+     & =
+    e^{\widehat{\xi}_1 \theta_1}
+    e^{\widehat{\xi}_2 \theta_2}
+    \cancel{e^{-\widehat{\xi}_1 \theta_1}}
+    \cancel{e^{\widehat{\xi}_1 \theta_1}}
+    g_{st}(0)
+    \nonumber
+    \\ & =
+    e^{\widehat{\xi}_1 \theta_1}
+    e^{\widehat{\xi}_2 \theta_2}
+    g_{st}(0)
+\end{align}
+which is the same as the result obtained in~\eqref{eq:varying-theta2-first}.
+Thus, we have the result.
