@@ -20,15 +20,17 @@ Given that \( \mathcal{H}(\theta)=\mathcal{T}(\theta)+\mathcal{V}(\theta) \) is 
     \dot{\mathcal{T}}
      & =
     \frac{1}{2} \left( \ddot{\theta}^{\top} \mathcal{M}(\theta) \dot{\theta}+\dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta} \right)
-    =
-    \dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta}
     \\
     \implies
     \dot{\mathcal{H}}
      & =
     \dot{\mathcal{T}}+\dot{\mathcal{V}}
     =
-    \dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta}+\dot{\mathcal{V}}
+    \frac{1}{2} \ddot{\theta}^{\top} \mathcal{M}(\theta) \dot{\theta}
+    +
+    \frac{1}{2} \dot{\theta}^{\top} \mathcal{M}(\theta) \ddot{\theta}
+    +
+    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
 \end{align*}
 The dynamics of a rigid robot are given by
 \begin{equation*}
@@ -37,11 +39,29 @@ The dynamics of a rigid robot are given by
 where \( \mathcal{M}(\theta) \) is the inertia matrix, \( \mathcal{C}(\theta, \dot{\theta}) \) is the Coriolis matrix, \( \mathcal{G}(\theta) \) is the gravity matrix, and \( \tau \) is the control input.
 Now, we have
 \begin{align*}
-    \dot{\mathcal{M}}
+    \implies
+    \mathcal{M}(\theta) \ddot{\theta}
      & =
-    \frac{d}{d t} \mathcal{M}(\theta)
-    =
-    \frac{d}{d \theta} \mathcal{M}(\theta) \dot{\theta}
+    \tau-\mathcal{C}(\theta, \dot{\theta}) \dot{\theta}-\mathcal{G}(\theta)
+    \\
+    \implies
+    \dot{\mathcal{H}}
+     & =
+    \frac{1}{2} \ddot{\theta}^{\top} \mathcal{M}(\theta) \dot{\theta}
+    +
+    \frac{1}{2} \dot{\theta}^{\top} \left( \tau-\mathcal{C}(\theta, \dot{\theta}) \dot{\theta}-\mathcal{G}(\theta) \right)
+    +
+    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
+    \\
+    \because
+    \mathcal{G}(\theta)
+     & =
+    -\frac{\partial \mathcal{V}(\theta)}{\partial \theta}
+    \\
+    \implies
+    \dot{\mathcal{H}}
+     & =
+    \dot{\theta}^{\top} \tau-\dot{\theta}^{\top} \mathcal{C}(\theta, \dot{\theta}) \dot{\theta}-\dot{\theta}^{\top} \mathcal{G}(\theta) + \dot{\mathcal{V}}
 \end{align*}
 Given that \( \dot{\mathcal{M}}-2 \mathcal{C} \) is skew-symmetric, we have
 \begin{align*}
