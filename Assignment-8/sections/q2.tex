@@ -53,15 +53,15 @@ Each sphere has a diameter of 20 cm.
 \subsubsection*{(a) Rotational Inertia Matrix \( \mathcal{I}^{b} \) in frame \( \{b\} \)}
 
 Since the frame \( \{b\} \) axis is given along the principal axis of inertia of the dumbbell, we have that the Rotational Inertia Matrix \( \mathcal{I}^{b} \) in frame \( \{b\} \) is diagonal, and is given by
-\begin{equation}
+\begin{equation*}
     \mathcal{I}^{b}=\begin{bmatrix}
         I_{xx} & 0      & 0      \\
         0      & I_{yy} & 0      \\
         0      & 0      & I_{zz}
     \end{bmatrix}
-\end{equation}
+\end{equation*}
 where \( I_{xx} \), \( I_{yy} \), and \( I_{zz} \) are the principal moments of inertia of the dumbbell.
-\begin{align}
+\begin{align*}
     \implies
     I_{xx}
      & =
@@ -76,7 +76,7 @@ where \( I_{xx} \), \( I_{yy} \), and \( I_{zz} \) are the principal moments of 
     I_{zz}
      & =
     \frac{1}{2} m r_{c}^{2}
-\end{align}
+\end{align*}
 where
 \begin{align*}
     m
@@ -108,7 +108,7 @@ where
 \end{align*}
 
 Therefore, the Rotational Inertia Matrix \( \mathcal{I}^{b} \) in frame \( \{b\} \) is
-\begin{equation}
+\begin{equation*}
     \boxed{
         \mathcal{I}^{b}
         =
@@ -118,14 +118,14 @@ Therefore, the Rotational Inertia Matrix \( \mathcal{I}^{b} \) in frame \( \{b\}
             0      & 0      & 0.0012
         \end{bmatrix}
     }
-\end{equation}
+\end{equation*}
 
 \subsubsection*{(b) Mass Matrix \( \mathcal{M}^{b} \)}
 
 The full Mass Matrix \( \mathcal{M}^{b} \) is given by
-\begin{equation}
+\begin{equation*}
     \mathcal{M}^{b}=\operatorname{BlockDiag}\left(m I, \mathcal{I}^{b}\right)
-\end{equation}
+\end{equation*}
 where
 \begin{align*}
     m & =7500\left(\pi\left(\frac{4}{2} \times 10^{-2}\right)^{2} \times 20 \times 10^{-2}+\frac{4}{3} \pi\left(\frac{4}{2} \times 10^{-2}\right)^{3}\right) \\
@@ -134,33 +134,37 @@ where
       & =7500 \times 0.00072                                                                                                                                 \\
       & =5.4 \mathrm{~kg}
 \end{align*}
-\begin{equation}
+\begin{equation*}
     \implies
     m I=\begin{bmatrix}
         5.4 & 0   & 0   \\
         0   & 5.4 & 0   \\
         0   & 0   & 5.4
     \end{bmatrix}
-\end{equation}
+\end{equation*}
 
 Therefore, the full Mass Matrix \( \mathcal{M}^{b} \) is
-\begin{equation}
-    \mathcal{M}^{b}=\begin{bmatrix}
-        5.4 & 0   & 0   & 0      & 0      & 0      \\
-        0   & 5.4 & 0   & 0      & 0      & 0      \\
-        0   & 0   & 5.4 & 0      & 0      & 0      \\
-        0   & 0   & 0   & 0.0016 & 0      & 0      \\
-        0   & 0   & 0   & 0      & 0.0016 & 0      \\
-        0   & 0   & 0   & 0      & 0      & 0.0012
-    \end{bmatrix}
-\end{equation}
+\begin{equation*}
+    \boxed{
+        \mathcal{M}^{b}
+        =
+        \begin{bmatrix}
+            5.4 & 0   & 0   & 0      & 0      & 0      \\
+            0   & 5.4 & 0   & 0      & 0      & 0      \\
+            0   & 0   & 5.4 & 0      & 0      & 0      \\
+            0   & 0   & 0   & 0.0016 & 0      & 0      \\
+            0   & 0   & 0   & 0      & 0.0016 & 0      \\
+            0   & 0   & 0   & 0      & 0      & 0.0012
+        \end{bmatrix}
+    }
+\end{equation*}
 
-\subsubsection*{(c) Mass Matrix \( \mathcal{M}^{a}=\operatorname{Ad}_{g_{a b}}^{T} \mathcal{M}^{b} \operatorname{Ad}_{g_{a b}} \)}
+\subsubsection*{(c) Mass Matrix \( \mathcal{M}^{a}=\operatorname{Ad}_{g_{a b}} \mathcal{M}^{b} \operatorname{Ad}_{g_{a b}}^{\top} \)}
 
 The Mass Matrix \( \mathcal{M}^{a} \) in frame \( \{\mathrm{a}\} \) is given by
-\begin{equation}
-    \mathcal{M}^{a}=\operatorname{Ad}_{g_{a b}}^{T} \mathcal{M}^{b} \operatorname{Ad}_{g_{a b}}
-\end{equation}
+\begin{equation*}
+    \mathcal{M}^{a}=\operatorname{Ad}_{g_{a b}} \mathcal{M}^{b} \operatorname{Ad}_{g_{a b}}^{\top}
+\end{equation*}
 where \( g_{a b} \) is the transformation matrix from frame \( \{b\} \) to frame \( \{\mathrm{a}\} \).
 
 This is indeed a generalized form of the parallel axis theorem, which relates the moments of inertia in two frames that are offset by a vector.
