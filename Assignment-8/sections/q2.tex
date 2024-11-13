@@ -62,3 +62,38 @@ Therefore, the Rotational Inertia Matrix \( \mathcal{I}^{b} \) in frame \( \{b\}
         0      & 0      & 0.0012
     \end{bmatrix}
 \end{equation}
+
+\subsubsection*{(b) Mass Matrix \( \mathcal{M}^{b} \)}
+
+The full Mass Matrix \( \mathcal{M}^{b} \) is given by
+\begin{equation}
+    \mathcal{M}^{b}=\operatorname{BlockDiag}\left(m I, \mathcal{I}^{b}\right)
+\end{equation}
+where
+\begin{align*}
+    m & =7500\left(\pi\left(\frac{4}{2} \times 10^{-2}\right)^{2} \times 20 \times 10^{-2}+\frac{4}{3} \pi\left(\frac{4}{2} \times 10^{-2}\right)^{3}\right) \\
+      & =7500\left(\pi \times 0.0016 \times 0.2+\frac{4}{3} \pi \times 0.0003\right)                                                                         \\
+      & =7500\left(0.00032+0.0004\right)                                                                                                                     \\
+      & =7500 \times 0.00072                                                                                                                                 \\
+      & =5.4 \mathrm{~kg}
+\end{align*}
+\begin{equation}
+    \implies
+    m I=\begin{bmatrix}
+        5.4 & 0   & 0   \\
+        0   & 5.4 & 0   \\
+        0   & 0   & 5.4
+    \end{bmatrix}
+\end{equation}
+
+Therefore, the full Mass Matrix \( \mathcal{M}^{b} \) is
+\begin{equation}
+    \mathcal{M}^{b}=\begin{bmatrix}
+        5.4 & 0   & 0   & 0      & 0      & 0      \\
+        0   & 5.4 & 0   & 0      & 0      & 0      \\
+        0   & 0   & 5.4 & 0      & 0      & 0      \\
+        0   & 0   & 0   & 0.0016 & 0      & 0      \\
+        0   & 0   & 0   & 0      & 0.0016 & 0      \\
+        0   & 0   & 0   & 0      & 0      & 0.0012
+    \end{bmatrix}
+\end{equation}
