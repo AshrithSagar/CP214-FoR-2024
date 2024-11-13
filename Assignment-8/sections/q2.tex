@@ -128,11 +128,12 @@ The full Mass Matrix \( \mathcal{M}^{b} \) is given by
 \end{equation*}
 where
 \begin{align*}
-    m & =7500\left(\pi\left(\frac{4}{2} \times 10^{-2}\right)^{2} \times 20 \times 10^{-2}+\frac{4}{3} \pi\left(\frac{4}{2} \times 10^{-2}\right)^{3}\right) \\
-      & =7500\left(\pi \times 0.0016 \times 0.2+\frac{4}{3} \pi \times 0.0003\right)                                                                         \\
-      & =7500\left(0.00032+0.0004\right)                                                                                                                     \\
-      & =7500 \times 0.00072                                                                                                                                 \\
-      & =5.4 \mathrm{~kg}
+    m & =
+    7500\left(\pi\left(0.02\right)^{2} \times 0.2+\frac{4}{3} \pi\left(0.02\right)^{3}\right)
+    \\ & =
+    7500\left(\pi\left(0.02\right)^{2} \times 0.2+\frac{4}{3} \pi\left(0.02\right)^{3}\right)
+    \\ & =
+    5.4\mathrm{~kg}
 \end{align*}
 \begin{equation*}
     \implies
@@ -159,13 +160,97 @@ Therefore, the full Mass Matrix \( \mathcal{M}^{b} \) is
     }
 \end{equation*}
 
-\subsubsection*{(c) Mass Matrix \( \mathcal{M}^{a}=\operatorname{Ad}_{g_{a b}} \mathcal{M}^{b} \operatorname{Ad}_{g_{a b}}^{\top} \)}
+\subsubsection*{(c) Mass Matrix \( \mathcal{M}^{b}=\operatorname{Ad}_{g_{a b}}^{\top} \mathcal{M}^{a} \operatorname{Ad}_{g_{a b}} \)}
 
-The Mass Matrix \( \mathcal{M}^{a} \) in frame \( \{\mathrm{a}\} \) is given by
+The Mass Matrix \( \mathcal{M}^{a} \) in frame \( \{a\} \) is given by
 \begin{equation*}
-    \mathcal{M}^{a}=\operatorname{Ad}_{g_{a b}} \mathcal{M}^{b} \operatorname{Ad}_{g_{a b}}^{\top}
+    \mathcal{M}^{b}
+    =
+    \operatorname{Ad}_{g_{a b}}^{\top}
+    \mathcal{M}^{a}
+    \operatorname{Ad}_{g_{a b}}
 \end{equation*}
 where \( g_{a b} \) is the transformation matrix from frame \( \{b\} \) to frame \( \{\mathrm{a}\} \).
-
-This is indeed a generalized form of the parallel axis theorem, which relates the moments of inertia in two frames that are offset by a vector.
 The scalar quantity that remains invariant under frame transformation is the total mass \( m_{\text{total}} \).
+We can see this by doing block operations on the \( 3 \times 3 \) blocks in the expressions.
+
+For \( g_{ab} = \begin{bmatrix}
+    R & p \\
+    0 & 1
+\end{bmatrix}
+\) and \( \mathcal{M}^{a} = \operatorname{BlockDiag}\left(m I, \mathcal{I}^{a}\right) \), we have
+\begin{align*}
+    \implies
+    \operatorname{Ad}_{g_{a b}}
+     & =
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}
+    \implies
+    \operatorname{Ad}_{g_{a b}}^{\top}
+    =
+    \begin{bmatrix}
+        R^{\top}              & 0        \\
+        - R^{\top}\widehat{p} & R^{\top}
+    \end{bmatrix}
+    \\
+    \implies
+    \mathcal{M}^{b}
+     & =
+    \operatorname{Ad}_{g_{a b}} \mathcal{M}^{a} \operatorname{Ad}_{g_{a b}}^{\top}
+    \\ & =
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}
+    \begin{bmatrix}
+        mI & 0               \\
+        0  & \mathcal{I}^{a}
+    \end{bmatrix}
+    \begin{bmatrix}
+        R^{\top}              & 0        \\
+        - R^{\top}\widehat{p} & R^{\top}
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        R & \widehat{p} R \\
+        0 & R
+    \end{bmatrix}
+    \begin{bmatrix}
+        mR^{\top}                             & 0                        \\
+        - \mathcal{I}^{a} R^{\top}\widehat{p} & \mathcal{I}^{a} R^{\top}
+    \end{bmatrix}
+    \\ & =
+    \begin{bmatrix}
+        (mRR^{\top} - \widehat{p} R \mathcal{I}^{a} R^{\top}\widehat{p}) & \widehat{p} R \mathcal{I}^{a} R^{\top} \\
+        - R\mathcal{I}^{a} R^{\top}\widehat{p}                           & R\mathcal{I}^{a} R^{\top}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        (mI - \widehat{p} R \mathcal{I}^{a} R^{\top}\widehat{p}) & \widehat{p} R \mathcal{I}^{a} R^{\top} \\
+        - R\mathcal{I}^{a} R^{\top}\widehat{p}                   & R\mathcal{I}^{a} R^{\top}
+    \end{bmatrix}
+    \\
+    \because
+    R\mathcal{I}^{a} R^{\top}
+     & =
+    \mathcal{I}^{b}
+    \\
+    \implies
+    \mathcal{M}^{b}
+     & =
+    \begin{bmatrix}
+        (mI - \cancel{\widehat{p} \mathcal{I}^{b} \widehat{p}}) & \cancel{\widehat{p} \mathcal{I}^{b}} \\
+        - \cancel{\mathcal{I}^{b} \widehat{p}}                  & \mathcal{I}^{b}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        mI & 0               \\
+        0  & \mathcal{I}^{b}
+    \end{bmatrix}
+    =
+    \operatorname{BlockDiag}\left(m I, \mathcal{I}^{b}\right)
+\end{align*}
+as required.
+This is indeed a generalized form of the parallel axis theorem, which relates the moments of inertia in two frames that are offset by a vector.
