@@ -34,7 +34,7 @@ Given that \( \mathcal{H}(\theta)=\mathcal{T}(\theta)+\mathcal{V}(\theta) \) is 
     \implies
     \dot{\mathcal{V}}
      & =
-    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
+    \dot{\theta}^{\top} \frac{\partial \mathcal{V}(\theta)}{\partial \theta}
 \end{align*}
 The dynamics of a rigid robot are given by
 \begin{equation*}
@@ -66,7 +66,7 @@ Now, we have
     \frac{1}{2}
     \dot{\theta}^{\top} \dot{\mathcal{M}}(\theta) \dot{\theta}
     +
-    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
+    \dot{\theta}^{\top} \frac{\partial \mathcal{V}(\theta)}{\partial \theta}
     \\
      & =
     \dot{\theta}^{\top} \left( \tau - \mathcal{C}(\theta, \dot{\theta}) \dot{\theta} - \mathcal{G}(\theta) \right)
@@ -74,7 +74,7 @@ Now, we have
     \frac{1}{2}
     \dot{\theta}^{\top} \dot{\mathcal{M}}(\theta) \dot{\theta}
     +
-    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
+    \dot{\theta}^{\top} \frac{\partial \mathcal{V}(\theta)}{\partial \theta}
     \\ & =
     \dot{\theta}^{\top} \tau
     -
@@ -85,7 +85,7 @@ Now, we have
     \frac{1}{2}
     \dot{\theta}^{\top} \dot{\mathcal{M}}(\theta) \dot{\theta}
     +
-    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
+    \dot{\theta}^{\top} \frac{\partial \mathcal{V}(\theta)}{\partial \theta}
     \\
     \because
     \mathcal{G}(\theta)
@@ -95,8 +95,6 @@ Now, we have
     \dot{\theta}^{\top} \mathcal{G}(\theta)
     =
     \dot{\theta}^{\top} \frac{\partial \mathcal{V}(\theta)}{\partial \theta}
-    =
-    \frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}
     \\
     \implies
     \dot{\mathcal{H}}
@@ -110,7 +108,7 @@ Now, we have
     \frac{1}{2}
     \dot{\theta}^{\top} \dot{\mathcal{M}}(\theta) \dot{\theta}
     +
-    \cancel{\frac{\partial \mathcal{V}(\theta)}{\partial \theta} \dot{\theta}}
+    \cancel{\dot{\theta}^{\top} \frac{\partial \mathcal{V}(\theta)}{\partial \theta}}
     \\ & =
     \dot{\theta}^{\top} \tau
     -
@@ -118,7 +116,10 @@ Now, we have
     +
     \frac{1}{2}
     \dot{\theta}^{\top} \dot{\mathcal{M}}(\theta) \dot{\theta}
-    \\ & =
+    \\
+    \therefore
+    \dot{\mathcal{H}}
+     & =
     \dot{\theta}^{\top} \tau
     +
     \frac{1}{2}
