@@ -198,42 +198,37 @@ For \( g_{ab} = \begin{bmatrix}
     \implies
     \mathcal{M}^{b}
      & =
-    \operatorname{Ad}_{g_{a b}} \mathcal{M}^{a} \operatorname{Ad}_{g_{a b}}^{\top}
+    \operatorname{Ad}_{g_{a b}}^{\top} \mathcal{M}^{a} \operatorname{Ad}_{g_{a b}}
     \\ & =
     \begin{bmatrix}
-        R & \widehat{p} R \\
-        0 & R
+        R^{\top}              & 0        \\
+        - R^{\top}\widehat{p} & R^{\top}
     \end{bmatrix}
     \begin{bmatrix}
         mI & 0               \\
         0  & \mathcal{I}^{a}
     \end{bmatrix}
     \begin{bmatrix}
-        R^{\top}              & 0        \\
-        - R^{\top}\widehat{p} & R^{\top}
-    \end{bmatrix}
-    \\ & =
-    \begin{bmatrix}
         R & \widehat{p} R \\
         0 & R
     \end{bmatrix}
+    =
     \begin{bmatrix}
-        mR^{\top}                             & 0                        \\
-        - \mathcal{I}^{a} R^{\top}\widehat{p} & \mathcal{I}^{a} R^{\top}
+        R^{\top}               & 0        \\
+        - R^{\top} \widehat{p} & R^{\top}
+    \end{bmatrix}
+    \begin{bmatrix}
+        m R & m \widehat{p} R   \\
+        0   & \mathcal{I}^{a} R
     \end{bmatrix}
     \\ & =
     \begin{bmatrix}
-        (mRR^{\top} - \widehat{p} R \mathcal{I}^{a} R^{\top}\widehat{p}) & \widehat{p} R \mathcal{I}^{a} R^{\top} \\
-        - R\mathcal{I}^{a} R^{\top}\widehat{p}                           & R\mathcal{I}^{a} R^{\top}
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        (mI - \widehat{p} R \mathcal{I}^{a} R^{\top}\widehat{p}) & \widehat{p} R \mathcal{I}^{a} R^{\top} \\
-        - R\mathcal{I}^{a} R^{\top}\widehat{p}                   & R\mathcal{I}^{a} R^{\top}
+        m R^{\top} R              & mR^{\top} \widehat{p} R                                              \\
+        -m R^{\top} \widehat{p} R & (-m R^{\top} \widehat{p} \widehat{p} R + R^{\top} \mathcal{I}^{a} R)
     \end{bmatrix}
     \\
     \because
-    R\mathcal{I}^{a} R^{\top}
+    R^{\top} \mathcal{I}^{a} R
      & =
     \mathcal{I}^{b}
     \\
@@ -241,8 +236,8 @@ For \( g_{ab} = \begin{bmatrix}
     \mathcal{M}^{b}
      & =
     \begin{bmatrix}
-        (mI - \cancel{\widehat{p} \mathcal{I}^{b} \widehat{p}}) & \cancel{\widehat{p} \mathcal{I}^{b}} \\
-        - \cancel{\mathcal{I}^{b} \widehat{p}}                  & \mathcal{I}^{b}
+        m R^{\top} R                       & \cancel{mR^{\top} \widehat{p} R}                                   \\
+        \cancel{-m R^{\top} \widehat{p} R} & (\cancel{-m R^{\top} \widehat{p} \widehat{p} R} + \mathcal{I}^{b})
     \end{bmatrix}
     =
     \begin{bmatrix}
