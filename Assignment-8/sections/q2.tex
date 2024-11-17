@@ -254,3 +254,43 @@ For \( g_{ab} = \begin{bmatrix}
 \end{align*}
 as required.
 This is indeed a generalized form of the parallel axis theorem, which relates the moments of inertia in two frames that are offset by a vector.
+
+\subsubsection*{Alternate}
+
+The kinetic energy of the system in frame \( \{b\} \) is given by
+\begin{equation*}
+    T
+    =
+    \frac{1}{2} \dot{\xi_{b}}^{\top} \mathcal{M}^{b} \dot{\xi_{b}}
+\end{equation*}
+where \( \mathcal{M}^{b} \) is the Mass Matrix in frame \( \{b\} \), and we have that the kinetic energy remains invariant under frame transformations, thereby
+\begin{align*}
+    T
+     & =
+    \frac{1}{2} \dot{\xi_{b}}^{\top} \mathcal{M}^{b} \dot{\xi_{b}}
+    =
+    \frac{1}{2} \dot{\xi_{a}}^{\top} \mathcal{M}^{a} \dot{\xi_{a}}
+\end{align*}
+and since \( \xi_{a} = \operatorname{Ad}_{g_{a b}} \xi_{b} \), we have that
+\begin{align*}
+    \dot{\xi_{a}}
+     & =
+    \frac{d}{dt} \operatorname{Ad}_{g_{a b}} \xi_{b}
+    =
+    \operatorname{Ad}_{g_{a b}} \dot{\xi_{b}}
+    \\
+    \implies
+    \frac{1}{2} \dot{\xi_{a}}^{\top} \mathcal{M}^{a} \dot{\xi_{a}}
+     & =
+    \frac{1}{2} \dot{\xi_{b}}^{\top} \operatorname{Ad}_{g_{a b}}^{\top} \mathcal{M}^{a} \operatorname{Ad}_{g_{a b}} \dot{\xi_{b}}
+    =
+    \frac{1}{2} \dot{\xi_{b}}^{\top} \mathcal{M}^{b} \dot{\xi_{b}}
+\end{align*}
+and since \( \xi_{b} \) is arbitrary, we have that
+\begin{equation*}
+    \boxed{
+    \mathcal{M}^{b}
+    =
+    \operatorname{Ad}_{g_{a b}}^{\top} \mathcal{M}^{a} \operatorname{Ad}_{g_{a b}}
+    }
+\end{equation*}
