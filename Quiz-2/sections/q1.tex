@@ -1,3 +1,27 @@
 \section*{Problem 1}
 
+\textbf{Planar rotational motion:}\\
+Let \( S O(2) \) be the set of all \( 2 \times 2 \) orthogonal matrices with determinant equal to +1.
+\begin{enumerate}[label= (\alph*), noitemsep]
+    \item Show that \( S O(2) \) can be identified with the \( \mathbb{S}^{1} \), the unit circle in \( \mathbb{R}^{2} \).
+
+    \item Let \( \omega \in \mathbb{R} \) be a real number and define \( \widehat{\omega} \in s o(2) \) as the skew-symmetric matrix.
+          \[
+              \widehat{\omega}=\left[\begin{array}{cc}
+                      0      & -\omega \\
+                      \omega & 0
+                  \end{array}\right] .
+          \]
+          Show that,
+          \[
+              e^{\widehat{\omega} \theta}=\left[\begin{array}{cc}
+                      \cos \omega \theta & -\sin \omega \theta \\
+                      \sin \omega \theta & \cos \omega \theta
+                  \end{array}\right] .
+          \]
+          (Hint: Rodrigues formula is only valid for \( S O(3) \))
+
+    \item Show that for \( R \in S O(2) \) and \( \widehat{\omega} \in s o(2), R \widehat{\omega} R^{T}=\widehat{\omega} \).
+\end{enumerate}
+
 \subsection*{Solution}

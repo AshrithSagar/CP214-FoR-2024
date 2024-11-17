@@ -1,3 +1,65 @@
 \section*{Problem 4}
 
+\textbf{Mobile Manipulator:}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/images/q4.jpg}
+    \caption{
+        Mobile manipulator
+    }\label{fig:q4}
+\end{figure}
+
+In the given figure, a robot arm mounted on a wheeled mobile platform moving in a room, and a camera fixed to the ceiling.
+Frames \( \{b\} \) and \( \{c\} \) are respectively attached to the wheeled platform and the end-effector (tip) of the robot arm, and frame \( \{\mathrm{d}\} \) is attached to the camera.
+A fixed frame \( \{\mathrm{a}\} \) is considered on the ground, and the robot must pick up an object with body frame \( \{\mathrm{e}\} \).
+Suppose that the transformations \( g_{d b} \) and \( g_{d e} \) can be calculated from measurements obtained with the camera.
+The transformation \( g_{b c} \) can be calculated using the arm's joint-angle measurements.
+The transformation \( g_{a d} \) is assumed to be known in advance.
+Suppose these calculated and known transformations are given as follows:
+\begin{align*}
+     &
+    g_{d b}
+    =
+    \begin{bmatrix}
+        0  & 0  & -1 & 250  \\
+        0  & -1 & 0  & -150 \\
+        -1 & 0  & 0  & 200  \\
+        0  & 0  & 0  & 1
+    \end{bmatrix}
+    , \quad
+     &
+    g_{d e}
+    =
+    \begin{bmatrix}
+        0  & 0  & -1 & 300 \\
+        0  & -1 & 0  & 100 \\
+        -1 & 0  & 0  & 120 \\
+        0  & 0  & 0  & 1
+    \end{bmatrix},
+    \\ &
+    g_{a d}
+    =
+    \begin{bmatrix}
+        0  & 0  & -1 & 400 \\
+        0  & -1 & 0  & 50  \\
+        -1 & 0  & 0  & 300 \\
+        0  & 0  & 0  & 1
+    \end{bmatrix}
+    , \quad
+     &
+    g_{b c}
+    =
+    \begin{bmatrix}
+        0 & -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 30 \\
+        0 & \frac{1}{\sqrt{2}}  & -\frac{1}{\sqrt{2}} & 40 \\
+        1 & 0                   & 0                   & 25 \\
+        0 & 0                   & 0                   & 1
+    \end{bmatrix}
+    .
+\end{align*}
+Now determine \( g_{c e} \) which is the configuration of the object relative to the robot hand.
+This is required in order to calculate how to move the robot arm so as to pick up the object.
+You can keep the answers in terms of \( \sqrt{2} \).
+
 \subsection*{Solution}
